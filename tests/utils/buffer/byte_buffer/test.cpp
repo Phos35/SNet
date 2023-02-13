@@ -18,7 +18,7 @@ int main()
         else if(str.find("READ") != std::string::npos)
             std::cout << bb.read(5);
         else if(str.find("COMPACT") != std::string::npos)
-            bb.compact();
+            {}// bb.compact(); 测试在该函数是public时进行，权限修改后取消
         else
             bb.write(str);
 
