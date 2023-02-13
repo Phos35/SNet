@@ -55,9 +55,6 @@ public:
     /// @return 被释放的内容
     std::string release(size_t length);
 
-    /// @brief 压缩缓冲区，前移readable_area中的内容，合并writeable_area
-    void compact();
-
     /// @brief 获取缓冲区中可读内容的长度
     /// @return 可读内容长度
     size_t readable();
@@ -68,7 +65,16 @@ public:
 
     /// @brief 输出缓冲区信息
     /// @return 缓冲区具体信息的字符串
-    std::string to_string();
+    virtual std::string to_string();
+
+protected:
+    /// @brief 压缩缓冲区，前移readable_area中的内容，合并writeable_area
+    void compact();
+
+    /// @brief 扩容buffer
+    /// @param increment 需要增加的大小
+    /// @return 扩容后的实际大小
+    size_t extend(size_t increment);
 
 private:
     std::string buffer_;        // 字节数组，缓冲区
@@ -83,11 +89,6 @@ private:
     /// @brief 获取可读区域后的可写区域长度
     /// @return post_writeable_area 的长度
     size_t post_writeable();
-
-    /// @brief 扩容buffer
-    /// @param increment 需要增加的大小
-    /// @return 扩容后的实际大小
-    size_t extend(size_t increment);
 };
 
 #endif
