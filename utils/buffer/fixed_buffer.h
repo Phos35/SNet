@@ -3,6 +3,11 @@
 #include <string>
 #include <string.h>
 
+// 小缓冲区大小 -- 4KB
+#define SMALL_BUFFER_SIZE 4 * 1024 * 1024
+// 大缓冲区大小 -- 4MB
+#define LARGE_BUFFER_SIZE SMALL_BUFFER_SIZE * 1024
+
 template <int SIZE>
 class FixedBuffer
 {
@@ -19,6 +24,10 @@ public:
     /// @param val 待写入的内容
     /// @return 实际写入的长度
     size_t write(const std::string &val);
+
+    /// @brief 获取buffer_中的数据
+    /// @return buffer_数组
+    const char *data();
 
     /// @brief 获取缓冲区可写入空间的大小
     /// @return 缓冲区可写入的大小
@@ -68,6 +77,12 @@ size_t FixedBuffer<SIZE>::write(const std::string &val)
 }
 
 template <int SIZE>
+const char* FixedBuffer<SIZE>::data()
+{
+    return buffer_;
+}
+
+template <int SIZE>
 size_t FixedBuffer<SIZE>::available()
 {
     return capacity_ - size_;
@@ -95,5 +110,4 @@ std::string FixedBuffer<SIZE>::to_string()
             size_, capacity_, available(), buffer_);
     return buf;
 }
-
 #endif
