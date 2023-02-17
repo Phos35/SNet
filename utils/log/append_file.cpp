@@ -50,7 +50,6 @@ void AppendFile::set_file(FILE *file)
 
 void AppendFile::flush()
 {
-    printf("flush\n");
     fflush(file_);
     write_cnt_ = 0;
 }

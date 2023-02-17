@@ -21,6 +21,9 @@ AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/io SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/log SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/time SRC_LIST)
 
+# 添加编译选项
+ADD_COMPILE_OPTIONS(-g)
+
 # 添加main函数源文件
 ADD_EXECUTABLE(TEST
     /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_logfile.cpp

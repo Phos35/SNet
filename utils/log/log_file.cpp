@@ -3,7 +3,8 @@
 
 // TODO 在配置文件中指定日志生成的目录
 LogFile::LogFile()
-:written_size_(0), written_times_(0)
+:written_size_(0), written_times_(0),
+ file_index_(0)
 {
     // 读取参数
     Config &config = Config::get_instance();
@@ -50,5 +51,12 @@ void LogFile::roll_file()
 
 std::string LogFile::get_new_name()
 {
-    return Timestamp::now().format("%Y_%m_%d_") + base_name_ + ".log";
+    // 同一天内的文件，以index做区分
+    // 跨天重置index
+    if(Timestamp::is_different_day(create_time_, Timestamp::now()) == true)
+    {
+        file_index_ = 0;
+    }
+    return Timestamp::now().format("%Y_%m_%d_") + base_name_ + "_" +
+          std::to_string(file_index_++) + ".log";
 }

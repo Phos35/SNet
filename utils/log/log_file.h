@@ -31,6 +31,7 @@ private:
 
     std::string base_name_;         // 日志文件的基础名称
     size_t      file_size_limit_;   // 日志文件大小限制
+    size_t      file_index_;        // 同一天内不同文件之间的标识
 };
 
 #endif
