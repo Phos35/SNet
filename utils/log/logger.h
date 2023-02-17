@@ -6,6 +6,7 @@
 #include "log_stream.h"
 #include "timestamp.h"
 #include "callback.h"
+#include "async_log.h"
 
 class Logger
 {
@@ -25,7 +26,7 @@ public:
     ~Logger();
 
     /// @brief 启用异步日志
-    void enable_async();
+    static void enable_async();
 
     /// @brief 设置输出回调函数
     /// @param cb 回调函数
@@ -43,8 +44,10 @@ public:
     /// @return 日志输出等级
     static LogLevel get_log_level();
 
-private:
+private:    
     LogStream               stream_;        // 日志输出流
+    static AsyncLog         async_;         // 异步日志类
+    static bool             async_enableed_;// 异步日志启用的标志
 
     Timestamp               timestamp_;     // Logger生成的时间戳
     pthread_t               tid_;           // 线程id
@@ -55,7 +58,7 @@ private:
     std::string             func_;          // 打印日志的函数名
     int                     line_;          // 打印日志的行号
 
-    static OutputCallBack   output_fun_;  // 输出回调函数
+    static OutputCallBack   output_fun_;    // 输出回调函数
 
     /// @brief 默认的输出回调函数。输出到stdcout
     /// @param val 待输出的数据

@@ -4,15 +4,9 @@
 AsyncLog::AsyncLog()
 :current_(std::make_unique<AsyncLog::Buffer>()), 
  next_(std::make_unique<AsyncLog::Buffer>()),
- running_(true),
- back_thraed_(&AsyncLog::back_write, this)
+ running_(false)
 {
-    // 读取唤醒间隔的参数
-    Config &config = Config::get_instance();
-    wake_interval_ = config.log_wakeup_interval();
-
-    // 脱离后端线程
-    back_thraed_.detach();
+    
 }
 
 AsyncLog::~AsyncLog()
@@ -20,6 +14,21 @@ AsyncLog::~AsyncLog()
     // 结束子线程的运行
     running_ = false;
     cond_.notify_one();
+}
+
+void AsyncLog::enable()
+{
+    // 创建LogFile
+    output_file_ = std::make_unique<LogFile>();
+
+    // 读取唤醒间隔的参数
+    Config &config = Config::get_instance();
+    wake_interval_ = config.log_wakeup_interval();
+
+    // 启动后端线程
+    running_ = true;
+    back_thraed_ = std::thread(&AsyncLog::back_write, this);
+    back_thraed_.detach();
 }
 
 void AsyncLog::write(const char *val)
@@ -76,16 +85,16 @@ void AsyncLog::back_write()
         }
 
         // 将缓冲区中的内容写入文件中
-        printf("outputs size: %d\n", output_buffers.size());
         for (BufferPtr &buffer : output_buffers)
         {
-            output_file_.write(buffer->data());
+            output_file_->write(buffer->data());
             buffer->clear();
         }
 
         // 重置缓冲区数量
         int size = output_buffers.size();
-        output_buffers.resize(std::min(size, 2));
+        if(size > 2)
+            output_buffers.resize(2);
 
         // 补充备用缓冲区
         if(!backup_1)
@@ -98,5 +107,7 @@ void AsyncLog::back_write()
             backup_2.swap(output_buffers.back());
             output_buffers.pop_back();
         }
+
+        output_file_->flush();
     }
 }

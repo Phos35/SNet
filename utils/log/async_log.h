@@ -16,6 +16,9 @@ public:
     AsyncLog();
     ~AsyncLog();
 
+    /// @brief 启用异步日志。启动后端线程
+    void enable();
+
     /// @brief 前端接口，向缓冲区写入数据
     /// @param val 待写入的数据
     void write(const char *val);
@@ -24,8 +27,9 @@ private:
     typedef FixedBuffer<LARGE_BUFFER_SIZE> Buffer;
     typedef std::unique_ptr<Buffer> BufferPtr;
     typedef std::vector<BufferPtr> BufferVec;
+    typedef std::unique_ptr<LogFile> LogFilePtr;
 
-    LogFile                 output_file_;   // 日志输出文件
+    LogFilePtr              output_file_;   // 日志输出文件
 
     BufferPtr               current_;       // 前端缓冲区1
     BufferPtr               next_;          // 前端缓冲区2

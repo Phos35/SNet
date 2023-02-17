@@ -3,6 +3,8 @@
 Logger::LogLevel Logger::level_ = Logger::LogLevel::TRACE;
 std::string Logger::levels_str[] = {"FATAL", "ERROR", "WARN", "INFO", "DEBUG", "TRACE"};
 OutputCallBack Logger::output_fun_ = OutputCallBack(&Logger::default_output);
+AsyncLog Logger::async_;
+bool Logger::async_enableed_ = false;
 
 Logger::Logger(LogLevel level, const std::string &file, const std::string& func, int line)
 :timestamp_(Timestamp::now()), tid_(pthread_self()), 
@@ -19,10 +21,15 @@ Logger::~Logger()
     output();
 }
 
-/// TODO 添加AsyncLog的前端输入函数
 void Logger::enable_async()
 {
+    if(async_enableed_ == true)
+        return;
 
+    set_output_callback(std::bind(&AsyncLog::write, &async_,
+                                  std::placeholders::_1));
+    async_.enable();
+    async_enableed_ = true;
 }
 
 void Logger::set_output_callback(const OutputCallBack& cb)
