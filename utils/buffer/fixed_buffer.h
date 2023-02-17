@@ -83,6 +83,7 @@ template <int SIZE>
 void FixedBuffer<SIZE>::clear()
 {
     memset(buffer_, 0, SIZE);
+    size_ = 0;
 }
 
 template <int SIZE>
