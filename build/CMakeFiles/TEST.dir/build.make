@@ -57,18 +57,18 @@ include CMakeFiles/TEST.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TEST.dir/flags.make
 
-CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.o: ../tests/utils/log/test_logfile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.o -c /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_logfile.cpp
+CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o: ../tests/utils/log/test_async_log.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o -c /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_async_log.cpp
 
-CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_logfile.cpp > CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.i
+CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_async_log.cpp > CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.i
 
-CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_logfile.cpp -o CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.s
+CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_async_log.cpp -o CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.s
 
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: ../utils/buffer/buffer.cpp
@@ -122,9 +122,22 @@ CMakeFiles/TEST.dir/utils/log/append_file.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/utils/log/append_file.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/utils/log/append_file.cpp -o CMakeFiles/TEST.dir/utils/log/append_file.cpp.s
 
+CMakeFiles/TEST.dir/utils/log/async_log.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/utils/log/async_log.cpp.o: ../utils/log/async_log.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TEST.dir/utils/log/async_log.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/utils/log/async_log.cpp.o -c /home/ubuntu/projects/web_server/SNet/utils/log/async_log.cpp
+
+CMakeFiles/TEST.dir/utils/log/async_log.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/utils/log/async_log.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/utils/log/async_log.cpp > CMakeFiles/TEST.dir/utils/log/async_log.cpp.i
+
+CMakeFiles/TEST.dir/utils/log/async_log.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/utils/log/async_log.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/utils/log/async_log.cpp -o CMakeFiles/TEST.dir/utils/log/async_log.cpp.s
+
 CMakeFiles/TEST.dir/utils/log/log_file.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/utils/log/log_file.cpp.o: ../utils/log/log_file.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TEST.dir/utils/log/log_file.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TEST.dir/utils/log/log_file.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/utils/log/log_file.cpp.o -c /home/ubuntu/projects/web_server/SNet/utils/log/log_file.cpp
 
 CMakeFiles/TEST.dir/utils/log/log_file.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/TEST.dir/utils/log/log_file.cpp.s: cmake_force
 
 CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o: ../utils/log/log_stream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o -c /home/ubuntu/projects/web_server/SNet/utils/log/log_stream.cpp
 
 CMakeFiles/TEST.dir/utils/log/log_stream.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/TEST.dir/utils/log/log_stream.cpp.s: cmake_force
 
 CMakeFiles/TEST.dir/utils/log/logger.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/utils/log/logger.cpp.o: ../utils/log/logger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TEST.dir/utils/log/logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TEST.dir/utils/log/logger.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/utils/log/logger.cpp.o -c /home/ubuntu/projects/web_server/SNet/utils/log/logger.cpp
 
 CMakeFiles/TEST.dir/utils/log/logger.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/TEST.dir/utils/log/logger.cpp.s: cmake_force
 
 CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o: ../utils/time/timestamp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o -c /home/ubuntu/projects/web_server/SNet/utils/time/timestamp.cpp
 
 CMakeFiles/TEST.dir/utils/time/timestamp.cpp.i: cmake_force
@@ -176,11 +189,12 @@ CMakeFiles/TEST.dir/utils/time/timestamp.cpp.s: cmake_force
 
 # Object files for target TEST
 TEST_OBJECTS = \
-"CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.o" \
+"CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o" \
 "CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o" \
 "CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o" \
 "CMakeFiles/TEST.dir/utils/config/config.cpp.o" \
 "CMakeFiles/TEST.dir/utils/log/append_file.cpp.o" \
+"CMakeFiles/TEST.dir/utils/log/async_log.cpp.o" \
 "CMakeFiles/TEST.dir/utils/log/log_file.cpp.o" \
 "CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o" \
 "CMakeFiles/TEST.dir/utils/log/logger.cpp.o" \
@@ -189,18 +203,19 @@ TEST_OBJECTS = \
 # External object files for target TEST
 TEST_EXTERNAL_OBJECTS =
 
-TEST: CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.o
+TEST: CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/config/config.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/log/append_file.cpp.o
+TEST: CMakeFiles/TEST.dir/utils/log/async_log.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/log/log_file.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/log/logger.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o
 TEST: CMakeFiles/TEST.dir/build.make
 TEST: CMakeFiles/TEST.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable TEST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable TEST"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TEST.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -2,6 +2,8 @@
     "log":
     {
         "base_name": "SNet",
-        "file_size_limit": 1024
+        "file_size_limit": 536870912, 
+        "flush_interval": 3,
+        "wakeup_interval": 3
     }
 }

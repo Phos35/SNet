@@ -123,32 +123,32 @@ TEST/fast:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/build
 .PHONY : TEST/fast
 
-tests/utils/log/test_logfile.o: tests/utils/log/test_logfile.cpp.o
+tests/utils/log/test_async_log.o: tests/utils/log/test_async_log.cpp.o
 
-.PHONY : tests/utils/log/test_logfile.o
+.PHONY : tests/utils/log/test_async_log.o
 
 # target to build an object file
-tests/utils/log/test_logfile.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.o
-.PHONY : tests/utils/log/test_logfile.cpp.o
+tests/utils/log/test_async_log.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o
+.PHONY : tests/utils/log/test_async_log.cpp.o
 
-tests/utils/log/test_logfile.i: tests/utils/log/test_logfile.cpp.i
+tests/utils/log/test_async_log.i: tests/utils/log/test_async_log.cpp.i
 
-.PHONY : tests/utils/log/test_logfile.i
+.PHONY : tests/utils/log/test_async_log.i
 
 # target to preprocess a source file
-tests/utils/log/test_logfile.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.i
-.PHONY : tests/utils/log/test_logfile.cpp.i
+tests/utils/log/test_async_log.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.i
+.PHONY : tests/utils/log/test_async_log.cpp.i
 
-tests/utils/log/test_logfile.s: tests/utils/log/test_logfile.cpp.s
+tests/utils/log/test_async_log.s: tests/utils/log/test_async_log.cpp.s
 
-.PHONY : tests/utils/log/test_logfile.s
+.PHONY : tests/utils/log/test_async_log.s
 
 # target to generate assembly for a file
-tests/utils/log/test_logfile.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_logfile.cpp.s
-.PHONY : tests/utils/log/test_logfile.cpp.s
+tests/utils/log/test_async_log.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.s
+.PHONY : tests/utils/log/test_async_log.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -257,6 +257,33 @@ utils/log/append_file.s: utils/log/append_file.cpp.s
 utils/log/append_file.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/append_file.cpp.s
 .PHONY : utils/log/append_file.cpp.s
+
+utils/log/async_log.o: utils/log/async_log.cpp.o
+
+.PHONY : utils/log/async_log.o
+
+# target to build an object file
+utils/log/async_log.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/async_log.cpp.o
+.PHONY : utils/log/async_log.cpp.o
+
+utils/log/async_log.i: utils/log/async_log.cpp.i
+
+.PHONY : utils/log/async_log.i
+
+# target to preprocess a source file
+utils/log/async_log.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/async_log.cpp.i
+.PHONY : utils/log/async_log.cpp.i
+
+utils/log/async_log.s: utils/log/async_log.cpp.s
+
+.PHONY : utils/log/async_log.s
+
+# target to generate assembly for a file
+utils/log/async_log.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/async_log.cpp.s
+.PHONY : utils/log/async_log.cpp.s
 
 utils/log/log_file.o: utils/log/log_file.cpp.o
 
@@ -375,9 +402,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TEST"
-	@echo "... tests/utils/log/test_logfile.o"
-	@echo "... tests/utils/log/test_logfile.i"
-	@echo "... tests/utils/log/test_logfile.s"
+	@echo "... tests/utils/log/test_async_log.o"
+	@echo "... tests/utils/log/test_async_log.i"
+	@echo "... tests/utils/log/test_async_log.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"
@@ -390,6 +417,9 @@ help:
 	@echo "... utils/log/append_file.o"
 	@echo "... utils/log/append_file.i"
 	@echo "... utils/log/append_file.s"
+	@echo "... utils/log/async_log.o"
+	@echo "... utils/log/async_log.i"
+	@echo "... utils/log/async_log.s"
 	@echo "... utils/log/log_file.o"
 	@echo "... utils/log/log_file.i"
 	@echo "... utils/log/log_file.s"

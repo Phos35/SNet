@@ -23,6 +23,14 @@ public:
     /// @return 日志文件大小限制
     size_t log_file_size_limit();
 
+    /// @brief 日志文件刷新缓冲区的时间间隔
+    /// @return 秒级间隔
+    size_t log_flush_interval();
+
+    /// @brief 异步日志中后端线程被唤醒的时间间隔
+    /// @return 秒级间隔
+    size_t log_wakeup_interval();
+
 private:
     // 禁止外部创建、拷贝
     Config();

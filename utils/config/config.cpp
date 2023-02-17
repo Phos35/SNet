@@ -29,6 +29,18 @@ size_t Config::log_file_size_limit()
     return configs_["log"]["file_size_limit"].get<size_t>();
 }
 
+size_t Config::log_flush_interval()
+{
+    assert(configs_["log"]["flush_interval"].is_number_unsigned() == true);
+    return configs_["log"]["flush_interval"].get<size_t>();
+}
+
+size_t Config::log_wakeup_interval()
+{
+    assert(configs_["log"]["wakeup_interval"].is_number_unsigned() == true);
+    return configs_["log"]["wakeup_interval"].get<size_t>();
+}
+
 Config::Config()
 {
 
