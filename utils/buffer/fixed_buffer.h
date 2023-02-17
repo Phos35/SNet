@@ -25,6 +25,9 @@ public:
     /// @return 实际写入的长度
     size_t write(const std::string &val);
 
+    /// @brief 清空缓冲区 -- 置0
+    void clear();
+
     /// @brief 获取buffer_中的数据
     /// @return buffer_数组
     const char *data();
@@ -74,6 +77,12 @@ template <int SIZE>
 size_t FixedBuffer<SIZE>::write(const std::string &val)
 {
     return write(val.c_str(), val.length());
+}
+
+template <int SIZE>
+void FixedBuffer<SIZE>::clear()
+{
+    memset(buffer_, 0, SIZE);
 }
 
 template <int SIZE>
