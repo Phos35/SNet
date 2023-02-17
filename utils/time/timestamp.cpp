@@ -33,6 +33,5 @@ std::string Timestamp::format(const char *format_str)
 
     char buf[64] = {0};
     strftime(buf, 64, basic_format.c_str(), current_tm_);
-    printf("micros: %ld\n", current_tv_.tv_usec);
     return buf + micorsec;
 }
