@@ -15,12 +15,8 @@ public:
     /// @param val 待写出的数据
     void write(const char *val);
 
-    /// 滚动日志文件
-    void roll_file();
-
-    /// @brief 获取新的日志文件的名称
-    /// @return 日志文件名称
-    std::string get_new_name();
+    /// @brief 刷新文件缓冲区
+    void flush();
 
 private:
     AppendFile  file_;              // 用于写出文件
@@ -32,6 +28,13 @@ private:
     std::string base_name_;         // 日志文件的基础名称
     size_t      file_size_limit_;   // 日志文件大小限制
     size_t      file_index_;        // 同一天内不同文件之间的标识
+
+    /// 滚动日志文件
+    void roll_file();
+
+    /// @brief 获取新的日志文件的名称
+    /// @return 日志文件名称
+    std::string get_new_name();
 };
 
 #endif

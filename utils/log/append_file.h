@@ -19,13 +19,13 @@ public:
     /// @param file 文件流
     void set_file(FILE *file);
 
+    // 刷新文件缓冲区
+    void flush();
+
 private:    
     size_t  write_cnt_; // 写出次数，用于定期刷新缓冲区
 
     FILE*   file_;      // 写出的目标文件
-
-    // 刷新文件缓冲区
-    void flush();
 };
 
 #endif

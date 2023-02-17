@@ -34,6 +34,11 @@ void LogFile::write(const char *val)
     }
 }
 
+void LogFile::flush()
+{
+    file_.flush();
+}
+
 void LogFile::roll_file()
 {
     std::string file_name = get_new_name();
