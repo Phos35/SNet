@@ -19,6 +19,14 @@ Timestamp Timestamp::now()
     return Timestamp();
 }
 
+bool Timestamp::is_different_day(const Timestamp &a, 
+                                 const Timestamp &b)
+{
+    return a.current_tm_->tm_year != b.current_tm_->tm_year ||
+           a.current_tm_->tm_mon != b.current_tm_->tm_mon ||
+           a.current_tm_->tm_mday != b.current_tm_->tm_mday;
+}
+
 // FIXME: 可能存在性能问题
 std::string Timestamp::format(const char *format_str)
 {

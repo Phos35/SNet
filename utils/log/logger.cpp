@@ -2,11 +2,11 @@
 
 Logger::LogLevel Logger::level_ = Logger::LogLevel::TRACE;
 std::string Logger::levels_str[] = {"FATAL", "ERROR", "WARN", "INFO", "DEBUG", "TRACE"};
+OutputCallBack Logger::output_fun_ = OutputCallBack(&Logger::default_output);
 
 Logger::Logger(LogLevel level, const std::string &file, const std::string& func, int line)
 :timestamp_(Timestamp::now()), tid_(pthread_self()), 
- file_(file), func_(func), line_(line), 
- output_fun_(std::bind(&Logger::default_output, this, std::placeholders::_1))
+ file_(file), func_(func), line_(line)
 {
     stream_ << timestamp_.format("%Y-%m-%d %H:%M:%S.%s") << "  "
             << tid_ << "  " << levels_str[static_cast<int>(level)] 

@@ -19,6 +19,12 @@ public:
     /// @return 格式化的时间字符串
     std::string format(const char *format_str);
 
+    /// @brief 判断两个时间戳是否在同一天
+    /// @param a 时间戳
+    /// @param b 时间戳
+    /// @return 若在同一天返回true，否则返回false
+    static bool is_different_day(const Timestamp &a, const Timestamp &b);
+
 private:
     timeval     current_tv_;
     tm*         current_tm_;

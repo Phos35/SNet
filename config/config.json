@@ -1,6 +1,7 @@
 {
     "log":
     {
-        "base_name": "SNet"
+        "base_name": "SNet",
+        "file_size_limit": 128
     }
 }

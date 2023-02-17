@@ -19,6 +19,10 @@ public:
     /// @return 日志文件基础名称
     std::string log_base_name();
 
+    /// @brief 获取单个日志文件大小限制
+    /// @return 日志文件大小限制
+    size_t log_file_size_limit();
+
 private:
     // 禁止外部创建、拷贝
     Config();

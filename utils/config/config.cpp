@@ -8,8 +8,6 @@ Config& Config::get_instance()
     return config;
 }
 
-/// @brief 从指定的文件中获取配置信息
-/// @param file_name 配置文件的名称
 void Config::read_from_file(const std::string &file_name)
 {
     std::ifstream input_file(file_name);
@@ -19,11 +17,16 @@ void Config::read_from_file(const std::string &file_name)
     input_file.close();
 }
 
-/// @brief 获取日志文件的基础名称
-/// @return 日志文件基础名称
 std::string Config::log_base_name()
 {
+    assert(configs_["log"]["base_name"].is_string() == true);
     return configs_["log"]["base_name"];
+}
+
+size_t Config::log_file_size_limit()
+{
+    assert(configs_["log"]["file_size_limit"].is_number_unsigned() == true);
+    return configs_["log"]["file_size_limit"].get<size_t>();
 }
 
 Config::Config()
