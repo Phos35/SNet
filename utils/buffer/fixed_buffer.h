@@ -4,7 +4,7 @@
 #include <string.h>
 
 // 小缓冲区大小 -- 4KB
-#define SMALL_BUFFER_SIZE 4 * 1024 * 1024
+#define SMALL_BUFFER_SIZE 4 * 1024
 // 大缓冲区大小 -- 4MB
 #define LARGE_BUFFER_SIZE SMALL_BUFFER_SIZE * 1024
 
