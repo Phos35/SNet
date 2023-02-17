@@ -24,6 +24,7 @@ size_t AppendFile::write(const char *val)
     while (written < strlen(val))
     {
         written_once = fwrite(val, 1, strlen(val) - written, file_);
+        written += written_once;
     }
 
     write_cnt_++;
@@ -44,9 +45,12 @@ void AppendFile::set_file(FILE *file)
     }
 
     file_ = file;
+    write_cnt_ = 0;
 }
 
 void AppendFile::flush()
 {
+    printf("flush\n");
     fflush(file_);
+    write_cnt_ = 0;
 }

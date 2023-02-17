@@ -1,6 +1,7 @@
 #include "logger.h"
 #include "log_file.h"
 #include "config.h"
+#include <iostream>
 
 int main()
 {
@@ -9,6 +10,15 @@ int main()
     LogFile lf;
     Logger::set_output_callback(std::bind(&LogFile::write, &lf, std::placeholders::_1));
 
-    LOG_TRACE << "This is a trace msg";
+    std::string input;
+    int written = 0;
+    while (true)
+    {
+        std::cin >> input;
+        LOG_DEBUG << input;
+
+        written += input.size();
+        printf("written: %d\n\n", written);
+    }
     return 0;
 }
