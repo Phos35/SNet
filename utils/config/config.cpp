@@ -2,9 +2,16 @@
 #include <fstream>
 #include <stdlib.h>
 
-Config& Config::get_instance()
+bool Config::created_ = false;
+
+Config& Config::get_instance(const std::string& filename)
 {
     static Config config;
+    if(created_ == false)
+    {
+        config.read_from_file(filename);
+        created_ = true;
+    }
     return config;
 }
 
@@ -39,6 +46,12 @@ size_t Config::log_wakeup_interval()
 {
     assert(configs_["log"]["wakeup_interval"].is_number_unsigned() == true);
     return configs_["log"]["wakeup_interval"].get<size_t>();
+}
+
+std::string Config::event_iomutiplexing()
+{
+    assert(configs_["event"]["event_iomutiplexing"].is_string() == true);
+    return configs_["event"]["wakeup_interval"];
 }
 
 Config::Config()
