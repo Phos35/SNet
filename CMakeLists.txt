@@ -12,6 +12,7 @@ INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/io)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/log)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/time)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/third/jsoncpp)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/event)
 
 # 添加源文件
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/alias SRC_LIST)
@@ -20,6 +21,7 @@ AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/config SRC_LIST
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/io SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/log SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/time SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/event SRC_LIST)
 
 # 添加编译选项
 ADD_COMPILE_OPTIONS(-g)
@@ -27,7 +29,7 @@ ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
 ADD_EXECUTABLE(TEST
-    /home/ubuntu/projects/web_server/SNet/tests/utils/log/test_async_log.cpp
+/home/ubuntu/projects/web_server/SNet/tests/event/test_epoller.cpp
     ${SRC_LIST}
 )
 

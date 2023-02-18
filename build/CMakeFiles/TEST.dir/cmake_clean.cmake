@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o"
+  "CMakeFiles/TEST.dir/event/epoller.cpp.o"
+  "CMakeFiles/TEST.dir/event/event.cpp.o"
+  "CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o"
+  "CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o"
   "CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o"
   "CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o"
   "CMakeFiles/TEST.dir/utils/config/config.cpp.o"

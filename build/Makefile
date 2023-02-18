@@ -123,32 +123,113 @@ TEST/fast:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/build
 .PHONY : TEST/fast
 
-tests/utils/log/test_async_log.o: tests/utils/log/test_async_log.cpp.o
+event/epoller.o: event/epoller.cpp.o
 
-.PHONY : tests/utils/log/test_async_log.o
+.PHONY : event/epoller.o
 
 # target to build an object file
-tests/utils/log/test_async_log.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o
-.PHONY : tests/utils/log/test_async_log.cpp.o
+event/epoller.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/epoller.cpp.o
+.PHONY : event/epoller.cpp.o
 
-tests/utils/log/test_async_log.i: tests/utils/log/test_async_log.cpp.i
+event/epoller.i: event/epoller.cpp.i
 
-.PHONY : tests/utils/log/test_async_log.i
+.PHONY : event/epoller.i
 
 # target to preprocess a source file
-tests/utils/log/test_async_log.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.i
-.PHONY : tests/utils/log/test_async_log.cpp.i
+event/epoller.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/epoller.cpp.i
+.PHONY : event/epoller.cpp.i
 
-tests/utils/log/test_async_log.s: tests/utils/log/test_async_log.cpp.s
+event/epoller.s: event/epoller.cpp.s
 
-.PHONY : tests/utils/log/test_async_log.s
+.PHONY : event/epoller.s
 
 # target to generate assembly for a file
-tests/utils/log/test_async_log.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.s
-.PHONY : tests/utils/log/test_async_log.cpp.s
+event/epoller.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/epoller.cpp.s
+.PHONY : event/epoller.cpp.s
+
+event/event.o: event/event.cpp.o
+
+.PHONY : event/event.o
+
+# target to build an object file
+event/event.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event.cpp.o
+.PHONY : event/event.cpp.o
+
+event/event.i: event/event.cpp.i
+
+.PHONY : event/event.i
+
+# target to preprocess a source file
+event/event.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event.cpp.i
+.PHONY : event/event.cpp.i
+
+event/event.s: event/event.cpp.s
+
+.PHONY : event/event.s
+
+# target to generate assembly for a file
+event/event.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event.cpp.s
+.PHONY : event/event.cpp.s
+
+event/iomutiplexing.o: event/iomutiplexing.cpp.o
+
+.PHONY : event/iomutiplexing.o
+
+# target to build an object file
+event/iomutiplexing.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o
+.PHONY : event/iomutiplexing.cpp.o
+
+event/iomutiplexing.i: event/iomutiplexing.cpp.i
+
+.PHONY : event/iomutiplexing.i
+
+# target to preprocess a source file
+event/iomutiplexing.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/iomutiplexing.cpp.i
+.PHONY : event/iomutiplexing.cpp.i
+
+event/iomutiplexing.s: event/iomutiplexing.cpp.s
+
+.PHONY : event/iomutiplexing.s
+
+# target to generate assembly for a file
+event/iomutiplexing.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s
+.PHONY : event/iomutiplexing.cpp.s
+
+tests/event/test_epoller.o: tests/event/test_epoller.cpp.o
+
+.PHONY : tests/event/test_epoller.o
+
+# target to build an object file
+tests/event/test_epoller.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o
+.PHONY : tests/event/test_epoller.cpp.o
+
+tests/event/test_epoller.i: tests/event/test_epoller.cpp.i
+
+.PHONY : tests/event/test_epoller.i
+
+# target to preprocess a source file
+tests/event/test_epoller.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.i
+.PHONY : tests/event/test_epoller.cpp.i
+
+tests/event/test_epoller.s: tests/event/test_epoller.cpp.s
+
+.PHONY : tests/event/test_epoller.s
+
+# target to generate assembly for a file
+tests/event/test_epoller.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.s
+.PHONY : tests/event/test_epoller.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -402,9 +483,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TEST"
-	@echo "... tests/utils/log/test_async_log.o"
-	@echo "... tests/utils/log/test_async_log.i"
-	@echo "... tests/utils/log/test_async_log.s"
+	@echo "... event/epoller.o"
+	@echo "... event/epoller.i"
+	@echo "... event/epoller.s"
+	@echo "... event/event.o"
+	@echo "... event/event.i"
+	@echo "... event/event.s"
+	@echo "... event/iomutiplexing.o"
+	@echo "... event/iomutiplexing.i"
+	@echo "... event/iomutiplexing.s"
+	@echo "... tests/event/test_epoller.o"
+	@echo "... tests/event/test_epoller.i"
+	@echo "... tests/event/test_epoller.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"

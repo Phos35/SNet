@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ubuntu/projects/web_server/SNet/tests/utils/log/test_async_log.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/tests/utils/log/test_async_log.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/event/epoller.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/epoller.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/event/event.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/event.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/event/iomutiplexing.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/tests/event/test_epoller.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/utils/buffer/buffer.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/utils/buffer/byte_buffer.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/utils/config/config.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/utils/config/config.cpp.o"
@@ -26,6 +29,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../utils/log"
   "../utils/time"
   "../third/jsoncpp"
+  "../event"
   )
 
 # Targets to which this target links.
