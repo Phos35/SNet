@@ -50,8 +50,8 @@ size_t Config::log_wakeup_interval()
 
 std::string Config::event_iomutiplexing()
 {
-    assert(configs_["event"]["event_iomutiplexing"].is_string() == true);
-    return configs_["event"]["wakeup_interval"];
+    assert(configs_["event"]["iomutiplexing"].is_string() == true);
+    return configs_["event"]["iomutiplexing"];
 }
 
 Config::Config()

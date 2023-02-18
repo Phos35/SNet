@@ -6,6 +6,9 @@
 // 基础回调函数
 typedef std::function<void()> BasicCallBack;
 
+// EventLoop中的跨线程调用
+typedef BasicCallBack Functor;
+
 // 字符数组类型参数的回调函数
 typedef std::function<void(const char *)> CharsCallBack;
 typedef CharsCallBack OutputCallBack;

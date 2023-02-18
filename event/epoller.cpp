@@ -18,10 +18,9 @@ EPoller::~EPoller()
     close(epfd_);
 }
 
-size_t EPoller::get_fired_events(std::vector<Event> &events, int timeout)
+size_t EPoller::get_fired_events(std::vector<Event> &fire_events, int timeout)
 {
     int fired_cnt = epoll_wait(epfd_, ees_.data(), ees_.size(), timeout);
-    
     // 发生错误，则报错返回0
     if(fired_cnt == -1)
     {
@@ -32,7 +31,9 @@ size_t EPoller::get_fired_events(std::vector<Event> &events, int timeout)
     // 将活跃事件填入events中
     for (int i = 0; i < fired_cnt; i++)
     {
-        events.push_back(Event(ees_[i].data.fd, ees_[i].events));
+        Event &e = events_[ees_[i].data.fd];
+        e.set_mask(ees_[i].events);
+        fire_events.push_back(e);
     }
 
     // 伸缩ees_
@@ -117,7 +118,7 @@ int EPoller::ctl(Event &e, EPoller::CTL_TYPE type)
         .events = e.mask(),
         .data = {.fd = e.fd()}
     };
-    
+
     int ret = epoll_ctl(epfd_, static_cast<int>(type), e.fd(), &ee);
     if(ret == -1)
     {

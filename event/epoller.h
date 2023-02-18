@@ -7,17 +7,17 @@
 #define EE_BUFFER_DEFAULT_SIZE 16
 #define EE_BUFFER_MAX_SIZE 128
 
-class EPoller : IOMutiplexing
+class EPoller : public IOMutiplexing
 {
 public:
     EPoller();
     ~EPoller();
 
     /// @brief 获取活跃事件
-    /// @param events 待填入活跃事件的数组
+    /// @param fire_events 待填入活跃事件的数组
     /// @param timeout 监听等待的超时时间，单位ms；-1表示阻塞等待，0表示不等待
     /// @return 活跃事件的数量
-    size_t get_fired_events(std::vector<Event> &events,
+    size_t get_fired_events(std::vector<Event> &fire_events,
                             int timeout = -1) override;
 
     /// @brief 更新事件 -- 如关注的事件类型等

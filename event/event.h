@@ -57,11 +57,11 @@ public:
 
     /// @brief 获取事件fd
     /// @return fd
-    int fd();
+    int fd()const;
 
     /// @brief 获取关注事件的掩码
     /// @return 掩码
-    uint32_t mask();
+    uint32_t mask()const;
 
     /// @brief 将掩码置为新值
     /// @param mask 新的掩码

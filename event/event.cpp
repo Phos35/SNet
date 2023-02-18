@@ -1,4 +1,5 @@
 #include "event.h"
+#include "logger.h"
 
 Event::Event(int fd, uint32_t mask)
 :fd_(fd), mask_(mask)
@@ -8,13 +9,21 @@ Event::Event(int fd, uint32_t mask)
 
 void Event::process()
 {
+    // LOG_TRACE << "fd " << fd_ << " happend events: " << mask_to_string(mask_);
+
     // 读事件
     if(mask_ & EPOLLIN)
-        read_callback_();
+        if(!read_callback_)
+            printf("fd %d read_callback not set!\n", fd_);
+        else
+            read_callback_();
 
     // 写事件
     if(mask_ & EPOLLOUT)
-        write_callback_();
+        if(!write_callback_)
+            printf("fd %d write_callback not set!\n", fd_);
+        else
+            write_callback_();
 }
 
 void Event::set_read_callback(const BasicCallBack& cb)
@@ -87,12 +96,12 @@ void Event::disable_et()
     mask_ &= ~EPOLLET;
 }
 
-int Event::fd()
+int Event::fd() const
 {
     return fd_;
 }
 
-uint32_t Event::mask()
+uint32_t Event::mask() const
 {
     return mask_;
 }

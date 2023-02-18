@@ -177,6 +177,33 @@ event/event.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event.cpp.s
 .PHONY : event/event.cpp.s
 
+event/event_loop.o: event/event_loop.cpp.o
+
+.PHONY : event/event_loop.o
+
+# target to build an object file
+event/event_loop.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event_loop.cpp.o
+.PHONY : event/event_loop.cpp.o
+
+event/event_loop.i: event/event_loop.cpp.i
+
+.PHONY : event/event_loop.i
+
+# target to preprocess a source file
+event/event_loop.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event_loop.cpp.i
+.PHONY : event/event_loop.cpp.i
+
+event/event_loop.s: event/event_loop.cpp.s
+
+.PHONY : event/event_loop.s
+
+# target to generate assembly for a file
+event/event_loop.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event_loop.cpp.s
+.PHONY : event/event_loop.cpp.s
+
 event/iomutiplexing.o: event/iomutiplexing.cpp.o
 
 .PHONY : event/iomutiplexing.o
@@ -204,32 +231,32 @@ event/iomutiplexing.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s
 .PHONY : event/iomutiplexing.cpp.s
 
-tests/event/test_epoller.o: tests/event/test_epoller.cpp.o
+tests/event/test_event_loop.o: tests/event/test_event_loop.cpp.o
 
-.PHONY : tests/event/test_epoller.o
+.PHONY : tests/event/test_event_loop.o
 
 # target to build an object file
-tests/event/test_epoller.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o
-.PHONY : tests/event/test_epoller.cpp.o
+tests/event/test_event_loop.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o
+.PHONY : tests/event/test_event_loop.cpp.o
 
-tests/event/test_epoller.i: tests/event/test_epoller.cpp.i
+tests/event/test_event_loop.i: tests/event/test_event_loop.cpp.i
 
-.PHONY : tests/event/test_epoller.i
+.PHONY : tests/event/test_event_loop.i
 
 # target to preprocess a source file
-tests/event/test_epoller.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.i
-.PHONY : tests/event/test_epoller.cpp.i
+tests/event/test_event_loop.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.i
+.PHONY : tests/event/test_event_loop.cpp.i
 
-tests/event/test_epoller.s: tests/event/test_epoller.cpp.s
+tests/event/test_event_loop.s: tests/event/test_event_loop.cpp.s
 
-.PHONY : tests/event/test_epoller.s
+.PHONY : tests/event/test_event_loop.s
 
 # target to generate assembly for a file
-tests/event/test_epoller.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.s
-.PHONY : tests/event/test_epoller.cpp.s
+tests/event/test_event_loop.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.s
+.PHONY : tests/event/test_event_loop.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -489,12 +516,15 @@ help:
 	@echo "... event/event.o"
 	@echo "... event/event.i"
 	@echo "... event/event.s"
+	@echo "... event/event_loop.o"
+	@echo "... event/event_loop.i"
+	@echo "... event/event_loop.s"
 	@echo "... event/iomutiplexing.o"
 	@echo "... event/iomutiplexing.i"
 	@echo "... event/iomutiplexing.s"
-	@echo "... tests/event/test_epoller.o"
-	@echo "... tests/event/test_epoller.i"
-	@echo "... tests/event/test_epoller.s"
+	@echo "... tests/event/test_event_loop.o"
+	@echo "... tests/event/test_event_loop.i"
+	@echo "... tests/event/test_event_loop.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"

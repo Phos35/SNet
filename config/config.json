@@ -1,4 +1,9 @@
 {
+    "event":
+    {
+        "iomutiplexing": "epoll"
+    },
+
     "log":
     {
         "base_name": "SNet",

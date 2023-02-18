@@ -29,7 +29,7 @@ ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
 ADD_EXECUTABLE(TEST
-/home/ubuntu/projects/web_server/SNet/tests/event/test_epoller.cpp
+/home/ubuntu/projects/web_server/SNet/tests/event/test_event_loop.cpp
     ${SRC_LIST}
 )
 

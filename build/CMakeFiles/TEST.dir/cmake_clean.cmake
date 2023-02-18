@@ -1,8 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TEST.dir/event/epoller.cpp.o"
   "CMakeFiles/TEST.dir/event/event.cpp.o"
+  "CMakeFiles/TEST.dir/event/event_loop.cpp.o"
   "CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o"
-  "CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o"
+  "CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o"
   "CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o"
   "CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o"
   "CMakeFiles/TEST.dir/utils/config/config.cpp.o"

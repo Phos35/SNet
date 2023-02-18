@@ -15,19 +15,44 @@ CMakeFiles/TEST.dir/event/epoller.cpp.o: ../event/event.h
 CMakeFiles/TEST.dir/event/epoller.cpp.o: ../event/iomutiplexing.h
 
 CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/log/append_file.h
+CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/log/async_log.h
+CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/log/log_file.h
+CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/log/log_stream.h
+CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/log/logger.h
+CMakeFiles/TEST.dir/event/event.cpp.o: ../utils/time/timestamp.h
 CMakeFiles/TEST.dir/event/event.cpp.o: ../event/event.cpp
 CMakeFiles/TEST.dir/event/event.cpp.o: ../event/event.h
+
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../third/jsoncpp/json.hpp
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/config/config.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/log/append_file.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/log/async_log.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/log/log_file.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/log/log_stream.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/log/logger.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../utils/time/timestamp.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/epoller.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/event.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/event_loop.cpp
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/event_loop.h
+CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/iomutiplexing.h
 
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../utils/alias/callback.h
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../event/event.h
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../event/iomutiplexing.cpp
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../event/iomutiplexing.h
 
-CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o: ../event/epoller.h
-CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o: ../event/event.h
-CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o: ../event/iomutiplexing.h
-CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o: ../utils/alias/callback.h
-CMakeFiles/TEST.dir/tests/event/test_epoller.cpp.o: ../tests/event/test_epoller.cpp
+CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../event/event.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../event/event_loop.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../event/iomutiplexing.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../third/jsoncpp/json.hpp
+CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../utils/config/config.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../tests/event/test_event_loop.cpp
 
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: ../utils/buffer/buffer.cpp
 
