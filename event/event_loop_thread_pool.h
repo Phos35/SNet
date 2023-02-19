@@ -3,6 +3,13 @@
 #include "event_loop_thread.h"
 #include <vector>
 
+// TODO commit a41676147f63f8e542637e9247e150b06a38644c
+//      下EventLoopThreadPool无法正常退出线程
+//   而 commit 4bdb72197977e7940f8625eb7d994e0c68997ec6
+//      在EventLoop、EventLoopThread中添加了状态成员、
+//      修改EventLoopThreadPool中quit_all为pop_back()后
+//      正常运行，原因尚不明确，需要查明
+
 class EventLoopThreadPool
 {
 public:
