@@ -6,6 +6,7 @@
 #include <pthread.h>
 #include <memory>
 #include <mutex>
+#include <sys/types.h>
 /*注意点：
 1. wake_fd_用于唤醒EventLoop，其使用场景有如下两种
     1.1 EventLoop退出。如果只是单纯将running_置为false，loop()是可能不会退出的，因为loop()每次循环都可能
@@ -39,9 +40,13 @@ public:
     /// @param functor 跨线程调用函数
     void run_in_loop(const Functor &functor);
 
+    /// @brief 获取EventLoop所在线程的id
+    /// @return 线程id
+    pid_t id();
+
 private:
     typedef std::unique_ptr<IOMutiplexing> IOMutiplexingPtr;
-    pthread_t               id_;            // EventLoop所在线程的线程id
+    pid_t                   id_;            // EventLoop所在线程的线程id
 
     IOMutiplexingPtr        poller_;        // 监听事件的IOMutiplexing机制
     std::vector<Event>      fired_;         // 活跃事件列表

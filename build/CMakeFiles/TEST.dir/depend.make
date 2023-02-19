@@ -41,18 +41,33 @@ CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/event_loop.cpp
 CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/event_loop.h
 CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/iomutiplexing.h
 
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/log/append_file.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/log/async_log.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/log/log_file.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/log/log_stream.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/log/logger.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../utils/time/timestamp.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../event/event.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../event/event_loop.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../event/event_loop_thread.cpp
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../event/event_loop_thread.h
+CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../event/iomutiplexing.h
+
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../utils/alias/callback.h
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../event/event.h
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../event/iomutiplexing.cpp
 CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../event/iomutiplexing.h
 
-CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../event/event.h
-CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../event/event_loop.h
-CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../event/iomutiplexing.h
-CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../third/jsoncpp/json.hpp
-CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../utils/alias/callback.h
-CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../utils/config/config.h
-CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o: ../tests/event/test_event_loop.cpp
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../event/event.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../event/event_loop.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../event/event_loop_thread.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../event/iomutiplexing.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../third/jsoncpp/json.hpp
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../utils/config/config.h
+CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o: ../tests/event/test_event_loop_thread.cpp
 
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: ../utils/buffer/buffer.cpp
 

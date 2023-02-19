@@ -8,10 +8,10 @@
 #include "logger.h"
 
 // 线程局部变量，标识各个线程
-thread_local pthread_t thread_id_ = pthread_self();
+thread_local pid_t thread_id_ = gettid();
 
 EventLoop::EventLoop()
-:id_(pthread_self()),
+:id_(gettid()),
  running_(false),
  wake_fd_(eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK))
 {
@@ -31,6 +31,13 @@ EventLoop::EventLoop()
     Event wake_event(wake_fd_, EPOLLIN);
     wake_event.set_read_callback(std::bind(&EventLoop::read_wake_fd, this));
     poller_->add_event(wake_event);
+}
+
+EventLoop::~EventLoop()
+{
+    // 若事件循环未结束，则停止
+    if(running_ == true)
+        quit();
 }
 
 void EventLoop::start()
@@ -68,6 +75,12 @@ void EventLoop::loop()
 
 void EventLoop::quit()
 {
+    if(running_ == false)
+    {
+        LOG_WARN << "EventLoop " << id_ << " has already quitted";
+        return;
+    }
+
     LOG_INFO << "EventLoop " << id_ << " Quitting";
     running_ = false;
     wakeup();
@@ -166,4 +179,9 @@ void EventLoop::read_wake_fd()
     {
         LOG_ERROR << "Read wake_fd_ failed";
     }
+}
+
+pid_t EventLoop::id()
+{
+    return id_;
 }

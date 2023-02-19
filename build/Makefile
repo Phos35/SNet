@@ -204,6 +204,33 @@ event/event_loop.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event_loop.cpp.s
 .PHONY : event/event_loop.cpp.s
 
+event/event_loop_thread.o: event/event_loop_thread.cpp.o
+
+.PHONY : event/event_loop_thread.o
+
+# target to build an object file
+event/event_loop_thread.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o
+.PHONY : event/event_loop_thread.cpp.o
+
+event/event_loop_thread.i: event/event_loop_thread.cpp.i
+
+.PHONY : event/event_loop_thread.i
+
+# target to preprocess a source file
+event/event_loop_thread.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event_loop_thread.cpp.i
+.PHONY : event/event_loop_thread.cpp.i
+
+event/event_loop_thread.s: event/event_loop_thread.cpp.s
+
+.PHONY : event/event_loop_thread.s
+
+# target to generate assembly for a file
+event/event_loop_thread.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/event_loop_thread.cpp.s
+.PHONY : event/event_loop_thread.cpp.s
+
 event/iomutiplexing.o: event/iomutiplexing.cpp.o
 
 .PHONY : event/iomutiplexing.o
@@ -231,32 +258,32 @@ event/iomutiplexing.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s
 .PHONY : event/iomutiplexing.cpp.s
 
-tests/event/test_event_loop.o: tests/event/test_event_loop.cpp.o
+tests/event/test_event_loop_thread.o: tests/event/test_event_loop_thread.cpp.o
 
-.PHONY : tests/event/test_event_loop.o
+.PHONY : tests/event/test_event_loop_thread.o
 
 # target to build an object file
-tests/event/test_event_loop.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.o
-.PHONY : tests/event/test_event_loop.cpp.o
+tests/event/test_event_loop_thread.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.o
+.PHONY : tests/event/test_event_loop_thread.cpp.o
 
-tests/event/test_event_loop.i: tests/event/test_event_loop.cpp.i
+tests/event/test_event_loop_thread.i: tests/event/test_event_loop_thread.cpp.i
 
-.PHONY : tests/event/test_event_loop.i
+.PHONY : tests/event/test_event_loop_thread.i
 
 # target to preprocess a source file
-tests/event/test_event_loop.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.i
-.PHONY : tests/event/test_event_loop.cpp.i
+tests/event/test_event_loop_thread.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.i
+.PHONY : tests/event/test_event_loop_thread.cpp.i
 
-tests/event/test_event_loop.s: tests/event/test_event_loop.cpp.s
+tests/event/test_event_loop_thread.s: tests/event/test_event_loop_thread.cpp.s
 
-.PHONY : tests/event/test_event_loop.s
+.PHONY : tests/event/test_event_loop_thread.s
 
 # target to generate assembly for a file
-tests/event/test_event_loop.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop.cpp.s
-.PHONY : tests/event/test_event_loop.cpp.s
+tests/event/test_event_loop_thread.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop_thread.cpp.s
+.PHONY : tests/event/test_event_loop_thread.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -519,12 +546,15 @@ help:
 	@echo "... event/event_loop.o"
 	@echo "... event/event_loop.i"
 	@echo "... event/event_loop.s"
+	@echo "... event/event_loop_thread.o"
+	@echo "... event/event_loop_thread.i"
+	@echo "... event/event_loop_thread.s"
 	@echo "... event/iomutiplexing.o"
 	@echo "... event/iomutiplexing.i"
 	@echo "... event/iomutiplexing.s"
-	@echo "... tests/event/test_event_loop.o"
-	@echo "... tests/event/test_event_loop.i"
-	@echo "... tests/event/test_event_loop.s"
+	@echo "... tests/event/test_event_loop_thread.o"
+	@echo "... tests/event/test_event_loop_thread.i"
+	@echo "... tests/event/test_event_loop_thread.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"
