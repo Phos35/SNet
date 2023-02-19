@@ -31,15 +31,16 @@ bool Timestamp::is_different_day(const Timestamp &a,
 std::string Timestamp::format(const char *format_str)
 {
     std::string basic_format(format_str);
-    std::string micorsec;
+    char micorsec[8] = {0};
     auto pos = basic_format.find("%s");
     if (pos != std::string::npos)
     {
+        snprintf(micorsec, 8, "%06ld", current_tv_.tv_usec);
         basic_format = basic_format.substr(0, pos);
-        micorsec = std::to_string(current_tv_.tv_usec);
     }
 
     char buf[64] = {0};
     strftime(buf, 64, basic_format.c_str(), current_tm_);
-    return buf + micorsec;
+    strncat(buf, micorsec, 8);
+    return buf;
 }
