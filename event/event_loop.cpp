@@ -42,12 +42,14 @@ void EventLoop::start()
         return;
     
     // 启动循环
+    LOG_INFO << "EventLoop " << id_ << " Starting";
     running_ = true;
     loop();
 }
 
 void EventLoop::loop()
 {
+    LOG_INFO << "EventLoop " << id_ << " Started";
     int time_out = -1;
     while (running_ == true)
     {
@@ -61,10 +63,12 @@ void EventLoop::loop()
         // 处理functor
         process_functor();
     }
+    LOG_INFO << "EventLoop " << id_ << " Quitted";
 }
 
 void EventLoop::quit()
 {
+    LOG_INFO << "EventLoop " << id_ << " Quitting";
     running_ = false;
     wakeup();
 }

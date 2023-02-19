@@ -1,7 +1,9 @@
 #include "event_loop.h"
-#include <thread>
 #include "config.h"
 #include <unistd.h>
+
+#include <thread>
+#include <iostream>
 
 EventLoop *loop;
 
@@ -32,6 +34,8 @@ void process_read()
     printf("This is a read processor, read: %s\n", buf);
 }
 
+
+
 int main()
 {
     Config &config = Config::get_instance("/home/ubuntu/projects/web_server/SNet/config/config.json");
@@ -48,12 +52,21 @@ int main()
     // loop->run_in_loop(functor);
 
     // 测试添加事件
-    std::thread th(loop_thread_fun);
-    sleep(1);
-    Event e(0, EPOLLIN);
-    e.set_read_callback(process_read);
-    loop->add_event(e);
+    // std::thread th(loop_thread_fun);
+    // sleep(1);
+    // Event e(0, EPOLLIN);
+    // e.set_read_callback(process_read);
+    // loop->add_event(e);
 
+    // 测试结束事件循环
+    std::thread th(loop_thread_fun);
+    std::string input;
+    while (input.find("QUIT") == std::string::npos)
+    {
+        std::cin >> input;
+    }
+
+    loop->quit();
     th.join();
 
     return 0;
