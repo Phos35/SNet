@@ -62,6 +62,11 @@ int Socket::set_reuse_addr()
                       &opt_val, sizeof(opt_val));
 }
 
+int Socket::fd()
+{
+    return fd_;
+}
+
 /// @brief 以可读的形式获取socket绑定的地址
 /// @return 地址字符串
 std::string Socket::addr_str()
@@ -80,6 +85,5 @@ short Socket::port()
 
 Socket::~Socket()
 {
-    printf("DES\n");
     close(fd_);
 }

@@ -30,6 +30,10 @@ public:
     /// @return 成功返回0，失败返回-1
     int bind(sockaddr_in *addr);
 
+    /// @brief 获取socket的文件描述符
+    /// @return 文件描述符
+    int fd();
+
     /// @brief 设置端口复用
     /// @return 成功返回0，失败返回-1
     int set_reuse_addr();
