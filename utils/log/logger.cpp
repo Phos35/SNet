@@ -17,7 +17,7 @@ Logger::Logger(LogLevel level, const std::string &file, const std::string& func,
 
 Logger::~Logger()
 {
-    stream_ << "  " << file_ << "  " << func_ << "  " << line_ << "\n";
+    stream_ << "  " << file_ << ":" << line_ << "  " << func_ << "\n";
     output();
 }
 
