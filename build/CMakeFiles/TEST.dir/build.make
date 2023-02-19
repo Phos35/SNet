@@ -57,18 +57,18 @@ include CMakeFiles/TEST.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TEST.dir/flags.make
 
-CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.o: ../tests/event/test_event_loop_thread_loop.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.o -c /home/ubuntu/projects/web_server/SNet/tests/event/test_event_loop_thread_loop.cpp
+CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o: ../tests/TCP/test_acceptor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o -c /home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp
 
-CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/tests/event/test_event_loop_thread_loop.cpp > CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.i
+CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp > CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.i
 
-CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/tests/event/test_event_loop_thread_loop.cpp -o CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.s
+CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp -o CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.s
 
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: ../utils/buffer/buffer.cpp
@@ -265,9 +265,35 @@ CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/event/iomutiplexing.cpp -o CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s
 
+CMakeFiles/TEST.dir/socket/socket.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/socket/socket.cpp.o: ../socket/socket.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/TEST.dir/socket/socket.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/socket/socket.cpp.o -c /home/ubuntu/projects/web_server/SNet/socket/socket.cpp
+
+CMakeFiles/TEST.dir/socket/socket.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/socket/socket.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/socket/socket.cpp > CMakeFiles/TEST.dir/socket/socket.cpp.i
+
+CMakeFiles/TEST.dir/socket/socket.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/socket/socket.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/socket/socket.cpp -o CMakeFiles/TEST.dir/socket/socket.cpp.s
+
+CMakeFiles/TEST.dir/TCP/acceptor.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/TCP/acceptor.cpp.o: ../TCP/acceptor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/TEST.dir/TCP/acceptor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/TCP/acceptor.cpp.o -c /home/ubuntu/projects/web_server/SNet/TCP/acceptor.cpp
+
+CMakeFiles/TEST.dir/TCP/acceptor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/TCP/acceptor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/TCP/acceptor.cpp > CMakeFiles/TEST.dir/TCP/acceptor.cpp.i
+
+CMakeFiles/TEST.dir/TCP/acceptor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/TCP/acceptor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/TCP/acceptor.cpp -o CMakeFiles/TEST.dir/TCP/acceptor.cpp.s
+
 # Object files for target TEST
 TEST_OBJECTS = \
-"CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.o" \
+"CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o" \
 "CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o" \
 "CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o" \
 "CMakeFiles/TEST.dir/utils/config/config.cpp.o" \
@@ -282,12 +308,14 @@ TEST_OBJECTS = \
 "CMakeFiles/TEST.dir/event/event_loop.cpp.o" \
 "CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o" \
 "CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o" \
-"CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o"
+"CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o" \
+"CMakeFiles/TEST.dir/socket/socket.cpp.o" \
+"CMakeFiles/TEST.dir/TCP/acceptor.cpp.o"
 
 # External object files for target TEST
 TEST_EXTERNAL_OBJECTS =
 
-TEST: CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.o
+TEST: CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/config/config.cpp.o
@@ -303,9 +331,11 @@ TEST: CMakeFiles/TEST.dir/event/event_loop.cpp.o
 TEST: CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o
 TEST: CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o
 TEST: CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o
+TEST: CMakeFiles/TEST.dir/socket/socket.cpp.o
+TEST: CMakeFiles/TEST.dir/TCP/acceptor.cpp.o
 TEST: CMakeFiles/TEST.dir/build.make
 TEST: CMakeFiles/TEST.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable TEST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable TEST"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TEST.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

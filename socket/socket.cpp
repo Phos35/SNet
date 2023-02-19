@@ -20,6 +20,9 @@ Socket::Socket(int domain, int type, int protocol)
 Socket::Socket(int fd, sockaddr_in *addr)
 {
     fd_ = fd;
+    domain_ = addr->sin_family;
+    type_ = SOCK_STREAM;
+    protocol_ = 0;
     memcpy(&addr_in_, addr, sizeof(addr_in_));
 }
 

@@ -123,6 +123,33 @@ TEST/fast:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/build
 .PHONY : TEST/fast
 
+TCP/acceptor.o: TCP/acceptor.cpp.o
+
+.PHONY : TCP/acceptor.o
+
+# target to build an object file
+TCP/acceptor.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/TCP/acceptor.cpp.o
+.PHONY : TCP/acceptor.cpp.o
+
+TCP/acceptor.i: TCP/acceptor.cpp.i
+
+.PHONY : TCP/acceptor.i
+
+# target to preprocess a source file
+TCP/acceptor.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/TCP/acceptor.cpp.i
+.PHONY : TCP/acceptor.cpp.i
+
+TCP/acceptor.s: TCP/acceptor.cpp.s
+
+.PHONY : TCP/acceptor.s
+
+# target to generate assembly for a file
+TCP/acceptor.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/TCP/acceptor.cpp.s
+.PHONY : TCP/acceptor.cpp.s
+
 event/epoller.o: event/epoller.cpp.o
 
 .PHONY : event/epoller.o
@@ -285,32 +312,59 @@ event/iomutiplexing.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s
 .PHONY : event/iomutiplexing.cpp.s
 
-tests/event/test_event_loop_thread_loop.o: tests/event/test_event_loop_thread_loop.cpp.o
+socket/socket.o: socket/socket.cpp.o
 
-.PHONY : tests/event/test_event_loop_thread_loop.o
+.PHONY : socket/socket.o
 
 # target to build an object file
-tests/event/test_event_loop_thread_loop.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.o
-.PHONY : tests/event/test_event_loop_thread_loop.cpp.o
+socket/socket.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/socket/socket.cpp.o
+.PHONY : socket/socket.cpp.o
 
-tests/event/test_event_loop_thread_loop.i: tests/event/test_event_loop_thread_loop.cpp.i
+socket/socket.i: socket/socket.cpp.i
 
-.PHONY : tests/event/test_event_loop_thread_loop.i
+.PHONY : socket/socket.i
 
 # target to preprocess a source file
-tests/event/test_event_loop_thread_loop.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.i
-.PHONY : tests/event/test_event_loop_thread_loop.cpp.i
+socket/socket.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/socket/socket.cpp.i
+.PHONY : socket/socket.cpp.i
 
-tests/event/test_event_loop_thread_loop.s: tests/event/test_event_loop_thread_loop.cpp.s
+socket/socket.s: socket/socket.cpp.s
 
-.PHONY : tests/event/test_event_loop_thread_loop.s
+.PHONY : socket/socket.s
 
 # target to generate assembly for a file
-tests/event/test_event_loop_thread_loop.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/event/test_event_loop_thread_loop.cpp.s
-.PHONY : tests/event/test_event_loop_thread_loop.cpp.s
+socket/socket.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/socket/socket.cpp.s
+.PHONY : socket/socket.cpp.s
+
+tests/TCP/test_acceptor.o: tests/TCP/test_acceptor.cpp.o
+
+.PHONY : tests/TCP/test_acceptor.o
+
+# target to build an object file
+tests/TCP/test_acceptor.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o
+.PHONY : tests/TCP/test_acceptor.cpp.o
+
+tests/TCP/test_acceptor.i: tests/TCP/test_acceptor.cpp.i
+
+.PHONY : tests/TCP/test_acceptor.i
+
+# target to preprocess a source file
+tests/TCP/test_acceptor.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.i
+.PHONY : tests/TCP/test_acceptor.cpp.i
+
+tests/TCP/test_acceptor.s: tests/TCP/test_acceptor.cpp.s
+
+.PHONY : tests/TCP/test_acceptor.s
+
+# target to generate assembly for a file
+tests/TCP/test_acceptor.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.s
+.PHONY : tests/TCP/test_acceptor.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -564,6 +618,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TEST"
+	@echo "... TCP/acceptor.o"
+	@echo "... TCP/acceptor.i"
+	@echo "... TCP/acceptor.s"
 	@echo "... event/epoller.o"
 	@echo "... event/epoller.i"
 	@echo "... event/epoller.s"
@@ -582,9 +639,12 @@ help:
 	@echo "... event/iomutiplexing.o"
 	@echo "... event/iomutiplexing.i"
 	@echo "... event/iomutiplexing.s"
-	@echo "... tests/event/test_event_loop_thread_loop.o"
-	@echo "... tests/event/test_event_loop_thread_loop.i"
-	@echo "... tests/event/test_event_loop_thread_loop.s"
+	@echo "... socket/socket.o"
+	@echo "... socket/socket.i"
+	@echo "... socket/socket.s"
+	@echo "... tests/TCP/test_acceptor.o"
+	@echo "... tests/TCP/test_acceptor.i"
+	@echo "... tests/TCP/test_acceptor.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"

@@ -14,10 +14,10 @@ public:
     void process();
 
     /// @brief 设置读事件处理回调函数
-    void set_read_callback(const BasicCallBack& cb);
+    void set_read_callback(const CallBack& cb);
 
     /// @brief 设置写事件处理回调函数
-    void set_write_callback(const BasicCallBack& cb);
+    void set_write_callback(const CallBack& cb);
 
     /// @brief 关注事件中添加读事件
     void focus_read();
@@ -76,8 +76,8 @@ private:
     int             fd_;                // 关注的文件描述符
     uint32_t        mask_;              // 关注事件的掩码
 
-    BasicCallBack   read_callback_;     // 处理读事件的回调函数
-    BasicCallBack   write_callback_;    // 处理写事件的回调函数
+    CallBack   read_callback_;     // 处理读事件的回调函数
+    CallBack   write_callback_;    // 处理写事件的回调函数
 };
 
 #endif

@@ -26,12 +26,12 @@ void Event::process()
             write_callback_();
 }
 
-void Event::set_read_callback(const BasicCallBack& cb)
+void Event::set_read_callback(const CallBack& cb)
 {
     read_callback_ = std::move(cb);
 }
 
-void Event::set_write_callback(const BasicCallBack& cb)
+void Event::set_write_callback(const CallBack& cb)
 {
     read_callback_ = std::move(cb);
 }

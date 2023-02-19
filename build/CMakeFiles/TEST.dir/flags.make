@@ -6,5 +6,5 @@ CXX_FLAGS =   -g -lpthread
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ubuntu/projects/web_server/SNet/utils/alias -I/home/ubuntu/projects/web_server/SNet/utils/buffer -I/home/ubuntu/projects/web_server/SNet/utils/config -I/home/ubuntu/projects/web_server/SNet/utils/io -I/home/ubuntu/projects/web_server/SNet/utils/log -I/home/ubuntu/projects/web_server/SNet/utils/time -I/home/ubuntu/projects/web_server/SNet/third/jsoncpp -I/home/ubuntu/projects/web_server/SNet/event 
+CXX_INCLUDES = -I/home/ubuntu/projects/web_server/SNet/utils/alias -I/home/ubuntu/projects/web_server/SNet/utils/buffer -I/home/ubuntu/projects/web_server/SNet/utils/config -I/home/ubuntu/projects/web_server/SNet/utils/io -I/home/ubuntu/projects/web_server/SNet/utils/log -I/home/ubuntu/projects/web_server/SNet/utils/time -I/home/ubuntu/projects/web_server/SNet/third/jsoncpp -I/home/ubuntu/projects/web_server/SNet/event -I/home/ubuntu/projects/web_server/SNet/socket -I/home/ubuntu/projects/web_server/SNet/TCP 
 
