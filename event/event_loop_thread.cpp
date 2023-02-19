@@ -5,7 +5,7 @@
 
 EventLoopThread::EventLoopThread()
 :id_(-1), event_loop_(nullptr),
- running_(false)
+ state_(State::IDLE)
 {
 
 }
@@ -13,43 +13,37 @@ EventLoopThread::EventLoopThread()
 EventLoopThread::~EventLoopThread()
 {
     // 若事件循环所在线程还在运行，则退出线程
-    if(running_ == true)
+    if(state_ == State::RUNNING)
     {
         quit();
-
-        // 等待线程退出
-        {
-            std::unique_lock<std::mutex> lck(mutex_);
-            cond_.wait(lck);
-        }
     }
+
+    // 等待线程结束
+    thread_->join();
+    LOG_TRACE << "EventLoopThread " << id_ << ", thread terminate";
 }
 
 EventLoop* EventLoopThread::start()
 {
     // 线程已经启动
-    if(running_ == true)
+    if(state_ == State::RUNNING)
     {
         LOG_WARN << "EventLoopThread " << id_ << " has already started";
         return event_loop_;
     }
 
     // 启动线程
-    LOG_INFO << "EventLoopThread Starting";
-    std::thread th(&EventLoopThread::thread_func, this);
-    th.detach();
+    LOG_INFO << "EventLoopThread starting";
+    thread_ = std::make_unique<std::thread>(&EventLoopThread::thread_func, this);
 
     // 等待线程创建事件循环
     {
         std::unique_lock<std::mutex> lck(mutex_);
         cond_.wait(lck, [this]()->bool
                { return event_loop_ != nullptr; });
-        printf("Wait over\n");
     }
-
     id_ = event_loop_->id();
-    running_ = true;
-
+    
     return event_loop_;
 }
 
@@ -68,27 +62,35 @@ void EventLoopThread::thread_func()
     /// 范围中（因为调度），于是消费者获取锁失
     /// 败，这样就可能会造成预期外的行为
     cond_.notify_one();
-    printf("Notify\n");
-    LOG_INFO << "EventLoopThread Started";
 
     // 启动事件循环
+    state_ = State::RUNNING;
+    LOG_INFO << "EventLoopThread started";
     loop.start();
 
-    // 告知线程退出
-    LOG_INFO << "EventLoopThread " << id_ << " Quitted";
-    cond_.notify_one();
+    // 事件循环结束
+    state_ = State::QUITTED;
+    LOG_INFO << "EventLoopThread quitted";
 }
 
 /// @brief 退出事件循环线程
 void EventLoopThread::quit()
 {
-    if(running_ == false)
+    if(state_ == State::QUITTING)
+    {
+        LOG_WARN << "EventLoopThread " << id_ << " is still quitting";
+        return;
+    }
+
+    if(state_ == State::QUITTED)
     {
         LOG_WARN << "EventLoopThread " << id_ << " has already quitted";
         return;
     }
 
-    LOG_INFO << "EventLoopThread " << id_ << " Quitting";
+    // 设置正在退出的标志，通知事件循环退出
+    state_ = State::QUITTING;
+    LOG_INFO << "EventLoopThread " << id_ << " quitting";
     event_loop_->quit();
 }
 

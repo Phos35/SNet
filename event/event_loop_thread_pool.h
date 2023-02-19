@@ -15,10 +15,6 @@ public:
     /// @brief 启动线程池
     void start();
 
-    /// @brief 结束某个事件循环线程
-    /// @param id 待结束的线程id
-    void quit_one(pid_t id);
-
     /// @brief 结束所有事件循环线程
     void quit_all();
 

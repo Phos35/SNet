@@ -12,7 +12,7 @@ thread_local pid_t thread_id_ = gettid();
 
 EventLoop::EventLoop()
 :id_(gettid()),
- running_(false),
+ state_(State::IDLE),
  wake_fd_(eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK))
 {
     assert(wake_fd_ != -1);
@@ -36,7 +36,7 @@ EventLoop::EventLoop()
 EventLoop::~EventLoop()
 {
     // 若事件循环未结束，则停止
-    if(running_ == true)
+    if(state_ == State::RUNNING)
         quit();
 }
 
@@ -45,20 +45,21 @@ void EventLoop::start()
     assert_in_loop_thread();
 
     // 已经启动
-    if(running_ == true)
+    if(state_ == State::RUNNING)
         return;
     
     // 启动循环
-    LOG_INFO << "EventLoop " << id_ << " Starting";
-    running_ = true;
+    LOG_INFO << "EventLoop " << id_ << " starting";
     loop();
 }
 
 void EventLoop::loop()
 {
-    LOG_INFO << "EventLoop " << id_ << " Started";
     int time_out = -1;
-    while (running_ == true)
+
+    state_ = State::RUNNING;
+    LOG_INFO << "EventLoop " << id_ << " started";
+    while (state_ == State::RUNNING)
     {
         // TODO 根据functor的处理情况和定时器的情况设置timeout
         // 调用IOMutiplexing接口获取活跃事件
@@ -68,21 +69,32 @@ void EventLoop::loop()
         process_fired(fired_cnt);
 
         // 处理functor
+        // 退出的标志在此处被设置
         process_functor();
     }
-    LOG_INFO << "EventLoop " << id_ << " Quitted";
+    state_ = State::QUITTED;
+    LOG_INFO << "EventLoop " << id_ << " quitted";
 }
 
 void EventLoop::quit()
 {
-    if(running_ == false)
+    if(state_ == State::QUITTING)
+    {
+        LOG_WARN << "EventLoop " << id_ << " still qutting";
+        return;
+    }
+
+    if(state_ == State::QUITTED)
     {
         LOG_WARN << "EventLoop " << id_ << " has already quitted";
         return;
     }
 
-    LOG_INFO << "EventLoop " << id_ << " Quitting";
-    running_ = false;
+    // 设置QUITTING标志
+    state_ = State::QUITTING;
+    LOG_INFO << "EventLoop " << id_ << " quitting";
+    
+    // 唤醒事件循环以结束
     wakeup();
 }
 
@@ -184,4 +196,21 @@ void EventLoop::read_wake_fd()
 pid_t EventLoop::id()
 {
     return id_;
+}
+
+EventLoop::State EventLoop::state()
+{
+    return state_;
+}
+
+std::string EventLoop::state_to_string(State s)
+{
+    switch(s)
+    {
+        case State::IDLE: return "IDLE"; break;
+        case State::RUNNING: return "RUNNING"; break;
+        case State::QUITTING: return "QUITTING"; break;
+        case State::QUITTED: return "QUITTED"; break;
+        default: return "UNKNOWN EVENTLOOP STATE"; break;
+    }
 }

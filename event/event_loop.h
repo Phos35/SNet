@@ -23,6 +23,15 @@
 class EventLoop
 {
 public:
+    /// @brief 事件循环的状态
+    enum class State
+    {
+        IDLE,       // 空闲，未启动状态
+        RUNNING,    // 运行
+        QUITTING,   // 正在退出
+        QUITTED     // 已退出
+    };
+
     EventLoop();
     ~EventLoop();
 
@@ -44,6 +53,15 @@ public:
     /// @return 线程id
     pid_t id();
 
+    /// @brief 获取事件循环运行状态
+    /// @return 运行状态
+    State state();
+
+    /// @brief 获取事件循环状态对应的字符串
+    /// @param 事件循环状态
+    /// @return 状态对应字符串
+    static std::string state_to_string(State s);
+
 private:
     typedef std::unique_ptr<IOMutiplexing> IOMutiplexingPtr;
     pid_t                   id_;            // EventLoop所在线程的线程id
@@ -55,7 +73,7 @@ private:
     std::vector<Functor>    functors_;      // 跨线程调用列表
     int                     wake_fd_;       // 唤醒eventloop的eventfd
 
-    bool                    running_;       // 事件循环运行标识
+    State                   state_;         // 事件循环运行状态
 
     /// @brief 循环函数
     void loop();

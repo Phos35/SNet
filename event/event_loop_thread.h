@@ -3,6 +3,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <pthread.h>
+#include <thread>
 #include <sys/types.h>
 
 #include "event_loop.h"
@@ -10,6 +11,9 @@
 class EventLoopThread
 {
 public:
+    /// @brief EventLoopThread的状态与EventLoop状态一一对应，因此使用同样的枚举类
+    typedef EventLoop::State State;
+
     EventLoopThread();
     ~EventLoopThread();
 
@@ -29,10 +33,13 @@ public:
     EventLoop *event_loop();
 
 private:
+    typedef std::unique_ptr<std::thread> ThreadPtr;
+
     pid_t                   id_;            // 线程id
     EventLoop*              event_loop_;    // 运行的事件循环指针
-
-    bool                    running_;       // 线程运行标志
+    State                   state_;         // 事件循环线程的状态
+    
+    ThreadPtr               thread_;        // 事件循环所在的线程
     std::mutex              mutex_;         // 线程启动时获取event_loop的互斥锁
     std::condition_variable cond_;          // 告知event_loop已创建的条件变量
 

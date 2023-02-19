@@ -14,10 +14,7 @@ EventLoopThreadPool::~EventLoopThreadPool()
         return;
 
     // 线程池仍在运行，则结束所有线程
-    for (int i = 0; i < threads_.size(); i++)
-    {
-        threads_[i]->quit();
-    }
+    quit_all();
 }
 
 void EventLoopThreadPool::start()
@@ -32,24 +29,14 @@ void EventLoopThreadPool::start()
     running_ = true;
 }
 
-void EventLoopThreadPool::quit_one(pid_t id)
-{
-    for (int i = 0; i < threads_.size(); i++)
-    {
-        if(threads_[i]->id() == id)
-        {
-            threads_[i]->quit();
-            threads_cnt_--;
-            break;
-        }
-    }
-}
-
 void EventLoopThreadPool::quit_all()
 {
-    for (int i = 0; i < threads_.size(); i++)
+    /// EventLoopThread 析构时会退出事件循环
+    /// 注意：EventLoopThread析构时join事件循环所在线程
+    ///       因此可能会消耗较长时间
+    while(threads_.empty() == false)
     {
-        threads_[i]->quit();
+        threads_.pop_back();
     }
 }
 
