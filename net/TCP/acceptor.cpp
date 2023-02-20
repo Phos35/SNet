@@ -42,10 +42,10 @@ void Acceptor::accept()
 
     // 处理新连接
     std::unique_ptr<Socket> soc = std::make_unique<Socket>(client_fd, &client_addr);
-    new_conn_callback_(std::move(soc));
+    conn_callback_(std::move(soc));
 }
 
-void Acceptor::set_new_conn_callback(const NewConnCallBack& cb)
+void Acceptor::set_conn_callback(const ConnCallBack& cb)
 {
-    new_conn_callback_ = std::move(cb);
+    conn_callback_ = std::move(cb);
 }

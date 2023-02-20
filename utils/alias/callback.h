@@ -15,7 +15,7 @@ typedef CallBack Functor;
 typedef CallBack Job;
 
 // 处理新连接的回调函数
-typedef std::function<void(std::unique_ptr<Socket> &&)> NewConnCallBack;
+typedef std::function<void(std::unique_ptr<Socket> &&)> ConnCallBack;
 
 // 字符数组类型参数的回调函数
 typedef std::function<void(const char *)> CharsCallBack;

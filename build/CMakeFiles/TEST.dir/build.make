@@ -57,18 +57,18 @@ include CMakeFiles/TEST.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TEST.dir/flags.make
 
-CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o: ../tests/TCP/test_acceptor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o -c /home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp
+CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../tests/TCP/test_tcp_connection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o -c /home/ubuntu/projects/web_server/SNet/tests/TCP/test_tcp_connection.cpp
 
-CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp > CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.i
+CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/tests/TCP/test_tcp_connection.cpp > CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.i
 
-CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp -o CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.s
+CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/tests/TCP/test_tcp_connection.cpp -o CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.s
 
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: ../utils/buffer/buffer.cpp
@@ -187,113 +187,126 @@ CMakeFiles/TEST.dir/utils/time/timestamp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/utils/time/timestamp.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/utils/time/timestamp.cpp -o CMakeFiles/TEST.dir/utils/time/timestamp.cpp.s
 
-CMakeFiles/TEST.dir/event/epoller.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/event/epoller.cpp.o: ../event/epoller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TEST.dir/event/epoller.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/event/epoller.cpp.o -c /home/ubuntu/projects/web_server/SNet/event/epoller.cpp
+CMakeFiles/TEST.dir/net/event/epoller.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/event/epoller.cpp.o: ../net/event/epoller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TEST.dir/net/event/epoller.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/event/epoller.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/event/epoller.cpp
 
-CMakeFiles/TEST.dir/event/epoller.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/event/epoller.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/event/epoller.cpp > CMakeFiles/TEST.dir/event/epoller.cpp.i
+CMakeFiles/TEST.dir/net/event/epoller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/event/epoller.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/event/epoller.cpp > CMakeFiles/TEST.dir/net/event/epoller.cpp.i
 
-CMakeFiles/TEST.dir/event/epoller.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/event/epoller.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/event/epoller.cpp -o CMakeFiles/TEST.dir/event/epoller.cpp.s
+CMakeFiles/TEST.dir/net/event/epoller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/event/epoller.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/event/epoller.cpp -o CMakeFiles/TEST.dir/net/event/epoller.cpp.s
 
-CMakeFiles/TEST.dir/event/event.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/event/event.cpp.o: ../event/event.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TEST.dir/event/event.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/event/event.cpp.o -c /home/ubuntu/projects/web_server/SNet/event/event.cpp
+CMakeFiles/TEST.dir/net/event/event.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/event/event.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TEST.dir/net/event/event.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/event/event.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/event/event.cpp
 
-CMakeFiles/TEST.dir/event/event.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/event/event.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/event/event.cpp > CMakeFiles/TEST.dir/event/event.cpp.i
+CMakeFiles/TEST.dir/net/event/event.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/event/event.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/event/event.cpp > CMakeFiles/TEST.dir/net/event/event.cpp.i
 
-CMakeFiles/TEST.dir/event/event.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/event/event.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/event/event.cpp -o CMakeFiles/TEST.dir/event/event.cpp.s
+CMakeFiles/TEST.dir/net/event/event.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/event/event.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/event/event.cpp -o CMakeFiles/TEST.dir/net/event/event.cpp.s
 
-CMakeFiles/TEST.dir/event/event_loop.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/event/event_loop.cpp.o: ../event/event_loop.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TEST.dir/event/event_loop.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/event/event_loop.cpp.o -c /home/ubuntu/projects/web_server/SNet/event/event_loop.cpp
+CMakeFiles/TEST.dir/net/event/event_loop.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/event/event_loop.cpp.o: ../net/event/event_loop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TEST.dir/net/event/event_loop.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/event/event_loop.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/event/event_loop.cpp
 
-CMakeFiles/TEST.dir/event/event_loop.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/event/event_loop.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/event/event_loop.cpp > CMakeFiles/TEST.dir/event/event_loop.cpp.i
+CMakeFiles/TEST.dir/net/event/event_loop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/event/event_loop.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/event/event_loop.cpp > CMakeFiles/TEST.dir/net/event/event_loop.cpp.i
 
-CMakeFiles/TEST.dir/event/event_loop.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/event/event_loop.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/event/event_loop.cpp -o CMakeFiles/TEST.dir/event/event_loop.cpp.s
+CMakeFiles/TEST.dir/net/event/event_loop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/event/event_loop.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/event/event_loop.cpp -o CMakeFiles/TEST.dir/net/event/event_loop.cpp.s
 
-CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o: ../event/event_loop_thread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o -c /home/ubuntu/projects/web_server/SNet/event/event_loop_thread.cpp
+CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o: ../net/event/event_loop_thread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread.cpp
 
-CMakeFiles/TEST.dir/event/event_loop_thread.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/event/event_loop_thread.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/event/event_loop_thread.cpp > CMakeFiles/TEST.dir/event/event_loop_thread.cpp.i
+CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread.cpp > CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.i
 
-CMakeFiles/TEST.dir/event/event_loop_thread.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/event/event_loop_thread.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/event/event_loop_thread.cpp -o CMakeFiles/TEST.dir/event/event_loop_thread.cpp.s
+CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread.cpp -o CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.s
 
-CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o: ../event/event_loop_thread_pool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o -c /home/ubuntu/projects/web_server/SNet/event/event_loop_thread_pool.cpp
+CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o: ../net/event/event_loop_thread_pool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread_pool.cpp
 
-CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/event/event_loop_thread_pool.cpp > CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.i
+CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread_pool.cpp > CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.i
 
-CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/event/event_loop_thread_pool.cpp -o CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.s
+CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread_pool.cpp -o CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.s
 
-CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o: ../event/iomutiplexing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o -c /home/ubuntu/projects/web_server/SNet/event/iomutiplexing.cpp
+CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o: ../net/event/iomutiplexing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/event/iomutiplexing.cpp
 
-CMakeFiles/TEST.dir/event/iomutiplexing.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/event/iomutiplexing.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/event/iomutiplexing.cpp > CMakeFiles/TEST.dir/event/iomutiplexing.cpp.i
+CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/event/iomutiplexing.cpp > CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.i
 
-CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/event/iomutiplexing.cpp -o CMakeFiles/TEST.dir/event/iomutiplexing.cpp.s
+CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/event/iomutiplexing.cpp -o CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.s
 
-CMakeFiles/TEST.dir/socket/socket.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/socket/socket.cpp.o: ../socket/socket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/TEST.dir/socket/socket.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/socket/socket.cpp.o -c /home/ubuntu/projects/web_server/SNet/socket/socket.cpp
+CMakeFiles/TEST.dir/net/socket/socket.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/socket/socket.cpp.o: ../net/socket/socket.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/TEST.dir/net/socket/socket.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/socket/socket.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/socket/socket.cpp
 
-CMakeFiles/TEST.dir/socket/socket.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/socket/socket.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/socket/socket.cpp > CMakeFiles/TEST.dir/socket/socket.cpp.i
+CMakeFiles/TEST.dir/net/socket/socket.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/socket/socket.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/socket/socket.cpp > CMakeFiles/TEST.dir/net/socket/socket.cpp.i
 
-CMakeFiles/TEST.dir/socket/socket.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/socket/socket.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/socket/socket.cpp -o CMakeFiles/TEST.dir/socket/socket.cpp.s
+CMakeFiles/TEST.dir/net/socket/socket.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/socket/socket.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/socket/socket.cpp -o CMakeFiles/TEST.dir/net/socket/socket.cpp.s
 
-CMakeFiles/TEST.dir/TCP/acceptor.cpp.o: CMakeFiles/TEST.dir/flags.make
-CMakeFiles/TEST.dir/TCP/acceptor.cpp.o: ../TCP/acceptor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/TEST.dir/TCP/acceptor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/TCP/acceptor.cpp.o -c /home/ubuntu/projects/web_server/SNet/TCP/acceptor.cpp
+CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o: ../net/TCP/acceptor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/TCP/acceptor.cpp
 
-CMakeFiles/TEST.dir/TCP/acceptor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/TCP/acceptor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/TCP/acceptor.cpp > CMakeFiles/TEST.dir/TCP/acceptor.cpp.i
+CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/TCP/acceptor.cpp > CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.i
 
-CMakeFiles/TEST.dir/TCP/acceptor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/TCP/acceptor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/TCP/acceptor.cpp -o CMakeFiles/TEST.dir/TCP/acceptor.cpp.s
+CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/TCP/acceptor.cpp -o CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.s
+
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/TCP/tcp_connection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/TCP/tcp_connection.cpp
+
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/TCP/tcp_connection.cpp > CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.i
+
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/TCP/tcp_connection.cpp -o CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s
 
 # Object files for target TEST
 TEST_OBJECTS = \
-"CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o" \
+"CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o" \
 "CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o" \
 "CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o" \
 "CMakeFiles/TEST.dir/utils/config/config.cpp.o" \
@@ -303,19 +316,20 @@ TEST_OBJECTS = \
 "CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o" \
 "CMakeFiles/TEST.dir/utils/log/logger.cpp.o" \
 "CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o" \
-"CMakeFiles/TEST.dir/event/epoller.cpp.o" \
-"CMakeFiles/TEST.dir/event/event.cpp.o" \
-"CMakeFiles/TEST.dir/event/event_loop.cpp.o" \
-"CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o" \
-"CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o" \
-"CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o" \
-"CMakeFiles/TEST.dir/socket/socket.cpp.o" \
-"CMakeFiles/TEST.dir/TCP/acceptor.cpp.o"
+"CMakeFiles/TEST.dir/net/event/epoller.cpp.o" \
+"CMakeFiles/TEST.dir/net/event/event.cpp.o" \
+"CMakeFiles/TEST.dir/net/event/event_loop.cpp.o" \
+"CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o" \
+"CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o" \
+"CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o" \
+"CMakeFiles/TEST.dir/net/socket/socket.cpp.o" \
+"CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o" \
+"CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o"
 
 # External object files for target TEST
 TEST_EXTERNAL_OBJECTS =
 
-TEST: CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o
+TEST: CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/config/config.cpp.o
@@ -325,17 +339,18 @@ TEST: CMakeFiles/TEST.dir/utils/log/log_file.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/log/logger.cpp.o
 TEST: CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o
-TEST: CMakeFiles/TEST.dir/event/epoller.cpp.o
-TEST: CMakeFiles/TEST.dir/event/event.cpp.o
-TEST: CMakeFiles/TEST.dir/event/event_loop.cpp.o
-TEST: CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o
-TEST: CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o
-TEST: CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o
-TEST: CMakeFiles/TEST.dir/socket/socket.cpp.o
-TEST: CMakeFiles/TEST.dir/TCP/acceptor.cpp.o
+TEST: CMakeFiles/TEST.dir/net/event/epoller.cpp.o
+TEST: CMakeFiles/TEST.dir/net/event/event.cpp.o
+TEST: CMakeFiles/TEST.dir/net/event/event_loop.cpp.o
+TEST: CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o
+TEST: CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o
+TEST: CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o
+TEST: CMakeFiles/TEST.dir/net/socket/socket.cpp.o
+TEST: CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o
+TEST: CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o
 TEST: CMakeFiles/TEST.dir/build.make
 TEST: CMakeFiles/TEST.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable TEST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable TEST"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TEST.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

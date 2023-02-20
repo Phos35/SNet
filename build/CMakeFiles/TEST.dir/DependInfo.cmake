@@ -4,15 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ubuntu/projects/web_server/SNet/TCP/acceptor.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/TCP/acceptor.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/event/epoller.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/epoller.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/event/event.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/event.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/event/event_loop.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/event_loop.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/event/event_loop_thread.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/event_loop_thread.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/event/event_loop_thread_pool.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/event_loop_thread_pool.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/event/iomutiplexing.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/event/iomutiplexing.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/socket/socket.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/socket/socket.cpp.o"
-  "/home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/tests/TCP/test_acceptor.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/TCP/acceptor.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/TCP/tcp_connection.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/event/epoller.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/event/epoller.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/event/event.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/event/event.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/event/event_loop.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/event/event_loop.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/event/event_loop_thread_pool.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/event/iomutiplexing.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/socket/socket.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/socket/socket.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/tests/TCP/test_tcp_connection.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/utils/buffer/buffer.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/utils/buffer/byte_buffer.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/utils/config/config.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/utils/config/config.cpp.o"
@@ -34,9 +35,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../utils/log"
   "../utils/time"
   "../third/jsoncpp"
-  "../event"
-  "../socket"
-  "../TCP"
+  "../net/event"
+  "../net/socket"
+  "../net/TCP"
   )
 
 # Targets to which this target links.
