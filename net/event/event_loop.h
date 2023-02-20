@@ -45,6 +45,14 @@ public:
     /// @param e 待添加的事件
     void add_event(Event &e);
 
+    /// @brief 更新事件 -- 如关注的事件类型等
+    /// @param e 待修改的事件
+    void update_event(Event &e);
+
+    /// @brief 删除事件
+    /// @param e 待删除的事件
+    void del_event(Event &e);
+
     /// @brief 添加跨线程调用
     /// @param functor 跨线程调用函数
     void run_in_loop(const Functor &functor);
@@ -88,6 +96,14 @@ private:
     /// @brief 在事件循环内添加事件
     /// @param e 待添加的事件
     void add_event_in_loop(Event &e);
+
+    /// @brief 在事件循环内更新事件
+    /// @param e 待更新的事件
+    void update_event_in_loop(Event &e);
+
+    /// @brief 在事件循环内删除事件
+    /// @param e 待删除的事件
+    void del_event_in_loop(Event &e);
 
     /// @brief 处理活跃事件
     /// @param fired_cnt 活跃事件的数量

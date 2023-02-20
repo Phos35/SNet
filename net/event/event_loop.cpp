@@ -124,6 +124,32 @@ void EventLoop::add_event_in_loop(Event &e)
     poller_->add_event(e);
 }
 
+void EventLoop::update_event(Event &e)
+{
+    if(in_loop_thread() == true)
+        poller_->update_event(e);
+    else
+        run_in_loop(std::bind(&EventLoop::update_event_in_loop, this, e));
+}
+
+void EventLoop::update_event_in_loop(Event &e)
+{
+    poller_->update_event(e);
+}
+
+void EventLoop::del_event(Event &e)
+{
+    if(in_loop_thread() == true)
+        poller_->del_event(e);
+    else
+        run_in_loop(std::bind(&EventLoop::del_event_in_loop, this, e));
+}
+
+void EventLoop::del_event_in_loop(Event& e)
+{
+    poller_->del_event(e);
+}
+
 void EventLoop::run_in_loop(const Functor &functor)
 {
     // 若调用发生在本线程内，则直接执行
