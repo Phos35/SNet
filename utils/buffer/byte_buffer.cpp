@@ -3,9 +3,14 @@
 
 ByteBuffer::ByteBuffer(int capacity)
 : read_index_(0), write_index_(0), capacity_(capacity),
-  buffer_(capacity_, 0)
+  buffer_(capacity, 0)
 {
     
+}
+
+char* ByteBuffer::writeable_area()
+{
+    return buffer_.data() + write_index_;
 }
 
 size_t ByteBuffer::write(const char* val, size_t length)
@@ -19,7 +24,8 @@ size_t ByteBuffer::write(const char* val, size_t length)
         compact();
     
     // 写入数据
-    buffer_.replace(write_index_, length, val);
+    char *data = buffer_.data() + write_index_;
+    memcpy(data, val, length);
     write_index_ += length;
 
     return length;
@@ -36,7 +42,7 @@ size_t ByteBuffer::read(char* dst, size_t length)
     if(dst == nullptr)
         return 0;
 
-    memcpy(dst, buffer_.c_str() + read_index_, length);
+    memcpy(dst, buffer_.data() + read_index_, length);
     return length;
 }
 
@@ -47,7 +53,7 @@ std::string ByteBuffer::read(size_t length)
     if(length == 0)
         length = readable();
 
-    return buffer_.substr(read_index_, length);
+    return std::string(buffer_.data() + read_index_, length);
 }
 
 std::string ByteBuffer::release(size_t length)
@@ -59,8 +65,9 @@ std::string ByteBuffer::release(size_t length)
 
 void ByteBuffer::compact()
 {
+    // WARN: 注意此处的自拷贝，可能会导致问题
     size_t content_len = readable();
-    buffer_.replace(0, content_len, buffer_, read_index_, content_len);
+    memcpy(buffer_.data(), buffer_.data() + read_index_, content_len);
 
     read_index_ = 0;
     write_index_ = content_len;
@@ -86,20 +93,43 @@ size_t ByteBuffer::post_writeable()
     return capacity_ - write_index_;
 }
 
+size_t ByteBuffer::capacity()
+{
+    return capacity_;
+}
+
 size_t ByteBuffer::extend(size_t increment)
 {
-    buffer_.reserve(buffer_.size() + increment);
-    capacity_ = buffer_.capacity();
-    return buffer_.capacity();
+    // WARN 此处不能使用reserve，原因可能与reserve中重新分配内存与size
+    //      有关，后续需要深入
+    buffer_.resize(capacity_ + increment);
+    capacity_ = buffer_.size();
+    return buffer_.size();
+}
+
+size_t ByteBuffer::shrink(size_t decrement)
+{
+    if(capacity_ <= decrement)
+        return capacity_;
+
+    capacity_ -= decrement;
+    buffer_.resize(capacity_);
+    return buffer_.size();
+}
+
+void ByteBuffer::increase_write_index(size_t increment)
+{
+    write_index_ += increment;
 }
 
 std::string ByteBuffer::to_string()
 {
     char info[256] = {0};
     snprintf(info, 256,
-             "read_index_: %lu, write_index_: %lu,\n \
+             "capacity: %lu\n \
+             \rread_index_: %lu, write_index_: %lu,\n \
              \rreadable: %lu, writeable: %lu \n \
              \rcontent: %s\n\n",
-             read_index_, write_index_, readable(), writeable(), buffer_.c_str());
+             capacity_, read_index_, write_index_, readable(), writeable(), std::string(buffer_.data() + read_index_, readable()).c_str());
     return info;
 }

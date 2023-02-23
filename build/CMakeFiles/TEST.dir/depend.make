@@ -125,30 +125,36 @@ CMakeFiles/TEST.dir/net/socket/socket.cpp.o: ../utils/time/timestamp.h
 CMakeFiles/TEST.dir/net/socket/socket.cpp.o: ../net/socket/socket.cpp
 CMakeFiles/TEST.dir/net/socket/socket.cpp.o: ../net/socket/socket.h
 
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/TCP/acceptor.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/TCP/tcp_connection.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/event/event.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/event/event_loop.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/event/event_loop_thread.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/event/event_loop_thread_pool.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/event/iomutiplexing.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../net/socket/socket.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../third/jsoncpp/json.hpp
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/alias/callback.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/buffer/fixed_buffer.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/config/config.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/log/append_file.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/log/async_log.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/log/log_file.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/log/log_stream.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/log/logger.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../utils/time/timestamp.h
-CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o: ../tests/TCP/test_tcp_connection.cpp
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../net/TCP/acceptor.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../net/event/event.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../net/event/event_loop.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../net/event/event_loop_thread.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../net/event/iomutiplexing.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../net/socket/socket.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../third/jsoncpp/json.hpp
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../utils/buffer/byte_buffer.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../utils/buffer/tcp_buffer.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../utils/config/config.h
+CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o: ../tests/utils/buffer/tcp_buffer/test_iovec.cpp
 
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: ../utils/buffer/buffer.cpp
 
 CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o: ../utils/buffer/byte_buffer.cpp
 CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o: ../utils/buffer/byte_buffer.h
+
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../net/socket/socket.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/log/append_file.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/log/async_log.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/log/log_file.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/log/log_stream.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/log/logger.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/time/timestamp.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/buffer/byte_buffer.h
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/buffer/tcp_buffer.cpp
+CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o: ../utils/buffer/tcp_buffer.h
 
 CMakeFiles/TEST.dir/utils/config/config.cpp.o: ../third/jsoncpp/json.hpp
 CMakeFiles/TEST.dir/utils/config/config.cpp.o: ../utils/config/config.cpp

@@ -21,12 +21,26 @@
 // 2. readable_area:            write_index_ - read_index_
 // 3. post_writeable_area:      n - write_index_
 
+/*注意！*/
+// 此处使用string作为缓冲区是存在问题的，理由如下：
+// 1. 当TCPBuffer使用data()->char*写入时，实际调用的时string.data()，而这个函数的返回值是const的，
+//    因此这种做法从语言层面上来讲是一种bad behavior；
+//    同时，在事件操作方面，直接写string.data()返回的指针将不会更新string内部的size等属性，也就意
+//    味着string作为一个容器已经失效了。关于这一点，实际上可以容忍，因为数据的大小全部由ByteBuffer
+//    中的三个指针接管，而实际上不需要string自身的size。使用string只是为了扩容机制。
+//    但是考虑到第一条——将const指针转化为非const，有可能会因为udefined behavior而在某些平台上报错，
+//    因此最好还是改为使用vector<char> 
+
 // 字节缓冲区
 class ByteBuffer
 {
 public:
     /// @brief 默认构造函数，初始化buffer_为指定大小的数组
     ByteBuffer(int capacity = 0);
+
+    /// @brief 获取post_writeable_are的指针
+    /// @return post_writeable_are的指针
+    char *writeable_area();
 
     /// @brief 向缓冲区中写入内容 
     /// @param val 待写入的内容
@@ -76,11 +90,20 @@ protected:
     /// @return 扩容后的实际大小
     size_t extend(size_t increment);
 
+    /// @brief 缩小buffer
+    /// @param decrement 需要缩小的大小
+    /// @return 缩小后的实际大小
+    size_t shrink(size_t decrement);
+
+    /// @brief 增加write_index_
+    /// @param increment 增量
+    void increase_write_index(size_t increment);
+
 private:
-    std::string buffer_;        // 字节数组，缓冲区
-    size_t      read_index_;    // readable区域的起始位置指针 
-    size_t      write_index_;   // writeable区域的起始位置指针
-    size_t      capacity_;      // 缓冲区容量
+    std::vector<char>   buffer_;        // 字节数组，缓冲区
+    size_t              read_index_;    // readable区域的起始位置指针 
+    size_t              write_index_;   // writeable区域的起始位置指针
+    size_t              capacity_;      // 缓冲区容量
 
     /// @brief 获取可读区域前的可写区域长度
     /// @return pre_writeable_area 的长度

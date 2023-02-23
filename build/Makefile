@@ -366,32 +366,32 @@ net/socket/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/socket/socket.cpp.s
 .PHONY : net/socket/socket.cpp.s
 
-tests/TCP/test_tcp_connection.o: tests/TCP/test_tcp_connection.cpp.o
+tests/utils/buffer/tcp_buffer/test_iovec.o: tests/utils/buffer/tcp_buffer/test_iovec.cpp.o
 
-.PHONY : tests/TCP/test_tcp_connection.o
+.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.o
 
 # target to build an object file
-tests/TCP/test_tcp_connection.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.o
-.PHONY : tests/TCP/test_tcp_connection.cpp.o
+tests/utils/buffer/tcp_buffer/test_iovec.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o
+.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.cpp.o
 
-tests/TCP/test_tcp_connection.i: tests/TCP/test_tcp_connection.cpp.i
+tests/utils/buffer/tcp_buffer/test_iovec.i: tests/utils/buffer/tcp_buffer/test_iovec.cpp.i
 
-.PHONY : tests/TCP/test_tcp_connection.i
+.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.i
 
 # target to preprocess a source file
-tests/TCP/test_tcp_connection.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.i
-.PHONY : tests/TCP/test_tcp_connection.cpp.i
+tests/utils/buffer/tcp_buffer/test_iovec.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.i
+.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.cpp.i
 
-tests/TCP/test_tcp_connection.s: tests/TCP/test_tcp_connection.cpp.s
+tests/utils/buffer/tcp_buffer/test_iovec.s: tests/utils/buffer/tcp_buffer/test_iovec.cpp.s
 
-.PHONY : tests/TCP/test_tcp_connection.s
+.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.s
 
 # target to generate assembly for a file
-tests/TCP/test_tcp_connection.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_tcp_connection.cpp.s
-.PHONY : tests/TCP/test_tcp_connection.cpp.s
+tests/utils/buffer/tcp_buffer/test_iovec.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.s
+.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -446,6 +446,33 @@ utils/buffer/byte_buffer.s: utils/buffer/byte_buffer.cpp.s
 utils/buffer/byte_buffer.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.s
 .PHONY : utils/buffer/byte_buffer.cpp.s
+
+utils/buffer/tcp_buffer.o: utils/buffer/tcp_buffer.cpp.o
+
+.PHONY : utils/buffer/tcp_buffer.o
+
+# target to build an object file
+utils/buffer/tcp_buffer.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o
+.PHONY : utils/buffer/tcp_buffer.cpp.o
+
+utils/buffer/tcp_buffer.i: utils/buffer/tcp_buffer.cpp.i
+
+.PHONY : utils/buffer/tcp_buffer.i
+
+# target to preprocess a source file
+utils/buffer/tcp_buffer.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.i
+.PHONY : utils/buffer/tcp_buffer.cpp.i
+
+utils/buffer/tcp_buffer.s: utils/buffer/tcp_buffer.cpp.s
+
+.PHONY : utils/buffer/tcp_buffer.s
+
+# target to generate assembly for a file
+utils/buffer/tcp_buffer.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.s
+.PHONY : utils/buffer/tcp_buffer.cpp.s
 
 utils/config/config.o: utils/config/config.cpp.o
 
@@ -672,15 +699,18 @@ help:
 	@echo "... net/socket/socket.o"
 	@echo "... net/socket/socket.i"
 	@echo "... net/socket/socket.s"
-	@echo "... tests/TCP/test_tcp_connection.o"
-	@echo "... tests/TCP/test_tcp_connection.i"
-	@echo "... tests/TCP/test_tcp_connection.s"
+	@echo "... tests/utils/buffer/tcp_buffer/test_iovec.o"
+	@echo "... tests/utils/buffer/tcp_buffer/test_iovec.i"
+	@echo "... tests/utils/buffer/tcp_buffer/test_iovec.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"
 	@echo "... utils/buffer/byte_buffer.o"
 	@echo "... utils/buffer/byte_buffer.i"
 	@echo "... utils/buffer/byte_buffer.s"
+	@echo "... utils/buffer/tcp_buffer.o"
+	@echo "... utils/buffer/tcp_buffer.i"
+	@echo "... utils/buffer/tcp_buffer.s"
 	@echo "... utils/config/config.o"
 	@echo "... utils/config/config.i"
 	@echo "... utils/config/config.s"
