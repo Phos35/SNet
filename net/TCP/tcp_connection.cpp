@@ -5,11 +5,12 @@
 TCPConnection::TCPConnection(size_t id, EventLoop* event_loop, 
                              SocketPtr&& client_socket,
                              Decoder::UPtr&& decoder, 
-                             Dispatcher::UPtr&& dispatcher)
+                             Dispatcher::UPtr&& dispatcher,
+                             WorkerPool* pool)
 :id_(id), loop_(event_loop), socket_(std::move(client_socket)), state_(State::CREATING),
  event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)), 
  decoder_(std::move(decoder)), dispatcher_(std::move(dispatcher)),
- buffer_(65536)
+ worker_pool_(pool), buffer_(65536)
 {
     LOG_INFO << "\nTCPConnection " << id_ << " Creating\n"
              << "Manage fd: " << event_.fd() << "\n"
@@ -48,19 +49,13 @@ void TCPConnection::set_close_callback(const CloseCallBack &close_cb)
 
 void TCPConnection::write(const std::string &data)
 {
-    write(data.c_str(), data.length());
-}
-
-void TCPConnection::write(const char *data, size_t length)
-{
-    loop_->run_in_loop(std::bind(&TCPConnection::write_in_loop, shared_from_this(), data, length));
+    loop_->run_in_loop(std::bind(&TCPConnection::write_in_loop, this, data));
 }
 
 // TODO 错误处理、单次写入未完成则启动写事件关注等
-void TCPConnection::write_in_loop(const char* data, size_t length)
+void TCPConnection::write_in_loop(const std::string& data)
 {
-    int written_size = ::write(socket_->fd(), data, length);
-    LOG_TRACE << "TCPConnection write data: " << written_size << " bytes";
+    int written_size = ::write(socket_->fd(), data.data(), data.size());
 }
 
 void TCPConnection::close()
@@ -130,9 +125,8 @@ void TCPConnection::process_read()
         close();
     }
 
-    // 数据解析分发
-    Message::Ptr message = decode(buffer_.read(0));
-    dispatch(message);
+    // 数据解析提交工作线程池
+    worker_pool_->add_task(shared_from_this());
 }
 
 Message::Ptr TCPConnection::decode(const std::string& data)

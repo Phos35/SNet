@@ -6,6 +6,7 @@
 #include "decoder.h"
 #include "dispatcher.h"
 #include "tcp_buffer.h"
+#include "worker_pool.h"
 
 /*  TODO   */
 // 1. 需要Buffer
@@ -38,8 +39,12 @@ public:
     /// @param id 连接id
     /// @param event_loop TCP连接所属的事件循环
     /// @param client_socket 代表客户端的socket
+    /// @param decoder 消息解码器/解析器
+    /// @param dispatcher 消息分发器
+    /// @param pool 工作线程池
     TCPConnection(size_t id, EventLoop* event_loop, SocketPtr&& client_socket,
-                  Decoder::UPtr&& decoder, Dispatcher::UPtr&& dispatcher);
+                  Decoder::UPtr&& decoder, Dispatcher::UPtr&& dispatcher,
+                  WorkerPool* pool);
 
     /// @brief 析构，释放相关资源
     virtual ~TCPConnection();
@@ -116,6 +121,7 @@ private:
 
     Decoder::UPtr       decoder_;           // 数据解析器
     Dispatcher::UPtr    dispatcher_;        // 消息分发器
+    WorkerPool*         worker_pool_;       // 工作线程池
 
     MsgCallBack         msg_callback_;      // 处理新消息的回调函数 TODO 应当改为Decoder调用
     CloseCallBack       close_callback_;    // 处理关闭事件的回调函数
@@ -131,8 +137,7 @@ private:
 
     /// @brief 将写入操作转移到事件循环中完成
     /// @param data 待写入的数据
-    /// @param length 数据长度
-    void write_in_loop(const char* data, size_t length);
+    void write_in_loop(const std::string& data);
 };
 
 #endif

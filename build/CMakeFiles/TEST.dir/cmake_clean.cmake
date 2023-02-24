@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o"
   "CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o"
+  "CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o"
   "CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o"
   "CMakeFiles/TEST.dir/net/decoder/message.cpp.o"
   "CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o"

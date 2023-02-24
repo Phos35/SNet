@@ -15,6 +15,8 @@ std::unordered_map<size_t, TCPConnPtr> m;
 EventLoopThreadPool pool(4);
 bool end = false;
 
+WorkerPool *worker_pool = new WorkerPool(2, 10000);
+
 class TestMessage: public Message
 {
 public:
@@ -123,7 +125,8 @@ void on_arrive(SocketPtr&& socket)
     // 创建TCPConnection并加入到map中
     TCPConnPtr tcp_conn = std::make_unique<TCPConnection>(id, loop, std::move(socket),
                                                           std::make_unique<TestDecoder>(),
-                                                          std::make_unique<TestDispatcher>());
+                                                          std::make_unique<TestDispatcher>(),
+                                                          worker_pool);
     tcp_conn->set_msg_callback(on_read);
     tcp_conn->set_close_callback(on_close);
     m.insert({id, tcp_conn});
@@ -170,6 +173,9 @@ int main()
 
     // 启动事件循环线程池
     pool.start();
+
+    // 启动工作线程池
+    worker_pool->start();
 
     // 注册消息处理函数
     TestDispatcher::register_processor("time", echo_time);

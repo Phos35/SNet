@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ubuntu/projects/web_server/SNet/net/TCP/acceptor.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/net/TCP/tcp_connection.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o"
+  "/home/ubuntu/projects/web_server/SNet/net/TCP/worker_pool.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/net/decoder/decoder.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/net/decoder/message.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/decoder/message.cpp.o"
   "/home/ubuntu/projects/web_server/SNet/net/dispatcher/dispatcher.cpp" "/home/ubuntu/projects/web_server/SNet/build/CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o"

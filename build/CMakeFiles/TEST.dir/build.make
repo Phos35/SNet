@@ -317,9 +317,22 @@ CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/TCP/tcp_connection.cpp -o CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s
 
+CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o: CMakeFiles/TEST.dir/flags.make
+CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o: ../net/TCP/worker_pool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/TCP/worker_pool.cpp
+
+CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/projects/web_server/SNet/net/TCP/worker_pool.cpp > CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.i
+
+CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/projects/web_server/SNet/net/TCP/worker_pool.cpp -o CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.s
+
 CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o: ../net/decoder/decoder.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/decoder/decoder.cpp
 
 CMakeFiles/TEST.dir/net/decoder/decoder.cpp.i: cmake_force
@@ -332,7 +345,7 @@ CMakeFiles/TEST.dir/net/decoder/decoder.cpp.s: cmake_force
 
 CMakeFiles/TEST.dir/net/decoder/message.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/net/decoder/message.cpp.o: ../net/decoder/message.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/TEST.dir/net/decoder/message.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/TEST.dir/net/decoder/message.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/decoder/message.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/decoder/message.cpp
 
 CMakeFiles/TEST.dir/net/decoder/message.cpp.i: cmake_force
@@ -345,7 +358,7 @@ CMakeFiles/TEST.dir/net/decoder/message.cpp.s: cmake_force
 
 CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: CMakeFiles/TEST.dir/flags.make
 CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/dispatcher/dispatcher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o -c /home/ubuntu/projects/web_server/SNet/net/dispatcher/dispatcher.cpp
 
 CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.i: cmake_force
@@ -378,6 +391,7 @@ TEST_OBJECTS = \
 "CMakeFiles/TEST.dir/net/socket/socket.cpp.o" \
 "CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o" \
 "CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o" \
+"CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o" \
 "CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o" \
 "CMakeFiles/TEST.dir/net/decoder/message.cpp.o" \
 "CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o"
@@ -405,12 +419,13 @@ TEST: CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o
 TEST: CMakeFiles/TEST.dir/net/socket/socket.cpp.o
 TEST: CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o
 TEST: CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o
+TEST: CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o
 TEST: CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o
 TEST: CMakeFiles/TEST.dir/net/decoder/message.cpp.o
 TEST: CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o
 TEST: CMakeFiles/TEST.dir/build.make
 TEST: CMakeFiles/TEST.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable TEST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/projects/web_server/SNet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable TEST"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TEST.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

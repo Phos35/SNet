@@ -177,6 +177,33 @@ net/TCP/tcp_connection.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s
 .PHONY : net/TCP/tcp_connection.cpp.s
 
+net/TCP/worker_pool.o: net/TCP/worker_pool.cpp.o
+
+.PHONY : net/TCP/worker_pool.o
+
+# target to build an object file
+net/TCP/worker_pool.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o
+.PHONY : net/TCP/worker_pool.cpp.o
+
+net/TCP/worker_pool.i: net/TCP/worker_pool.cpp.i
+
+.PHONY : net/TCP/worker_pool.i
+
+# target to preprocess a source file
+net/TCP/worker_pool.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.i
+.PHONY : net/TCP/worker_pool.cpp.i
+
+net/TCP/worker_pool.s: net/TCP/worker_pool.cpp.s
+
+.PHONY : net/TCP/worker_pool.s
+
+# target to generate assembly for a file
+net/TCP/worker_pool.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.s
+.PHONY : net/TCP/worker_pool.cpp.s
+
 net/decoder/decoder.o: net/decoder/decoder.cpp.o
 
 .PHONY : net/decoder/decoder.o
@@ -759,6 +786,9 @@ help:
 	@echo "... net/TCP/tcp_connection.o"
 	@echo "... net/TCP/tcp_connection.i"
 	@echo "... net/TCP/tcp_connection.s"
+	@echo "... net/TCP/worker_pool.o"
+	@echo "... net/TCP/worker_pool.i"
+	@echo "... net/TCP/worker_pool.s"
 	@echo "... net/decoder/decoder.o"
 	@echo "... net/decoder/decoder.i"
 	@echo "... net/decoder/decoder.s"
