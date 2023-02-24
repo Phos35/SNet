@@ -1,4 +1,6 @@
 #include "logger.h"
+#include <sys/types.h>
+#include <unistd.h>
 
 Logger::LogLevel Logger::level_ = Logger::LogLevel::TRACE;
 std::string Logger::levels_str[] = {"FATAL", "ERROR", "WARN", "INFO", "DEBUG", "TRACE"};
@@ -7,7 +9,7 @@ AsyncLog Logger::async_;
 bool Logger::async_enableed_ = false;
 
 Logger::Logger(LogLevel level, const std::string &file, const std::string& func, int line)
-:timestamp_(Timestamp::now()), tid_(pthread_self()), 
+:timestamp_(Timestamp::now()), tid_(gettid()), 
  file_(file), func_(func), line_(line)
 {
     stream_ << timestamp_.format("%Y-%m-%d %H:%M:%S.%s") << "  "

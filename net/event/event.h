@@ -5,13 +5,30 @@
 #include <string>
 #include <unordered_map>
 
+// 前向声明
+class TCPConnection;
+
 class Event
 {
 public:
-    Event(int fd = -1, uint32_t mask = 0);
+    typedef std::weak_ptr<TCPConnection> TCPConnWPtr;
+    typedef std::shared_ptr<TCPConnection> TCPCoonSPtr;
+
+    enum class OwnerType
+    {
+        NONE,           // 一般持有者，如单纯的事件循环            
+        ACCEPTOR,       // 接收器
+        CONNECTION,     // 连接
+    };
+
+    Event(OwnerType type = OwnerType::NONE, int fd = -1, uint32_t mask = 0);
 
     /// @brief 处理发生的事件
     void process();
+
+    /// @brief 设置weak_ptr_
+    /// @param conn TCP连接
+    void set_weak_ptr(const TCPCoonSPtr &conn);
 
     /// @brief 设置读事件处理回调函数
     void set_read_callback(const CallBack& cb);
@@ -75,9 +92,11 @@ public:
 private:
     int             fd_;                // 关注的文件描述符
     uint32_t        mask_;              // 关注事件的掩码
+    TCPConnWPtr     weak_ptr_;          // connection的weak_ptr，用于判断是否存活
+    OwnerType       owner_;             // 所有者的类型，用于判断是否使用weak_ptr判断存活
 
-    CallBack   read_callback_;     // 处理读事件的回调函数
-    CallBack   write_callback_;    // 处理写事件的回调函数
+    CallBack        read_callback_;     // 处理读事件的回调函数
+    CallBack        write_callback_;    // 处理写事件的回调函数
 };
 
 #endif

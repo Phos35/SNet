@@ -18,7 +18,7 @@ void Acceptor::start()
     int ret = listen(listen_fd_, 10000);
 
     // 绑定监听fd上的读事件处理函数，并将事件注册到事件循环中
-    Event listen_event(listen_fd_, EPOLLIN);
+    Event listen_event(Event::OwnerType::ACCEPTOR, listen_fd_, EPOLLIN);
     listen_event.set_read_callback(std::bind(&Acceptor::accept, this));
     loop->add_event(listen_event);
 }

@@ -50,7 +50,7 @@ private:
     static bool             async_enableed_;// 异步日志启用的标志
 
     Timestamp               timestamp_;     // Logger生成的时间戳
-    pthread_t               tid_;           // 线程id
+    pid_t                   tid_;           // 线程id
     static LogLevel         level_;         // 日志输出等级
     static std::string      levels_str[];   // 日志输出等级对应的字符串
 

@@ -63,6 +63,9 @@ CMakeFiles/TEST.dir/net/event/epoller.cpp.o: ../net/event/epoller.h
 CMakeFiles/TEST.dir/net/event/epoller.cpp.o: ../net/event/event.h
 CMakeFiles/TEST.dir/net/event/epoller.cpp.o: ../net/event/iomutiplexing.h
 
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/TCP/tcp_connection.h
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/event/event_loop.h
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/event/iomutiplexing.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/socket/socket.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/alias/callback.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/buffer/fixed_buffer.h

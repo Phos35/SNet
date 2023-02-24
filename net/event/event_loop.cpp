@@ -28,7 +28,7 @@ EventLoop::EventLoop()
         poller_ = std::make_unique<EPoller>();
     
     // 注册wake_fd的事件
-    Event wake_event(wake_fd_, EPOLLIN);
+    Event wake_event(Event::OwnerType::NONE, wake_fd_, EPOLLIN);
     wake_event.set_read_callback(std::bind(&EventLoop::read_wake_fd, this));
     poller_->add_event(wake_event);
 }

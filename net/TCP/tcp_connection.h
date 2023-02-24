@@ -9,6 +9,8 @@
 // 2. 完善write逻辑
 // 3. 需要Decoder
 // 4. 其余查看cpp文件
+// 5. 所有需要使用到TCPConnection的callback均应使用weak_ptr来代替，
+//    否则作为成员的回调函数会提升shared_ptr的引用计数并且不会降下来
 
 
 /// @brief TCP连接的抽象，采用shared_ptr管理生命周期

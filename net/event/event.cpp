@@ -1,8 +1,9 @@
 #include "event.h"
 #include "logger.h"
+#include "tcp_connection.h"
 
-Event::Event(int fd, uint32_t mask)
-:fd_(fd), mask_(mask)
+Event::Event(OwnerType type, int fd, uint32_t mask)
+: owner_(type), fd_(fd), mask_(mask)
 {
 
 }
@@ -10,6 +11,12 @@ Event::Event(int fd, uint32_t mask)
 void Event::process()
 {
     // LOG_TRACE << "fd " << fd_ << " happend events: " << mask_to_string(mask_);
+    TCPConnection::SPtr ptr = weak_ptr_.lock();
+    if(owner_ == OwnerType::CONNECTION && !ptr)
+    {
+        LOG_ERROR << "Connection has been destroyed";
+        return;
+    }
 
     // 读事件
     if(mask_ & EPOLLIN)
@@ -24,6 +31,11 @@ void Event::process()
             printf("fd %d write_callback not set!\n", fd_);
         else
             write_callback_();
+}
+
+void Event::set_weak_ptr(const TCPCoonSPtr &conn)
+{
+    weak_ptr_ = conn;
 }
 
 void Event::set_read_callback(const CallBack& cb)

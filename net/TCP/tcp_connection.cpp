@@ -4,7 +4,7 @@
 
 TCPConnection::TCPConnection(size_t id, EventLoop* event_loop, SocketPtr&& client_socket)
 :id_(id), loop_(event_loop), socket_(std::move(client_socket)), 
- event_(Event(socket_->fd(), EPOLLIN)), state_(State::CREATING)
+ event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)), state_(State::CREATING)
 {
     LOG_INFO << "\nTCPConnection " << id_ << " Creating\n"
              << "Manage fd: " << event_.fd() << "\n"
@@ -21,7 +21,9 @@ TCPConnection::~TCPConnection()
 void TCPConnection::create()
 {
     // 设置事件相关的回调函数，并注册事件到事件循环中
-    event_.set_read_callback(std::bind(&TCPConnection::process_read, shared_from_this()));
+    // 注意此处传递this是合理的，因为在event中会通过weak_ptr判断连接是否存活
+    event_.set_weak_ptr(shared_from_this());
+    event_.set_read_callback(std::bind(&TCPConnection::process_read, this));
     loop_->add_event(event_);
 
     // 更新状态
@@ -67,10 +69,11 @@ void TCPConnection::close()
             return;
         }
         else
+        {
+            // 更新状态
+            state_ = State::CLOSING;
             close_callback_(shared_from_this());
-
-        // 更新状态
-        state_ = State::CLOSING;
+        }
     }
     // 若处于正在关闭的状态，则提示告警并返回
     else if(state_ == State::CLOSING)
@@ -87,13 +90,12 @@ void TCPConnection::close()
 /// TODO 注意检验是否在事件循环内运行 -- 需要EventLoop修正访问权限
 void TCPConnection::destroy()
 {
-    TCPConnection::SPtr ptr = shared_from_this();
-
     // 取消关注的事件
     loop_->del_event(event_);
 
     // 更新状态
     state_ = State::CLOSED;
+    LOG_TRACE << "TCPConnection " << id_ << " closed";
 }
 
 // TODO 添加buffer进行读取
