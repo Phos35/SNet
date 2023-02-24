@@ -6,6 +6,8 @@
 class Decoder
 {
 public:
+    typedef std::unique_ptr<Decoder> UPtr;
+
     Decoder();
     virtual ~Decoder();
 

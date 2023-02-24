@@ -2,9 +2,14 @@
 #include "logger.h"   
 #include <unistd.h>
 
-TCPConnection::TCPConnection(size_t id, EventLoop* event_loop, SocketPtr&& client_socket)
-:id_(id), loop_(event_loop), socket_(std::move(client_socket)), 
- event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)), state_(State::CREATING)
+TCPConnection::TCPConnection(size_t id, EventLoop* event_loop, 
+                             SocketPtr&& client_socket,
+                             Decoder::UPtr&& decoder, 
+                             Dispatcher::UPtr&& dispatcher)
+:id_(id), loop_(event_loop), socket_(std::move(client_socket)), state_(State::CREATING),
+ event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)), 
+ decoder_(std::move(decoder)), dispatcher_(std::move(dispatcher)),
+ buffer_(65536)
 {
     LOG_INFO << "\nTCPConnection " << id_ << " Creating\n"
              << "Manage fd: " << event_.fd() << "\n"
@@ -108,9 +113,8 @@ void TCPConnection::process_read()
         return;
     }
 
-    char buf[1024] = {0};
-    int read_size = read(socket_->fd(), buf, 1024);
-    if(read_size == -1)
+    int read_size = buffer_.read_from_fd(socket_->fd());
+    if (read_size == -1)
     {
         // 发生错误
         if(errno != EAGAIN && errno != EAGAIN)
@@ -126,17 +130,19 @@ void TCPConnection::process_read()
         close();
     }
 
-    // 调用消息处理回调函数
-    // TODO 将数据提交给Decoder
-    if(!msg_callback_)
-    {
-        LOG_ERROR << "TCPConencion " << id_ << " MsgCallBack not set";
-        return;
-    }
-    else
-    {
-        msg_callback_(shared_from_this(), buf);
-    }
+    // 数据解析分发
+    Message::Ptr message = decode(buffer_.read(0));
+    dispatch(message);
+}
+
+Message::Ptr TCPConnection::decode(const std::string& data)
+{
+    return decoder_->decode(data);
+}
+
+void TCPConnection::dispatch(Message::Ptr message)
+{
+    dispatcher_->dispatch(shared_from_this(), message);
 }
 
 // TODO 在事件循环中续写未写完的数据
@@ -169,6 +175,11 @@ std::string TCPConnection::addr()
 uint16_t TCPConnection::port()
 {
     return socket_->port();
+}
+
+TCPBuffer& TCPConnection::buffer_ref()
+{
+    return buffer_;
 }
 
 std::string TCPConnection::state_to_string(State s)

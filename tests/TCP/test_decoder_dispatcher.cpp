@@ -77,6 +77,7 @@ public:
         TestMessage::Ptr test_msg = dynamic_cast<TestMessage::Ptr>(msg);
         test_dispatch_table[test_msg->key()](conn, test_msg);
         delete test_msg;
+        conn->buffer_ref().release(msg->raw_size());
     }
 
 private:
@@ -85,18 +86,18 @@ std::unordered_map<std::string, TestDispatcher::Processor> TestDispatcher::test_
 
 void on_read(const TCPConnPtr& conn, const char* buf)
 {
-    TestDecoder decoder;
-    TestDispatcher dispatcher;
+    // TestDecoder decoder;
+    // TestDispatcher dispatcher;
 
-    Message::Ptr msg = decoder.decode(buf);
-    if(msg->get_result() == Message::DeocdeResult::FAILURE)
-    {
-        printf("invalid data\n");
-    }
-    else
-    {
-        dispatcher.dispatch(conn, msg);
-    }
+    // Message::Ptr msg = decoder.decode(buf);
+    // if(msg->get_result() == Message::DeocdeResult::FAILURE)
+    // {
+    //     printf("invalid data\n");
+    // }
+    // else
+    // {
+    //     dispatcher.dispatch(conn, msg);
+    // }
 }
 
 void on_close(const TCPConnPtr& conn)
@@ -120,7 +121,9 @@ void on_arrive(SocketPtr&& socket)
     EventLoop *loop = pool.get_one();
 
     // 创建TCPConnection并加入到map中
-    TCPConnPtr tcp_conn = std::make_unique<TCPConnection>(id, loop, std::move(socket));
+    TCPConnPtr tcp_conn = std::make_unique<TCPConnection>(id, loop, std::move(socket),
+                                                          std::make_unique<TestDecoder>(),
+                                                          std::make_unique<TestDispatcher>());
     tcp_conn->set_msg_callback(on_read);
     tcp_conn->set_close_callback(on_close);
     m.insert({id, tcp_conn});

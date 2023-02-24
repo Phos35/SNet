@@ -32,3 +32,8 @@ std::string Message::raw_data()
 {
     return raw_data_;
 }
+
+size_t Message::raw_size()
+{
+    return raw_data_.size();
+}

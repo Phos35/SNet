@@ -3,6 +3,9 @@
 #include "event.h"
 #include "socket.h"
 #include "event_loop.h"
+#include "decoder.h"
+#include "dispatcher.h"
+#include "tcp_buffer.h"
 
 /*  TODO   */
 // 1. 需要Buffer
@@ -35,7 +38,8 @@ public:
     /// @param id 连接id
     /// @param event_loop TCP连接所属的事件循环
     /// @param client_socket 代表客户端的socket
-    TCPConnection(size_t id, EventLoop* event_loop, SocketPtr&& client_socket);
+    TCPConnection(size_t id, EventLoop* event_loop, SocketPtr&& client_socket,
+                  Decoder::UPtr&& decoder, Dispatcher::UPtr&& dispatcher);
 
     /// @brief 析构，释放相关资源
     virtual ~TCPConnection();
@@ -50,6 +54,15 @@ public:
     /// @brief 设置处理连接关闭的回调函数
     /// @param close_cb 参数为TCPConnPtr的回调函数
     void set_close_callback(const CloseCallBack &close_cb);
+
+    /// @brief 解析数据
+    /// @param data 待解析的数据
+    /// @return 解析后的消息，解析成功则message->result_ == SUCCESS，否则为FAILURE
+    virtual Message::Ptr decode(const std::string& data);
+
+    /// @brief 分发消息至对应的处理函数中
+    /// @param message 待分发的消息
+    virtual void dispatch(Message::Ptr message);
 
     /// @brief 发送消息给对端
     /// @param data 待发送的数据
@@ -84,21 +97,28 @@ public:
     /// @return 客户端端口
     uint16_t port();
 
+    /// @brief 获取缓冲数组的引用
+    /// @return 缓冲数组引用
+    TCPBuffer &buffer_ref();
+
     /// @brief 获取状态对应的字符串
     /// @param s 状态
     /// @return 状态字符串
     static std::string state_to_string(State s);
 
 private:
-    size_t          id_;                // 由上层赋予的连接id
-    EventLoop*      loop_;              // 所属的事件循环
-    SocketPtr       socket_;            // 代表客户端的socket
-    Event           event_;             // TCP连接管理的事件
+    size_t              id_;                // 由上层赋予的连接id
+    EventLoop*          loop_;              // 所属的事件循环
+    SocketPtr           socket_;            // 代表客户端的socket
+    Event               event_;             // TCP连接管理的事件
+    State               state_;             // TCP连接的状态
+    TCPBuffer           buffer_;            // 数据缓冲区
 
-    State           state_;             // TCP连接的状态
+    Decoder::UPtr       decoder_;           // 数据解析器
+    Dispatcher::UPtr    dispatcher_;        // 消息分发器
 
-    MsgCallBack     msg_callback_;      // 处理新消息的回调函数 TODO 应当改为Decoder调用
-    CloseCallBack   close_callback_;    // 处理关闭事件的回调函数
+    MsgCallBack         msg_callback_;      // 处理新消息的回调函数 TODO 应当改为Decoder调用
+    CloseCallBack       close_callback_;    // 处理关闭事件的回调函数
 
     /// 处理读事件
     void process_read();

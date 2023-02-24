@@ -32,8 +32,8 @@ public:
 
     /// @brief 从fd对应的socket上读取数据，写入到buffer中
     /// @param fd 待读取的fd
-    /// @return 实际读取到的大小
-    size_t read_from_fd(int fd);
+    /// @return 发生错误返回-1，否则返回实际读取到的大小
+    int read_from_fd(int fd);
 
 private:
     /// @brief buffer写满，扩容后写入

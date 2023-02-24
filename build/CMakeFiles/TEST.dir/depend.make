@@ -17,12 +17,17 @@ CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o: ../utils/time/timestamp.h
 CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o: ../net/TCP/acceptor.cpp
 CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o: ../net/TCP/acceptor.h
 
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/decoder/decoder.h
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/decoder/message.h
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/dispatcher/dispatcher.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/event/event.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/event/event_loop.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/event/iomutiplexing.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../net/socket/socket.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../utils/buffer/byte_buffer.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../utils/buffer/tcp_buffer.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../utils/log/append_file.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../utils/log/async_log.h
 CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o: ../utils/log/log_file.h
@@ -39,13 +44,7 @@ CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o: ../net/decoder/message.h
 CMakeFiles/TEST.dir/net/decoder/message.cpp.o: ../net/decoder/message.cpp
 CMakeFiles/TEST.dir/net/decoder/message.cpp.o: ../net/decoder/message.h
 
-CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/TCP/tcp_connection.h
 CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/decoder/message.h
-CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/event/event.h
-CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/event/event_loop.h
-CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/event/iomutiplexing.h
-CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/socket/socket.h
-CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../utils/alias/callback.h
 CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/dispatcher/dispatcher.cpp
 CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o: ../net/dispatcher/dispatcher.h
 
@@ -64,11 +63,16 @@ CMakeFiles/TEST.dir/net/event/epoller.cpp.o: ../net/event/event.h
 CMakeFiles/TEST.dir/net/event/epoller.cpp.o: ../net/event/iomutiplexing.h
 
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/TCP/tcp_connection.h
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/decoder/decoder.h
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/decoder/message.h
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/dispatcher/dispatcher.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/event/event_loop.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/event/iomutiplexing.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../net/socket/socket.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/buffer/byte_buffer.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/buffer/tcp_buffer.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/log/append_file.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/log/async_log.h
 CMakeFiles/TEST.dir/net/event/event.cpp.o: ../utils/log/log_file.h
@@ -158,7 +162,9 @@ CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../net/event/iomuti
 CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../net/socket/socket.h
 CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../third/jsoncpp/json.hpp
 CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../utils/buffer/byte_buffer.h
 CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../utils/buffer/tcp_buffer.h
 CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../utils/config/config.h
 CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../utils/log/append_file.h
 CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o: ../utils/log/async_log.h

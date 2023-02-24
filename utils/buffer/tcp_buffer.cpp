@@ -10,7 +10,7 @@ TCPBuffer::TCPBuffer(int capacity)
 }
 
 // TODO 添加伸缩机制，避免buffer无限扩张
-size_t TCPBuffer::read_from_fd(int fd)
+int TCPBuffer::read_from_fd(int fd)
 {
     // 压缩buffer
     compact();
@@ -25,7 +25,7 @@ size_t TCPBuffer::read_from_fd(int fd)
     if(read_size == -1)
     {
         LOG_ERROR << "Buffer read from file error: " << strerror(errno);
-        return 0;
+        return -1;
     }
 
     // 若写入长度小于等于writeable，则更新write_index_

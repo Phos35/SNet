@@ -1,13 +1,15 @@
 #ifndef SNET_DISPATCHER_H
 #define SNET_DISPATCHER_H
 #include "message.h"
-#include "tcp_connection.h"
 
-using TCPConnPtr = TCPConnection::SPtr;
+class TCPConnection;
+using TCPConnPtr = std::shared_ptr<TCPConnection>;
 
 class Dispatcher
 {
 public:
+    typedef std::unique_ptr<Dispatcher> UPtr;
+
     Dispatcher();
     virtual ~Dispatcher();
 
