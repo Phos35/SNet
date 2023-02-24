@@ -77,6 +77,10 @@ public:
     /// @return 可写区域长度
     size_t writeable();
 
+    /// @brief 获取缓冲区容量大小
+    /// @return 容量大小
+    size_t capacity();
+
     /// @brief 输出缓冲区信息
     /// @return 缓冲区具体信息的字符串
     virtual std::string to_string();

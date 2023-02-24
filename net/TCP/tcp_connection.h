@@ -16,9 +16,9 @@ class TCPConnection : public std::enable_shared_from_this<TCPConnection>
 {
 public:
     typedef std::unique_ptr<Socket> SocketPtr;
-    typedef std::shared_ptr<TCPConnection> TCPConnPtr;
-    typedef std::function<void(const TCPConnPtr &, const char*)> MsgCallBack;
-    typedef std::function<void(const TCPConnPtr &)> CloseCallBack;
+    typedef std::shared_ptr<TCPConnection> SPtr;
+    typedef std::function<void(const SPtr &, const char*)> MsgCallBack;
+    typedef std::function<void(const SPtr &)> CloseCallBack;
 
     /// TCP状态枚举类
     enum class State

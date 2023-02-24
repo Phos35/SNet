@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <iostream>
 
-using TCPConnPtr = TCPConnection::TCPConnPtr;
+using TCPConnPtr = TCPConnection::SPtr;
 using SocketPtr = std::unique_ptr<Socket>;
 
 std::unordered_map<size_t, TCPConnPtr> m;

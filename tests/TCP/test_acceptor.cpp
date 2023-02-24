@@ -18,7 +18,7 @@ int main()
     soc.bind("127.0.0.1", 9112);
 
     Acceptor a(soc.fd());
-    a.set_new_conn_callback(new_conn);
+    a.set_conn_callback(new_conn);
     a.start();
     while(true)
         ;

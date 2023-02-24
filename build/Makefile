@@ -177,6 +177,87 @@ net/TCP/tcp_connection.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s
 .PHONY : net/TCP/tcp_connection.cpp.s
 
+net/decoder/decoder.o: net/decoder/decoder.cpp.o
+
+.PHONY : net/decoder/decoder.o
+
+# target to build an object file
+net/decoder/decoder.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o
+.PHONY : net/decoder/decoder.cpp.o
+
+net/decoder/decoder.i: net/decoder/decoder.cpp.i
+
+.PHONY : net/decoder/decoder.i
+
+# target to preprocess a source file
+net/decoder/decoder.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/decoder.cpp.i
+.PHONY : net/decoder/decoder.cpp.i
+
+net/decoder/decoder.s: net/decoder/decoder.cpp.s
+
+.PHONY : net/decoder/decoder.s
+
+# target to generate assembly for a file
+net/decoder/decoder.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/decoder.cpp.s
+.PHONY : net/decoder/decoder.cpp.s
+
+net/decoder/message.o: net/decoder/message.cpp.o
+
+.PHONY : net/decoder/message.o
+
+# target to build an object file
+net/decoder/message.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/message.cpp.o
+.PHONY : net/decoder/message.cpp.o
+
+net/decoder/message.i: net/decoder/message.cpp.i
+
+.PHONY : net/decoder/message.i
+
+# target to preprocess a source file
+net/decoder/message.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/message.cpp.i
+.PHONY : net/decoder/message.cpp.i
+
+net/decoder/message.s: net/decoder/message.cpp.s
+
+.PHONY : net/decoder/message.s
+
+# target to generate assembly for a file
+net/decoder/message.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/message.cpp.s
+.PHONY : net/decoder/message.cpp.s
+
+net/dispatcher/dispatcher.o: net/dispatcher/dispatcher.cpp.o
+
+.PHONY : net/dispatcher/dispatcher.o
+
+# target to build an object file
+net/dispatcher/dispatcher.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o
+.PHONY : net/dispatcher/dispatcher.cpp.o
+
+net/dispatcher/dispatcher.i: net/dispatcher/dispatcher.cpp.i
+
+.PHONY : net/dispatcher/dispatcher.i
+
+# target to preprocess a source file
+net/dispatcher/dispatcher.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.i
+.PHONY : net/dispatcher/dispatcher.cpp.i
+
+net/dispatcher/dispatcher.s: net/dispatcher/dispatcher.cpp.s
+
+.PHONY : net/dispatcher/dispatcher.s
+
+# target to generate assembly for a file
+net/dispatcher/dispatcher.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.s
+.PHONY : net/dispatcher/dispatcher.cpp.s
+
 net/event/epoller.o: net/event/epoller.cpp.o
 
 .PHONY : net/event/epoller.o
@@ -366,32 +447,32 @@ net/socket/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/socket/socket.cpp.s
 .PHONY : net/socket/socket.cpp.s
 
-tests/utils/buffer/tcp_buffer/test_iovec.o: tests/utils/buffer/tcp_buffer/test_iovec.cpp.o
+tests/TCP/test_decoder_dispatcher.o: tests/TCP/test_decoder_dispatcher.cpp.o
 
-.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.o
+.PHONY : tests/TCP/test_decoder_dispatcher.o
 
 # target to build an object file
-tests/utils/buffer/tcp_buffer/test_iovec.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.o
-.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.cpp.o
+tests/TCP/test_decoder_dispatcher.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o
+.PHONY : tests/TCP/test_decoder_dispatcher.cpp.o
 
-tests/utils/buffer/tcp_buffer/test_iovec.i: tests/utils/buffer/tcp_buffer/test_iovec.cpp.i
+tests/TCP/test_decoder_dispatcher.i: tests/TCP/test_decoder_dispatcher.cpp.i
 
-.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.i
+.PHONY : tests/TCP/test_decoder_dispatcher.i
 
 # target to preprocess a source file
-tests/utils/buffer/tcp_buffer/test_iovec.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.i
-.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.cpp.i
+tests/TCP/test_decoder_dispatcher.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.i
+.PHONY : tests/TCP/test_decoder_dispatcher.cpp.i
 
-tests/utils/buffer/tcp_buffer/test_iovec.s: tests/utils/buffer/tcp_buffer/test_iovec.cpp.s
+tests/TCP/test_decoder_dispatcher.s: tests/TCP/test_decoder_dispatcher.cpp.s
 
-.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.s
+.PHONY : tests/TCP/test_decoder_dispatcher.s
 
 # target to generate assembly for a file
-tests/utils/buffer/tcp_buffer/test_iovec.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/utils/buffer/tcp_buffer/test_iovec.cpp.s
-.PHONY : tests/utils/buffer/tcp_buffer/test_iovec.cpp.s
+tests/TCP/test_decoder_dispatcher.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.s
+.PHONY : tests/TCP/test_decoder_dispatcher.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -678,6 +759,15 @@ help:
 	@echo "... net/TCP/tcp_connection.o"
 	@echo "... net/TCP/tcp_connection.i"
 	@echo "... net/TCP/tcp_connection.s"
+	@echo "... net/decoder/decoder.o"
+	@echo "... net/decoder/decoder.i"
+	@echo "... net/decoder/decoder.s"
+	@echo "... net/decoder/message.o"
+	@echo "... net/decoder/message.i"
+	@echo "... net/decoder/message.s"
+	@echo "... net/dispatcher/dispatcher.o"
+	@echo "... net/dispatcher/dispatcher.i"
+	@echo "... net/dispatcher/dispatcher.s"
 	@echo "... net/event/epoller.o"
 	@echo "... net/event/epoller.i"
 	@echo "... net/event/epoller.s"
@@ -699,9 +789,9 @@ help:
 	@echo "... net/socket/socket.o"
 	@echo "... net/socket/socket.i"
 	@echo "... net/socket/socket.s"
-	@echo "... tests/utils/buffer/tcp_buffer/test_iovec.o"
-	@echo "... tests/utils/buffer/tcp_buffer/test_iovec.i"
-	@echo "... tests/utils/buffer/tcp_buffer/test_iovec.s"
+	@echo "... tests/TCP/test_decoder_dispatcher.o"
+	@echo "... tests/TCP/test_decoder_dispatcher.i"
+	@echo "... tests/TCP/test_decoder_dispatcher.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"

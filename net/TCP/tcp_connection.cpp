@@ -87,6 +87,8 @@ void TCPConnection::close()
 /// TODO 注意检验是否在事件循环内运行 -- 需要EventLoop修正访问权限
 void TCPConnection::destroy()
 {
+    TCPConnection::SPtr ptr = shared_from_this();
+
     // 取消关注的事件
     loop_->del_event(event_);
 
