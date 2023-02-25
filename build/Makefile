@@ -447,6 +447,33 @@ net/http/http_request.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.s
 .PHONY : net/http/http_request.cpp.s
 
+net/http/http_response.o: net/http/http_response.cpp.o
+
+.PHONY : net/http/http_response.o
+
+# target to build an object file
+net/http/http_response.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_response.cpp.o
+.PHONY : net/http/http_response.cpp.o
+
+net/http/http_response.i: net/http/http_response.cpp.i
+
+.PHONY : net/http/http_response.i
+
+# target to preprocess a source file
+net/http/http_response.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_response.cpp.i
+.PHONY : net/http/http_response.cpp.i
+
+net/http/http_response.s: net/http/http_response.cpp.s
+
+.PHONY : net/http/http_response.s
+
+# target to generate assembly for a file
+net/http/http_response.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_response.cpp.s
+.PHONY : net/http/http_response.cpp.s
+
 net/http/http_server.o: net/http/http_server.cpp.o
 
 .PHONY : net/http/http_server.o
@@ -951,6 +978,9 @@ help:
 	@echo "... net/http/http_request.o"
 	@echo "... net/http/http_request.i"
 	@echo "... net/http/http_request.s"
+	@echo "... net/http/http_response.o"
+	@echo "... net/http/http_response.i"
+	@echo "... net/http/http_response.s"
 	@echo "... net/http/http_server.o"
 	@echo "... net/http/http_server.i"
 	@echo "... net/http/http_server.s"

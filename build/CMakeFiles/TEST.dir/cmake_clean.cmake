@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/TEST.dir/net/http/http_decoder.cpp.o"
   "CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o"
   "CMakeFiles/TEST.dir/net/http/http_request.cpp.o"
+  "CMakeFiles/TEST.dir/net/http/http_response.cpp.o"
   "CMakeFiles/TEST.dir/net/http/http_server.cpp.o"
   "CMakeFiles/TEST.dir/net/socket/socket.cpp.o"
   "CMakeFiles/TEST.dir/net/tcp/acceptor.cpp.o"

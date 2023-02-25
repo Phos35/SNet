@@ -127,6 +127,9 @@ CMakeFiles/TEST.dir/net/http/http_request.cpp.o: ../net/decoder/message.h
 CMakeFiles/TEST.dir/net/http/http_request.cpp.o: ../net/http/http_request.cpp
 CMakeFiles/TEST.dir/net/http/http_request.cpp.o: ../net/http/http_request.h
 
+CMakeFiles/TEST.dir/net/http/http_response.cpp.o: ../net/http/http_response.cpp
+CMakeFiles/TEST.dir/net/http/http_response.cpp.o: ../net/http/http_response.h
+
 CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/decoder/decoder.h
 CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/decoder/message.h
 CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/dispatcher/dispatcher.h
@@ -248,6 +251,7 @@ CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/event/event_loop_t
 CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/event/iomutiplexing.h
 CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/http/http_dispatcher.h
 CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/http/http_request.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/http/http_response.h
 CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/http/http_server.h
 CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/socket/socket.h
 CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/tcp/acceptor.h
