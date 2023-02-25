@@ -6,5 +6,5 @@ CXX_FLAGS =   -g -lpthread
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ubuntu/projects/web_server/SNet/utils/alias -I/home/ubuntu/projects/web_server/SNet/utils/buffer -I/home/ubuntu/projects/web_server/SNet/utils/config -I/home/ubuntu/projects/web_server/SNet/utils/io -I/home/ubuntu/projects/web_server/SNet/utils/log -I/home/ubuntu/projects/web_server/SNet/utils/time -I/home/ubuntu/projects/web_server/SNet/third/jsoncpp -I/home/ubuntu/projects/web_server/SNet/net/event -I/home/ubuntu/projects/web_server/SNet/net/socket -I/home/ubuntu/projects/web_server/SNet/net/TCP -I/home/ubuntu/projects/web_server/SNet/net/decoder -I/home/ubuntu/projects/web_server/SNet/net/dispatcher 
+CXX_INCLUDES = -I/home/ubuntu/projects/web_server/SNet/utils/alias -I/home/ubuntu/projects/web_server/SNet/utils/buffer -I/home/ubuntu/projects/web_server/SNet/utils/config -I/home/ubuntu/projects/web_server/SNet/utils/io -I/home/ubuntu/projects/web_server/SNet/utils/log -I/home/ubuntu/projects/web_server/SNet/utils/time -I/home/ubuntu/projects/web_server/SNet/third/jsoncpp -I/home/ubuntu/projects/web_server/SNet/net/event -I/home/ubuntu/projects/web_server/SNet/net/socket -I/home/ubuntu/projects/web_server/SNet/net/tcp -I/home/ubuntu/projects/web_server/SNet/net/decoder -I/home/ubuntu/projects/web_server/SNet/net/dispatcher -I/home/ubuntu/projects/web_server/SNet/net/http 
 

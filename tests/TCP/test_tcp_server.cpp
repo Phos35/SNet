@@ -62,10 +62,11 @@ public:
 
     void dispatch(const TCPConnPtr& conn, const Message::Ptr& msg) override
     {
-        TestMessage::Ptr test_msg = dynamic_cast<TestMessage::Ptr>(msg);
-        test_dispatch_table[test_msg->key()](conn, test_msg);
-        delete test_msg;
-        conn->buffer_ref().release(msg->raw_size());
+        printf("<<<<<<<<<<<<<<<<<<<<HTTP REQUEST>>>>>>>>>>>>>>>>>>>>>\n%s\n", msg->raw_data().c_str());
+        // TestMessage::Ptr test_msg = dynamic_cast<TestMessage::Ptr>(msg);
+        // test_dispatch_table[test_msg->key()](conn, test_msg);
+        // delete test_msg;
+        // conn->buffer_ref().release(msg->raw_size());
     }
 
 private:
@@ -111,7 +112,7 @@ int main()
     TestDispatcher::register_processor("file", echo_file);
     TestDispatcher::register_processor("close", echo_close);
 
-    TCPServer server("127.0.0.1", 9112, std::move(decoder), std::move(dispatcher));
+    TCPServer server("0.0.0.0", 9737, std::move(decoder), std::move(dispatcher));
     server.run();
     return 0;
 }

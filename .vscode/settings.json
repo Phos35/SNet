@@ -57,6 +57,12 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "executor": "cpp"
+        "executor": "cpp",
+        "list": "cpp",
+        "buffer": "cpp",
+        "io_context": "cpp",
+        "netfwd": "cpp",
+        "socket": "cpp",
+        "future": "cpp"
     }
 }

@@ -71,8 +71,16 @@ void WorkerPool::worker_func()
         TCPBuffer &buffer = conn->buffer_ref();
         Message::Ptr msg = conn->decode(buffer.read(0));
 
+        // 若解析未完成，则需要等待完整报文
+        if(msg->get_result() == Message::DeocdeResult::FAILURE)
+        {
+            delete msg;
+            continue;
+        }
+
         // 分发消息
         conn->dispatch(msg);
+        delete msg;
     }
 }
 

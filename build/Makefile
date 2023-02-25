@@ -123,114 +123,6 @@ TEST/fast:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/build
 .PHONY : TEST/fast
 
-net/TCP/acceptor.o: net/TCP/acceptor.cpp.o
-
-.PHONY : net/TCP/acceptor.o
-
-# target to build an object file
-net/TCP/acceptor.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o
-.PHONY : net/TCP/acceptor.cpp.o
-
-net/TCP/acceptor.i: net/TCP/acceptor.cpp.i
-
-.PHONY : net/TCP/acceptor.i
-
-# target to preprocess a source file
-net/TCP/acceptor.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.i
-.PHONY : net/TCP/acceptor.cpp.i
-
-net/TCP/acceptor.s: net/TCP/acceptor.cpp.s
-
-.PHONY : net/TCP/acceptor.s
-
-# target to generate assembly for a file
-net/TCP/acceptor.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.s
-.PHONY : net/TCP/acceptor.cpp.s
-
-net/TCP/tcp_connection.o: net/TCP/tcp_connection.cpp.o
-
-.PHONY : net/TCP/tcp_connection.o
-
-# target to build an object file
-net/TCP/tcp_connection.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o
-.PHONY : net/TCP/tcp_connection.cpp.o
-
-net/TCP/tcp_connection.i: net/TCP/tcp_connection.cpp.i
-
-.PHONY : net/TCP/tcp_connection.i
-
-# target to preprocess a source file
-net/TCP/tcp_connection.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.i
-.PHONY : net/TCP/tcp_connection.cpp.i
-
-net/TCP/tcp_connection.s: net/TCP/tcp_connection.cpp.s
-
-.PHONY : net/TCP/tcp_connection.s
-
-# target to generate assembly for a file
-net/TCP/tcp_connection.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.s
-.PHONY : net/TCP/tcp_connection.cpp.s
-
-net/TCP/tcp_server.o: net/TCP/tcp_server.cpp.o
-
-.PHONY : net/TCP/tcp_server.o
-
-# target to build an object file
-net/TCP/tcp_server.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_server.cpp.o
-.PHONY : net/TCP/tcp_server.cpp.o
-
-net/TCP/tcp_server.i: net/TCP/tcp_server.cpp.i
-
-.PHONY : net/TCP/tcp_server.i
-
-# target to preprocess a source file
-net/TCP/tcp_server.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_server.cpp.i
-.PHONY : net/TCP/tcp_server.cpp.i
-
-net/TCP/tcp_server.s: net/TCP/tcp_server.cpp.s
-
-.PHONY : net/TCP/tcp_server.s
-
-# target to generate assembly for a file
-net/TCP/tcp_server.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/tcp_server.cpp.s
-.PHONY : net/TCP/tcp_server.cpp.s
-
-net/TCP/worker_pool.o: net/TCP/worker_pool.cpp.o
-
-.PHONY : net/TCP/worker_pool.o
-
-# target to build an object file
-net/TCP/worker_pool.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o
-.PHONY : net/TCP/worker_pool.cpp.o
-
-net/TCP/worker_pool.i: net/TCP/worker_pool.cpp.i
-
-.PHONY : net/TCP/worker_pool.i
-
-# target to preprocess a source file
-net/TCP/worker_pool.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.i
-.PHONY : net/TCP/worker_pool.cpp.i
-
-net/TCP/worker_pool.s: net/TCP/worker_pool.cpp.s
-
-.PHONY : net/TCP/worker_pool.s
-
-# target to generate assembly for a file
-net/TCP/worker_pool.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.s
-.PHONY : net/TCP/worker_pool.cpp.s
-
 net/decoder/decoder.o: net/decoder/decoder.cpp.o
 
 .PHONY : net/decoder/decoder.o
@@ -474,6 +366,87 @@ net/event/iomutiplexing.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.s
 .PHONY : net/event/iomutiplexing.cpp.s
 
+net/http/http_decoder.o: net/http/http_decoder.cpp.o
+
+.PHONY : net/http/http_decoder.o
+
+# target to build an object file
+net/http/http_decoder.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_decoder.cpp.o
+.PHONY : net/http/http_decoder.cpp.o
+
+net/http/http_decoder.i: net/http/http_decoder.cpp.i
+
+.PHONY : net/http/http_decoder.i
+
+# target to preprocess a source file
+net/http/http_decoder.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_decoder.cpp.i
+.PHONY : net/http/http_decoder.cpp.i
+
+net/http/http_decoder.s: net/http/http_decoder.cpp.s
+
+.PHONY : net/http/http_decoder.s
+
+# target to generate assembly for a file
+net/http/http_decoder.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_decoder.cpp.s
+.PHONY : net/http/http_decoder.cpp.s
+
+net/http/http_dispatcher.o: net/http/http_dispatcher.cpp.o
+
+.PHONY : net/http/http_dispatcher.o
+
+# target to build an object file
+net/http/http_dispatcher.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o
+.PHONY : net/http/http_dispatcher.cpp.o
+
+net/http/http_dispatcher.i: net/http/http_dispatcher.cpp.i
+
+.PHONY : net/http/http_dispatcher.i
+
+# target to preprocess a source file
+net/http/http_dispatcher.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.i
+.PHONY : net/http/http_dispatcher.cpp.i
+
+net/http/http_dispatcher.s: net/http/http_dispatcher.cpp.s
+
+.PHONY : net/http/http_dispatcher.s
+
+# target to generate assembly for a file
+net/http/http_dispatcher.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.s
+.PHONY : net/http/http_dispatcher.cpp.s
+
+net/http/http_request.o: net/http/http_request.cpp.o
+
+.PHONY : net/http/http_request.o
+
+# target to build an object file
+net/http/http_request.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.o
+.PHONY : net/http/http_request.cpp.o
+
+net/http/http_request.i: net/http/http_request.cpp.i
+
+.PHONY : net/http/http_request.i
+
+# target to preprocess a source file
+net/http/http_request.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.i
+.PHONY : net/http/http_request.cpp.i
+
+net/http/http_request.s: net/http/http_request.cpp.s
+
+.PHONY : net/http/http_request.s
+
+# target to generate assembly for a file
+net/http/http_request.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.s
+.PHONY : net/http/http_request.cpp.s
+
 net/socket/socket.o: net/socket/socket.cpp.o
 
 .PHONY : net/socket/socket.o
@@ -501,32 +474,140 @@ net/socket/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/socket/socket.cpp.s
 .PHONY : net/socket/socket.cpp.s
 
-tests/TCP/test_tcp_server.o: tests/TCP/test_tcp_server.cpp.o
+net/tcp/acceptor.o: net/tcp/acceptor.cpp.o
 
-.PHONY : tests/TCP/test_tcp_server.o
+.PHONY : net/tcp/acceptor.o
 
 # target to build an object file
-tests/TCP/test_tcp_server.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_tcp_server.cpp.o
-.PHONY : tests/TCP/test_tcp_server.cpp.o
+net/tcp/acceptor.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/acceptor.cpp.o
+.PHONY : net/tcp/acceptor.cpp.o
 
-tests/TCP/test_tcp_server.i: tests/TCP/test_tcp_server.cpp.i
+net/tcp/acceptor.i: net/tcp/acceptor.cpp.i
 
-.PHONY : tests/TCP/test_tcp_server.i
+.PHONY : net/tcp/acceptor.i
 
 # target to preprocess a source file
-tests/TCP/test_tcp_server.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_tcp_server.cpp.i
-.PHONY : tests/TCP/test_tcp_server.cpp.i
+net/tcp/acceptor.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/acceptor.cpp.i
+.PHONY : net/tcp/acceptor.cpp.i
 
-tests/TCP/test_tcp_server.s: tests/TCP/test_tcp_server.cpp.s
+net/tcp/acceptor.s: net/tcp/acceptor.cpp.s
 
-.PHONY : tests/TCP/test_tcp_server.s
+.PHONY : net/tcp/acceptor.s
 
 # target to generate assembly for a file
-tests/TCP/test_tcp_server.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/TCP/test_tcp_server.cpp.s
-.PHONY : tests/TCP/test_tcp_server.cpp.s
+net/tcp/acceptor.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/acceptor.cpp.s
+.PHONY : net/tcp/acceptor.cpp.s
+
+net/tcp/tcp_connection.o: net/tcp/tcp_connection.cpp.o
+
+.PHONY : net/tcp/tcp_connection.o
+
+# target to build an object file
+net/tcp/tcp_connection.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_connection.cpp.o
+.PHONY : net/tcp/tcp_connection.cpp.o
+
+net/tcp/tcp_connection.i: net/tcp/tcp_connection.cpp.i
+
+.PHONY : net/tcp/tcp_connection.i
+
+# target to preprocess a source file
+net/tcp/tcp_connection.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_connection.cpp.i
+.PHONY : net/tcp/tcp_connection.cpp.i
+
+net/tcp/tcp_connection.s: net/tcp/tcp_connection.cpp.s
+
+.PHONY : net/tcp/tcp_connection.s
+
+# target to generate assembly for a file
+net/tcp/tcp_connection.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_connection.cpp.s
+.PHONY : net/tcp/tcp_connection.cpp.s
+
+net/tcp/tcp_server.o: net/tcp/tcp_server.cpp.o
+
+.PHONY : net/tcp/tcp_server.o
+
+# target to build an object file
+net/tcp/tcp_server.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_server.cpp.o
+.PHONY : net/tcp/tcp_server.cpp.o
+
+net/tcp/tcp_server.i: net/tcp/tcp_server.cpp.i
+
+.PHONY : net/tcp/tcp_server.i
+
+# target to preprocess a source file
+net/tcp/tcp_server.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_server.cpp.i
+.PHONY : net/tcp/tcp_server.cpp.i
+
+net/tcp/tcp_server.s: net/tcp/tcp_server.cpp.s
+
+.PHONY : net/tcp/tcp_server.s
+
+# target to generate assembly for a file
+net/tcp/tcp_server.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_server.cpp.s
+.PHONY : net/tcp/tcp_server.cpp.s
+
+net/tcp/worker_pool.o: net/tcp/worker_pool.cpp.o
+
+.PHONY : net/tcp/worker_pool.o
+
+# target to build an object file
+net/tcp/worker_pool.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.o
+.PHONY : net/tcp/worker_pool.cpp.o
+
+net/tcp/worker_pool.i: net/tcp/worker_pool.cpp.i
+
+.PHONY : net/tcp/worker_pool.i
+
+# target to preprocess a source file
+net/tcp/worker_pool.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.i
+.PHONY : net/tcp/worker_pool.cpp.i
+
+net/tcp/worker_pool.s: net/tcp/worker_pool.cpp.s
+
+.PHONY : net/tcp/worker_pool.s
+
+# target to generate assembly for a file
+net/tcp/worker_pool.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.s
+.PHONY : net/tcp/worker_pool.cpp.s
+
+tests/http/test_http_decoder.o: tests/http/test_http_decoder.cpp.o
+
+.PHONY : tests/http/test_http_decoder.o
+
+# target to build an object file
+tests/http/test_http_decoder.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.o
+.PHONY : tests/http/test_http_decoder.cpp.o
+
+tests/http/test_http_decoder.i: tests/http/test_http_decoder.cpp.i
+
+.PHONY : tests/http/test_http_decoder.i
+
+# target to preprocess a source file
+tests/http/test_http_decoder.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.i
+.PHONY : tests/http/test_http_decoder.cpp.i
+
+tests/http/test_http_decoder.s: tests/http/test_http_decoder.cpp.s
+
+.PHONY : tests/http/test_http_decoder.s
+
+# target to generate assembly for a file
+tests/http/test_http_decoder.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.s
+.PHONY : tests/http/test_http_decoder.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -807,18 +888,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TEST"
-	@echo "... net/TCP/acceptor.o"
-	@echo "... net/TCP/acceptor.i"
-	@echo "... net/TCP/acceptor.s"
-	@echo "... net/TCP/tcp_connection.o"
-	@echo "... net/TCP/tcp_connection.i"
-	@echo "... net/TCP/tcp_connection.s"
-	@echo "... net/TCP/tcp_server.o"
-	@echo "... net/TCP/tcp_server.i"
-	@echo "... net/TCP/tcp_server.s"
-	@echo "... net/TCP/worker_pool.o"
-	@echo "... net/TCP/worker_pool.i"
-	@echo "... net/TCP/worker_pool.s"
 	@echo "... net/decoder/decoder.o"
 	@echo "... net/decoder/decoder.i"
 	@echo "... net/decoder/decoder.s"
@@ -846,12 +915,33 @@ help:
 	@echo "... net/event/iomutiplexing.o"
 	@echo "... net/event/iomutiplexing.i"
 	@echo "... net/event/iomutiplexing.s"
+	@echo "... net/http/http_decoder.o"
+	@echo "... net/http/http_decoder.i"
+	@echo "... net/http/http_decoder.s"
+	@echo "... net/http/http_dispatcher.o"
+	@echo "... net/http/http_dispatcher.i"
+	@echo "... net/http/http_dispatcher.s"
+	@echo "... net/http/http_request.o"
+	@echo "... net/http/http_request.i"
+	@echo "... net/http/http_request.s"
 	@echo "... net/socket/socket.o"
 	@echo "... net/socket/socket.i"
 	@echo "... net/socket/socket.s"
-	@echo "... tests/TCP/test_tcp_server.o"
-	@echo "... tests/TCP/test_tcp_server.i"
-	@echo "... tests/TCP/test_tcp_server.s"
+	@echo "... net/tcp/acceptor.o"
+	@echo "... net/tcp/acceptor.i"
+	@echo "... net/tcp/acceptor.s"
+	@echo "... net/tcp/tcp_connection.o"
+	@echo "... net/tcp/tcp_connection.i"
+	@echo "... net/tcp/tcp_connection.s"
+	@echo "... net/tcp/tcp_server.o"
+	@echo "... net/tcp/tcp_server.i"
+	@echo "... net/tcp/tcp_server.s"
+	@echo "... net/tcp/worker_pool.o"
+	@echo "... net/tcp/worker_pool.i"
+	@echo "... net/tcp/worker_pool.s"
+	@echo "... tests/http/test_http_decoder.o"
+	@echo "... tests/http/test_http_decoder.i"
+	@echo "... tests/http/test_http_decoder.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"
