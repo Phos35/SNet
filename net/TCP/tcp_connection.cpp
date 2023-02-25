@@ -4,12 +4,12 @@
 
 TCPConnection::TCPConnection(size_t id, EventLoop* event_loop, 
                              SocketPtr&& client_socket,
-                             Decoder::UPtr&& decoder, 
-                             Dispatcher::UPtr&& dispatcher,
+                             Decoder::Ptr decoder, 
+                             Dispatcher::Ptr dispatcher,
                              WorkerPool* pool)
 :id_(id), loop_(event_loop), socket_(std::move(client_socket)), state_(State::CREATING),
  event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)), 
- decoder_(std::move(decoder)), dispatcher_(std::move(dispatcher)),
+ decoder_(decoder), dispatcher_(dispatcher),
  worker_pool_(pool), buffer_(65536)
 {
     LOG_INFO << "\nTCPConnection " << id_ << " Creating\n"
@@ -35,11 +35,6 @@ void TCPConnection::create()
     // 更新状态
     state_ = State::CONNECTING;
     LOG_TRACE << "TCPConnection " << id_ << " created";
-}
-
-void TCPConnection::set_msg_callback(const MsgCallBack& msg_cb)
-{
-    msg_callback_ = std::move(msg_cb);
 }
 
 void TCPConnection::set_close_callback(const CloseCallBack &close_cb)

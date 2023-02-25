@@ -37,14 +37,7 @@ ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
 ADD_EXECUTABLE(TEST
-/home/ubuntu/projects/web_server/SNet/tests/TCP/test_decoder_dispatcher.cpp
-# /home/ubuntu/projects/web_server/SNet/tests/utils/buffer/tcp_buffer/test_iovec.cpp
-# /home/ubuntu/projects/web_server/SNet/tests/TCP/test_tcp_connection.cpp
-# /home/ubuntu/projects/web_server/SNet/tests/TCP/test_acceptor.cpp
-#   /home/ubuntu/projects/web_server/SNet/tests/socket/test_socket.cpp
-#   /home/ubuntu/projects/web_server/SNet/tests/event/test_event_loop_thread_loop.cpp    
-#   /home/ubuntu/projects/web_server/SNet/tests/event/test_event_loop.cpp
-#   /home/ubuntu/projects/web_server/SNet/tests/event/test_event_loop_thread.cpp
+    /home/ubuntu/projects/web_server/SNet/tests/TCP/test_tcp_server.cpp
     ${SRC_LIST}
 )
 

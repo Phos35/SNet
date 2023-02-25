@@ -43,7 +43,7 @@ public:
     /// @param dispatcher 消息分发器
     /// @param pool 工作线程池
     TCPConnection(size_t id, EventLoop* event_loop, SocketPtr&& client_socket,
-                  Decoder::UPtr&& decoder, Dispatcher::UPtr&& dispatcher,
+                  Decoder::Ptr decoder, Dispatcher::Ptr dispatcher,
                   WorkerPool* pool);
 
     /// @brief 析构，释放相关资源
@@ -52,12 +52,8 @@ public:
     /// @brief 创建连接的初始化函数，必须交给所属事件循环执行
     void create();
 
-    /// @brief 设置消息到来的处理回调函数
-    /// @param msg_Cb 参数为TCPConnPtr的回调函数
-    void set_msg_callback(const MsgCallBack& msg_cb);
-
     /// @brief 设置处理连接关闭的回调函数
-    /// @param close_cb 参数为TCPConnPtr的回调函数
+    /// @param close_cb 参数为TCPConn::SPtr的回调函数
     void set_close_callback(const CloseCallBack &close_cb);
 
     /// @brief 解析数据
@@ -119,11 +115,10 @@ private:
     State               state_;             // TCP连接的状态
     TCPBuffer           buffer_;            // 数据缓冲区
 
-    Decoder::UPtr       decoder_;           // 数据解析器
-    Dispatcher::UPtr    dispatcher_;        // 消息分发器
+    Decoder::Ptr        decoder_;           // 数据解析器
+    Dispatcher::Ptr     dispatcher_;        // 消息分发器
     WorkerPool*         worker_pool_;       // 工作线程池
 
-    MsgCallBack         msg_callback_;      // 处理新消息的回调函数 TODO 应当改为Decoder调用
     CloseCallBack       close_callback_;    // 处理关闭事件的回调函数
 
     /// 处理读事件

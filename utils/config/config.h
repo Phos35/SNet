@@ -16,6 +16,10 @@ public:
     /// @param file_name 配置文件的名称
     void read_from_file(const std::string &file_name);
 
+    /// @brief 获取启动异步日志的标识
+    /// @return 需启动异步日志则返回true，否则返回false
+    bool log_async_start();
+
     /// @brief 获取日志文件的基础名称
     /// @return 日志文件基础名称
     std::string log_base_name();
@@ -35,6 +39,18 @@ public:
     /// @brief 获取IOMutiplexing选用的类型
     /// @return 配置的IOMutiplexing类型
     std::string event_iomutiplexing();
+
+    /// @brief 获取事件循环线程池的大小
+    /// @return 事件循环线程池的大小
+    size_t event_loop_thread_pool_size();
+
+    /// @brief 获取工作线程池的大小
+    /// @return 工作线程池的大小
+    size_t worker_thread_pool_size();
+
+    /// @brief 获取工作线程池中任务队列的容量
+    /// @return 任务队列的容量
+    size_t tasks_queue_capacity();
 
 private:
     // 禁止外部创建、拷贝

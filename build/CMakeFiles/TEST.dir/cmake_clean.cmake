@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TEST.dir/net/TCP/acceptor.cpp.o"
   "CMakeFiles/TEST.dir/net/TCP/tcp_connection.cpp.o"
+  "CMakeFiles/TEST.dir/net/TCP/tcp_server.cpp.o"
   "CMakeFiles/TEST.dir/net/TCP/worker_pool.cpp.o"
   "CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o"
   "CMakeFiles/TEST.dir/net/decoder/message.cpp.o"
@@ -12,7 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o"
   "CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o"
   "CMakeFiles/TEST.dir/net/socket/socket.cpp.o"
-  "CMakeFiles/TEST.dir/tests/TCP/test_decoder_dispatcher.cpp.o"
+  "CMakeFiles/TEST.dir/tests/TCP/test_tcp_server.cpp.o"
   "CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o"
   "CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o"
   "CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o"

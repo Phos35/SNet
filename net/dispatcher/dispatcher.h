@@ -8,6 +8,7 @@ using TCPConnPtr = std::shared_ptr<TCPConnection>;
 class Dispatcher
 {
 public:
+    typedef Dispatcher *Ptr;
     typedef std::unique_ptr<Dispatcher> UPtr;
 
     Dispatcher();

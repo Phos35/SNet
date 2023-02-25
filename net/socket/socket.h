@@ -3,11 +3,14 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <string>
+#include <memory>
 
 // socket RAII封装
 class Socket
 {
 public:
+    typedef std::unique_ptr<Socket> UPtr;
+
     /// @brief 创建一个socket
     /// @param domain 协议族
     /// @param type 数据类型

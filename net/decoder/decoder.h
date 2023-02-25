@@ -6,6 +6,7 @@
 class Decoder
 {
 public:
+    typedef Decoder *Ptr;
     typedef std::unique_ptr<Decoder> UPtr;
 
     Decoder();

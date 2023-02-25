@@ -6,6 +6,8 @@
 class Acceptor
 {
 public:
+    typedef std::unique_ptr<Acceptor> UPtr;
+
     Acceptor(int listen_fd);
 
     /// @brief 启动监听
