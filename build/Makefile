@@ -447,6 +447,33 @@ net/http/http_request.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.s
 .PHONY : net/http/http_request.cpp.s
 
+net/http/http_server.o: net/http/http_server.cpp.o
+
+.PHONY : net/http/http_server.o
+
+# target to build an object file
+net/http/http_server.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_server.cpp.o
+.PHONY : net/http/http_server.cpp.o
+
+net/http/http_server.i: net/http/http_server.cpp.i
+
+.PHONY : net/http/http_server.i
+
+# target to preprocess a source file
+net/http/http_server.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_server.cpp.i
+.PHONY : net/http/http_server.cpp.i
+
+net/http/http_server.s: net/http/http_server.cpp.s
+
+.PHONY : net/http/http_server.s
+
+# target to generate assembly for a file
+net/http/http_server.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_server.cpp.s
+.PHONY : net/http/http_server.cpp.s
+
 net/socket/socket.o: net/socket/socket.cpp.o
 
 .PHONY : net/socket/socket.o
@@ -582,32 +609,32 @@ net/tcp/worker_pool.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.s
 .PHONY : net/tcp/worker_pool.cpp.s
 
-tests/http/test_http_decoder.o: tests/http/test_http_decoder.cpp.o
+tests/http/test_http_server.o: tests/http/test_http_server.cpp.o
 
-.PHONY : tests/http/test_http_decoder.o
+.PHONY : tests/http/test_http_server.o
 
 # target to build an object file
-tests/http/test_http_decoder.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.o
-.PHONY : tests/http/test_http_decoder.cpp.o
+tests/http/test_http_server.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o
+.PHONY : tests/http/test_http_server.cpp.o
 
-tests/http/test_http_decoder.i: tests/http/test_http_decoder.cpp.i
+tests/http/test_http_server.i: tests/http/test_http_server.cpp.i
 
-.PHONY : tests/http/test_http_decoder.i
+.PHONY : tests/http/test_http_server.i
 
 # target to preprocess a source file
-tests/http/test_http_decoder.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.i
-.PHONY : tests/http/test_http_decoder.cpp.i
+tests/http/test_http_server.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.i
+.PHONY : tests/http/test_http_server.cpp.i
 
-tests/http/test_http_decoder.s: tests/http/test_http_decoder.cpp.s
+tests/http/test_http_server.s: tests/http/test_http_server.cpp.s
 
-.PHONY : tests/http/test_http_decoder.s
+.PHONY : tests/http/test_http_server.s
 
 # target to generate assembly for a file
-tests/http/test_http_decoder.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.s
-.PHONY : tests/http/test_http_decoder.cpp.s
+tests/http/test_http_server.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.s
+.PHONY : tests/http/test_http_server.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -924,6 +951,9 @@ help:
 	@echo "... net/http/http_request.o"
 	@echo "... net/http/http_request.i"
 	@echo "... net/http/http_request.s"
+	@echo "... net/http/http_server.o"
+	@echo "... net/http/http_server.i"
+	@echo "... net/http/http_server.s"
 	@echo "... net/socket/socket.o"
 	@echo "... net/socket/socket.i"
 	@echo "... net/socket/socket.s"
@@ -939,9 +969,9 @@ help:
 	@echo "... net/tcp/worker_pool.o"
 	@echo "... net/tcp/worker_pool.i"
 	@echo "... net/tcp/worker_pool.s"
-	@echo "... tests/http/test_http_decoder.o"
-	@echo "... tests/http/test_http_decoder.i"
-	@echo "... tests/http/test_http_decoder.s"
+	@echo "... tests/http/test_http_server.o"
+	@echo "... tests/http/test_http_server.i"
+	@echo "... tests/http/test_http_server.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"

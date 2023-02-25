@@ -63,6 +63,7 @@
         "io_context": "cpp",
         "netfwd": "cpp",
         "socket": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "unordered_set": "cpp"
     }
 }

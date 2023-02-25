@@ -100,11 +100,54 @@ CMakeFiles/TEST.dir/net/http/http_decoder.cpp.o: ../net/http/http_decoder.cpp
 CMakeFiles/TEST.dir/net/http/http_decoder.cpp.o: ../net/http/http_decoder.h
 CMakeFiles/TEST.dir/net/http/http_decoder.cpp.o: ../net/http/http_request.h
 
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/decoder/decoder.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/decoder/message.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/dispatcher/dispatcher.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/event/event.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/event/event_loop.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/event/iomutiplexing.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/socket/socket.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/tcp/tcp_connection.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/tcp/worker_pool.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/buffer/byte_buffer.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/buffer/tcp_buffer.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/log/append_file.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/log/async_log.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/log/log_file.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/log/log_stream.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/log/logger.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../utils/time/timestamp.h
 CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/http/http_dispatcher.cpp
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/http/http_dispatcher.h
+CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o: ../net/http/http_request.h
 
 CMakeFiles/TEST.dir/net/http/http_request.cpp.o: ../net/decoder/message.h
 CMakeFiles/TEST.dir/net/http/http_request.cpp.o: ../net/http/http_request.cpp
 CMakeFiles/TEST.dir/net/http/http_request.cpp.o: ../net/http/http_request.h
+
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/decoder/decoder.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/decoder/message.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/dispatcher/dispatcher.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/event/event.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/event/event_loop.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/event/event_loop_thread.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/event/event_loop_thread_pool.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/event/iomutiplexing.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/socket/socket.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/tcp/acceptor.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/tcp/tcp_connection.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/tcp/tcp_server.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/tcp/worker_pool.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../utils/buffer/byte_buffer.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../utils/buffer/tcp_buffer.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/http/http_decoder.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/http/http_dispatcher.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/http/http_request.h
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/http/http_server.cpp
+CMakeFiles/TEST.dir/net/http/http_server.cpp.o: ../net/http/http_server.h
 
 CMakeFiles/TEST.dir/net/socket/socket.cpp.o: ../utils/alias/callback.h
 CMakeFiles/TEST.dir/net/socket/socket.cpp.o: ../utils/buffer/fixed_buffer.h
@@ -195,11 +238,35 @@ CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.o: ../net/tcp/tcp_connection.h
 CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.o: ../net/tcp/worker_pool.cpp
 CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.o: ../net/tcp/worker_pool.h
 
-CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.o: ../net/decoder/decoder.h
-CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.o: ../net/decoder/message.h
-CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.o: ../net/http/http_decoder.h
-CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.o: ../net/http/http_request.h
-CMakeFiles/TEST.dir/tests/http/test_http_decoder.cpp.o: ../tests/http/test_http_decoder.cpp
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/decoder/decoder.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/decoder/message.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/dispatcher/dispatcher.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/event/event.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/event/event_loop.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/event/event_loop_thread.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/event/event_loop_thread_pool.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/event/iomutiplexing.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/http/http_dispatcher.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/http/http_request.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/http/http_server.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/socket/socket.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/tcp/acceptor.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/tcp/tcp_connection.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/tcp/tcp_server.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../net/tcp/worker_pool.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../third/jsoncpp/json.hpp
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/alias/callback.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/buffer/byte_buffer.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/buffer/fixed_buffer.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/buffer/tcp_buffer.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/config/config.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/log/append_file.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/log/async_log.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/log/log_file.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/log/log_stream.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/log/logger.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../utils/time/timestamp.h
+CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o: ../tests/http/test_http_server.cpp
 
 CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o: ../utils/buffer/buffer.cpp
 
