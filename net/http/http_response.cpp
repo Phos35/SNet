@@ -89,6 +89,9 @@ std::string HTTPResponse::mime_to_string(MIME type)
     switch(type)
     {
         case MIME::TEXT: return "text/plain"; break;
+        case MIME::HTML: return "text/html"; break;
+        case MIME::IMAGE: return "image/*"; break;
+        case MIME::PNG: return "image/png"; break;
         default: return "UNKNOWN MIME"; break;
     }
 }

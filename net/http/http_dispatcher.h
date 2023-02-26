@@ -8,13 +8,13 @@
 class HTTPDispatcher : public Dispatcher
 {
 public:
-    typedef std::function<void(const TCPConnPtr &, const HTTPRequest::Ptr &)> Handler;
+    typedef std::function<void(const TCPConnPtr &, const HTTPRequest::SPtr &)> Handler;
     typedef std::unordered_map<std::string, Handler> HandlerTable;
 
     /// @brief 将消息分配到对应的处理函数
     /// @param conn 消息发生的连接
     /// @param msg 待处理的消息
-    void dispatch(const TCPConnPtr &conn, const Message::Ptr &msg) override;
+    void dispatch(const TCPConnPtr &conn, const Message::SPtr& msg) override;
 
     /// @brief 注册处理函数
     /// @param 注册函数需要处理的url

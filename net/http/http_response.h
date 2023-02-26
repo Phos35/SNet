@@ -17,6 +17,9 @@ public:
     enum class MIME
     {
         TEXT,   // 纯文本类型
+        HTML,   // html文件
+        IMAGE,  // 图片
+        PNG,    // png图片
     };
 
     // HTTP响应

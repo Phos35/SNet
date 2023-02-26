@@ -10,7 +10,7 @@ Dispatcher::~Dispatcher()
 
 }
 
-void Dispatcher::dispatch(const TCPConnPtr& conn, const Message::Ptr &msg)
+void Dispatcher::dispatch(const TCPConnPtr& conn, const Message::SPtr& msg)
 {
 
 }

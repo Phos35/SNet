@@ -68,19 +68,20 @@ void WorkerPool::worker_func()
             continue;
 
         // 解析数据获取消息
-        TCPBuffer &buffer = conn->buffer_ref();
-        Message::Ptr msg = conn->decode(buffer.read(0));
+        TCPBuffer &buffer = conn->recv_buffer_ref();
+        Message::SPtr msg = conn->decode(buffer.read(0));
 
         // 若解析未完成，则需要等待完整报文
         if(msg->get_result() == Message::DeocdeResult::FAILURE)
         {
-            delete msg;
             continue;
         }
 
+        // 释放缓冲区内容
+        buffer.release(msg->raw_size());
+
         // 分发消息
         conn->dispatch(msg);
-        delete msg;
     }
 }
 

@@ -3,8 +3,6 @@
 #include <assert.h>
 #include <unistd.h>
 
-// TODO event采用指针存储，提高效率
-
 EPoller::EPoller()
 : ees_(EE_BUFFER_DEFAULT_SIZE, {0})
 {
@@ -35,6 +33,7 @@ size_t EPoller::get_fired_events(std::vector<Event> &fire_events, int timeout)
         e.set_mask(ees_[i].events);
         fire_events.push_back(e);
     }
+    memset(ees_.data(), 0, sizeof(epoll_event) * ees_.size());
 
     // 伸缩ees_
     if(fired_cnt == ees_.size())
@@ -60,15 +59,14 @@ void EPoller::update_event(Event &e)
     }
 
     auto itr = events_.find(e.fd());
-    // 若事件未添加到监听事件集合中，则进行添加
+    // 若事件未添加到监听事件集合中，则给出警告
     if(itr == events_.end())
     {
-        add_event(e);
+        LOG_WARN << "Trying to modify a fd " << e.fd() << " which no in epoll";
         return;
     }
 
-    // 更新事件，注意加上事件旧的掩码
-    e.set_mask(e.mask() | itr->second.mask());
+    // 更新事件
     ctl(e, CTL_TYPE::MOD);
 }
 
@@ -84,7 +82,7 @@ void EPoller::add_event(Event &e)
     // 添加事件
     if(ctl(e, CTL_TYPE::ADD) == 0)
     {
-        events_.insert({e.fd(), e});
+        events_[e.fd()] = e;
     }
 }
 
@@ -107,7 +105,7 @@ void EPoller::del_event(Event &e)
 
     // 删除事件
     if(ctl(e, CTL_TYPE::DEL) == 0)
-    {
+    { 
         events_.erase(e.fd());
     }
 }

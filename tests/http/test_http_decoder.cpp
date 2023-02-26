@@ -4,7 +4,7 @@
 #include <cassert>
 #include <cstring>
 
-int main()
+void uncomplete_test()
 {
     char buf[1024] = {0};
     std::ifstream input_file("test.txt");
@@ -25,5 +25,20 @@ int main()
         input_file.clear();
         input_file.seekg(0, std::ios::beg);
     }
+}
+
+int main()
+{
+    char buf[1024] = {0};
+    std::ifstream input_file("wrong_data.txt");
+    assert(input_file.is_open() == true);
+
+    HTTPDecoder decoder;
+    input_file.readsome(buf, 1024);
+    HTTPRequest::Ptr request = decoder.decode(buf);
+
+    printf("Message decode: %s\n", request->get_result() == Message::DeocdeResult::FAILURE ? "FAILURE" : "SUCCESS");
+    printf("%s\n", request->to_string().c_str());
+
     return 0;
 }

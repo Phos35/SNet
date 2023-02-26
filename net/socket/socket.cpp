@@ -58,6 +58,11 @@ int Socket::bind(sockaddr_in *addr)
     return ::bind(fd_, (sockaddr *)addr, sizeof(addr_in_));
 }
 
+void Socket::shutdown(uint32_t flag)
+{
+    ::shutdown(fd_, flag);
+}
+
 int Socket::set_reuse_addr()
 {
     int opt_val = 1;
@@ -81,7 +86,7 @@ std::string Socket::addr_str()
 
 /// @brief 获取socket绑定的端口号
 /// @return 端口号
-short Socket::port()
+uint16_t Socket::port()
 {
     return ntohs(addr_in_.sin_port);
 }

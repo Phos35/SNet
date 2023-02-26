@@ -33,6 +33,10 @@ public:
     /// @return 成功返回0，失败返回-1
     int bind(sockaddr_in *addr);
 
+    /// @brief 关闭socket的端
+    /// @param flag SHUT_RD -- 读端；SHUT_WR -- 写端；SHUT_RDWR -- 读写端
+    void shutdown(uint32_t flag);
+
     /// @brief 获取socket的文件描述符
     /// @return 文件描述符
     int fd();
@@ -47,7 +51,7 @@ public:
 
     /// @brief 获取socket绑定的端口号
     /// @return 端口号
-    short port();
+    uint16_t port();
 
     ~Socket();
 

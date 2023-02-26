@@ -38,9 +38,13 @@ public:
     /// @brief 默认构造函数，初始化buffer_为指定大小的数组
     ByteBuffer(int capacity = 0);
 
-    /// @brief 获取post_writeable_are的指针
+    /// @brief 获取post_writeable_area的指针
     /// @return post_writeable_are的指针
     char *writeable_area();
+
+    /// @brief 获取可读区域--readable_area的指针
+    /// @return 可读区域指针
+    char *readable_area();
 
     /// @brief 向缓冲区中写入内容 
     /// @param val 待写入的内容
@@ -66,8 +70,7 @@ public:
 
     /// @brief 释放readable_area的内容
     /// @param length 释放的长度
-    /// @return 被释放的内容
-    std::string release(size_t length);
+    void release(size_t length);
 
     /// @brief 获取缓冲区中可读内容的长度
     /// @return 可读内容长度
@@ -86,6 +89,10 @@ public:
     virtual std::string to_string();
 
 protected:
+    /// @brief 获取最低容量
+    /// @return 最低容量
+    size_t base_capacity();
+
     /// @brief 压缩缓冲区，前移readable_area中的内容，合并writeable_area
     void compact();
 
@@ -108,6 +115,8 @@ private:
     size_t              read_index_;    // readable区域的起始位置指针 
     size_t              write_index_;   // writeable区域的起始位置指针
     size_t              capacity_;      // 缓冲区容量
+    size_t              base_capacity_; // 最低容量大小
+
 
     /// @brief 获取可读区域前的可写区域长度
     /// @return pre_writeable_area 的长度

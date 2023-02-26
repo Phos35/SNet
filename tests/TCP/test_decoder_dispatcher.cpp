@@ -79,7 +79,7 @@ public:
         TestMessage::Ptr test_msg = dynamic_cast<TestMessage::Ptr>(msg);
         test_dispatch_table[test_msg->key()](conn, test_msg);
         delete test_msg;
-        conn->buffer_ref().release(msg->raw_size());
+        conn->recv_buffer_ref().release(msg->raw_size());
     }
 
 private:
@@ -158,7 +158,7 @@ void echo_file(const TCPConnPtr& conn, TestMessage* msg)
 
 void echo_close(const TCPConnPtr& conn, TestMessage* msg)
 {
-    conn->close();
+    conn->close_in_loop();
 }
 
 int main()

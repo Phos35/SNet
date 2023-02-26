@@ -31,6 +31,13 @@ void Event::process()
             printf("fd %d write_callback not set!\n", fd_);
         else
             write_callback_();
+    
+    // 对端关闭写
+    if(mask_ & EPOLLRDHUP)
+        if(!close_callback_)
+            printf("fd %d close_callback not set!\n", fd_);
+        else
+            close_callback_();
 }
 
 void Event::set_weak_ptr(const TCPCoonSPtr &conn)
@@ -45,7 +52,12 @@ void Event::set_read_callback(const CallBack& cb)
 
 void Event::set_write_callback(const CallBack& cb)
 {
-    read_callback_ = std::move(cb);
+    write_callback_ = std::move(cb);
+}
+
+void Event::set_close_callback(const CallBack &cb)
+{
+    close_callback_ = std::move(cb);
 }
 
 void Event::focus_read()

@@ -1,5 +1,6 @@
 #include "tcp_server.h"
 #include "config.h"
+#include "logger.h"
 #include <iostream>
 
 TCPServer::TCPServer(const std::string &addr, uint16_t port)
@@ -71,11 +72,13 @@ void TCPServer::create_new_conn(Socket::UPtr&& client_socket)
     next_id_++;
 
     // 调用初始化函数
+    LOG_DEBUG << "TCPConnection " << conn->id() << " accepted, counter: " << conn.use_count();
     loop->run_in_loop(std::bind(&TCPConnection::create, conn));
 }
 
 void TCPServer::close_conn(const TCPConnection::SPtr &conn)
 {
+    LOG_DEBUG << "Sever Before Erase, TCPConnection " << conn->id() << ", counter: " << conn.use_count();
     // 移除map中的连接
     conns_.erase(conn->id());
 

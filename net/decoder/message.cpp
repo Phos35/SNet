@@ -1,5 +1,11 @@
 #include "message.h"
 
+Message::Message()
+:result_(DeocdeResult::FAILURE)
+{
+
+}
+
 Message::Message(const std::string& data)
 :result_(DeocdeResult::SUCCESS), raw_data_(data)
 {

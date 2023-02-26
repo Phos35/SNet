@@ -17,7 +17,7 @@ public:
     /// @brief 将消息分配到对应的处理函数
     /// @param conn 消息发生的连接
     /// @param msg 待处理的消息
-    virtual void dispatch(const TCPConnPtr& conn, const Message::Ptr &msg);
+    virtual void dispatch(const TCPConnPtr& conn, const Message::SPtr& msg);
 
 private:
 };

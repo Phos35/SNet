@@ -4,8 +4,7 @@
 #include <cstring>
 
 TCPBuffer::TCPBuffer(int capacity)
-: ByteBuffer(capacity), 
-  base_capacity_(capacity), lower_half_cnt_(0)
+: ByteBuffer(capacity), lower_half_cnt_(0)
 {
 }
 
@@ -24,7 +23,6 @@ int TCPBuffer::read_from_fd(int fd)
     // 发生错误
     if(read_size == -1)
     {
-        LOG_ERROR << "Buffer read from file error: " << strerror(errno);
         return -1;
     }
 
@@ -37,7 +35,7 @@ int TCPBuffer::read_from_fd(int fd)
         // 多次写入数据量较少，则缩小空间
         if(lower_half_cnt_ > 4)
         {
-            shrink(std::max(capacity() / 2, base_capacity_));
+            shrink(std::max(capacity() / 2, base_capacity()));
         }
     }
     // 写入长度大于writeable，则原有buffer已写满，需要扩容后将剩余部分写入

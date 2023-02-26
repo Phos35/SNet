@@ -41,7 +41,6 @@ private:
     /// @param size 数据长度
     void extend_write(char *data, int size);
 
-    size_t base_capacity_;  // 最低容量大小
     size_t lower_half_cnt_; // 记录写入buffer_的数据小于buffer_一半的次数，用于定期缩小buffer_
 };
 

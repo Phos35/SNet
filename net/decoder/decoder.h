@@ -15,7 +15,7 @@ public:
     /// @brief 解析数据
     /// @param data 待解析的数据
     /// @return 解析完成的报文的指针
-    virtual Message::Ptr decode(const std::string& data);
+    virtual Message::SPtr decode(const std::string& data);
 
 private:
 };

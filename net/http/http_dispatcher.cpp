@@ -1,12 +1,13 @@
 #include "http_dispatcher.h"
 #include "logger.h"
 #include "tcp_connection.h"
+#include "message.h"
 
 HTTPDispatcher::HandlerTable HTTPDispatcher::handler_table_;
 
-void HTTPDispatcher::dispatch(const TCPConnPtr &conn, const Message::Ptr &msg)
+void HTTPDispatcher::dispatch(const TCPConnPtr &conn, const Message::SPtr& msg)
 {
-    HTTPRequest::Ptr http_request = dynamic_cast<HTTPRequest::Ptr>(msg);
+    HTTPRequest::SPtr http_request = std::dynamic_pointer_cast<HTTPRequest>(msg);
 
     // 若request的状态有问题，则根据相应问题响应
     if(http_request->error() != HTTPRequest::Error::NO_ERROR)

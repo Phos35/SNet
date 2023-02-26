@@ -97,7 +97,7 @@ void echo_file(const TCPConnPtr& conn, TestMessage* msg)
 
 void echo_close(const TCPConnPtr& conn, TestMessage* msg)
 {
-    conn->close();
+    conn->close_in_loop();
 }
 
 

@@ -1,12 +1,13 @@
 #include "http_decoder.h"
 #include "unordered_set"
 
-HTTPRequest::Ptr HTTPDecoder::decode(const std::string &data)
+Message::SPtr HTTPDecoder::decode(const std::string &data)
 {
     // 初始化
+    request_ = nullptr;
     cur_index_ = 0;
     state_ = DecodeState::REQUEST_LINE;
-    request_ = new HTTPRequest(data);
+    request_ = std::make_shared<HTTPRequest>(data);
     line_start_ = line_end_ = 0;
 
     // 逐行解析

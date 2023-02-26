@@ -36,6 +36,9 @@ public:
     /// @brief 设置写事件处理回调函数
     void set_write_callback(const CallBack& cb);
 
+    /// @brief 设置关闭事件处理函数
+    void set_close_callback(const CallBack &cb);
+
     /// @brief 关注事件中添加读事件
     void focus_read();
 
@@ -97,6 +100,7 @@ private:
 
     CallBack        read_callback_;     // 处理读事件的回调函数
     CallBack        write_callback_;    // 处理写事件的回调函数
+    CallBack        close_callback_;    // 处理关闭事件的回调函数
 };
 
 #endif

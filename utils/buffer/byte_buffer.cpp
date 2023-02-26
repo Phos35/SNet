@@ -2,7 +2,8 @@
 #include <string.h>
 
 ByteBuffer::ByteBuffer(int capacity)
-: read_index_(0), write_index_(0), capacity_(capacity),
+: read_index_(0), write_index_(0), 
+  capacity_(capacity), base_capacity_(capacity),
   buffer_(capacity, 0)
 {
     
@@ -13,16 +14,24 @@ char* ByteBuffer::writeable_area()
     return buffer_.data() + write_index_;
 }
 
+char* ByteBuffer::readable_area()
+{
+    return buffer_.data() + read_index_;
+}
+
 size_t ByteBuffer::write(const char* val, size_t length)
 {
+    // 空间压缩
+    if(length > post_writeable() && pre_writeable() != 0)
+        compact();
+
     // 待写入的内容长度大于可写入的长度，则不写入
     if(length > writeable())
-        return 0;
-    
-    // 空间压缩
-    if(length > post_writeable())
-        compact();
-    
+        extend(length - writeable());
+    // 写入内容过少，则压缩空间
+    else if(length < writeable() / 4)
+        shrink(std::max(writeable() / 4, base_capacity_));
+
     // 写入数据
     char *data = buffer_.data() + write_index_;
     memcpy(data, val, length);
@@ -56,11 +65,9 @@ std::string ByteBuffer::read(size_t length)
     return std::string(buffer_.data() + read_index_, length);
 }
 
-std::string ByteBuffer::release(size_t length)
+void ByteBuffer::release(size_t length)
 {
-    std::string released = read(length);
-    read_index_ += released.size();
-    return released;
+    read_index_ += length;
 }
 
 void ByteBuffer::compact()
@@ -98,6 +105,11 @@ size_t ByteBuffer::capacity()
     return capacity_;
 }
 
+size_t ByteBuffer::base_capacity()
+{
+    return base_capacity_;
+}
+
 size_t ByteBuffer::extend(size_t increment)
 {
     // WARN 此处不能使用reserve，原因可能与reserve中重新分配内存与size
@@ -113,6 +125,9 @@ size_t ByteBuffer::shrink(size_t decrement)
         return capacity_;
 
     capacity_ -= decrement;
+    if(write_index_ < capacity_)
+        write_index_ = capacity_;
+
     buffer_.resize(capacity_);
     return buffer_.size();
 }

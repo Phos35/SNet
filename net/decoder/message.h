@@ -3,11 +3,12 @@
 #include <memory>
 #include <string>
 
-class Message
+class Message : public std::enable_shared_from_this<Message>
 {
 public:
     typedef Message *Ptr;
     typedef std::unique_ptr<Message> UPtr;
+    typedef std::shared_ptr<Message> SPtr;
 
     // 报文解析的最终结果
     enum class DeocdeResult
@@ -16,7 +17,8 @@ public:
         FAILURE     // 解析失败
     };
 
-    Message(const std::string& data);
+    Message();
+    Message(const std::string &data);
     Message(DeocdeResult result);
     virtual ~Message();
 

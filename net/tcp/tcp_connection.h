@@ -59,11 +59,11 @@ public:
     /// @brief 解析数据
     /// @param data 待解析的数据
     /// @return 解析后的消息，解析成功则message->result_ == SUCCESS，否则为FAILURE
-    virtual Message::Ptr decode(const std::string& data);
+    virtual Message::SPtr decode(const std::string& data);
 
     /// @brief 分发消息至对应的处理函数中
     /// @param message 待分发的消息
-    virtual void dispatch(Message::Ptr message);
+    virtual void dispatch(const Message::SPtr& message);
 
     /// @brief 发送消息给对端
     /// @param data 待发送的数据
@@ -74,7 +74,7 @@ public:
     /// @param length 数据长度
     void write(const char *data, size_t length);
 
-    /// @brief 调用处理关闭的回调函数，关闭连接
+    /// @brief 主动关闭连接
     void close();
 
     /// @brief 回收资源，关闭连接的最后一道工作
@@ -100,7 +100,7 @@ public:
 
     /// @brief 获取缓冲数组的引用
     /// @return 缓冲数组引用
-    TCPBuffer &buffer_ref();
+    TCPBuffer &recv_buffer_ref();
 
     /// @brief 获取状态对应的字符串
     /// @param s 状态
@@ -113,11 +113,14 @@ private:
     SocketPtr           socket_;            // 代表客户端的socket
     Event               event_;             // TCP连接管理的事件
     State               state_;             // TCP连接的状态
-    TCPBuffer           buffer_;            // 数据缓冲区
+    TCPBuffer           recv_buffer_;       // 接收缓冲区
+    TCPBuffer           send_buffer_;       // 发送缓冲区
 
     Decoder::Ptr        decoder_;           // 数据解析器
     Dispatcher::Ptr     dispatcher_;        // 消息分发器
     WorkerPool*         worker_pool_;       // 工作线程池
+
+    bool                writing_;           // 正在写出的标志，用于优雅关闭连接
 
     CloseCallBack       close_callback_;    // 处理关闭事件的回调函数
 
@@ -133,6 +136,9 @@ private:
     /// @brief 将写入操作转移到事件循环中完成
     /// @param data 待写入的数据
     void write_in_loop(const std::string& data);
+
+    /// @brief 调用处理关闭的回调函数，关闭连接
+    void close_in_loop();
 };
 
 #endif

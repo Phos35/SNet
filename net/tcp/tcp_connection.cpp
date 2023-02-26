@@ -10,7 +10,8 @@ TCPConnection::TCPConnection(size_t id, EventLoop* event_loop,
 :id_(id), loop_(event_loop), socket_(std::move(client_socket)), state_(State::CREATING),
  event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)), 
  decoder_(decoder), dispatcher_(dispatcher),
- worker_pool_(pool), buffer_(65536)
+ worker_pool_(pool), recv_buffer_(65536),send_buffer_(65536),
+ writing_(false)
 {
     LOG_INFO << "\nTCPConnection " << id_ << " Creating\n"
              << "Manage fd: " << event_.fd() << "\n"
@@ -21,7 +22,8 @@ TCPConnection::TCPConnection(size_t id, EventLoop* event_loop,
 
 TCPConnection::~TCPConnection()
 {
-    LOG_TRACE << "TCPConnection " << id_ << " deconstruct, state: " << state_to_string(state_);
+    LOG_TRACE << "TCPConnection " << id_
+              << " deconstruct, state: " << state_to_string(state_);
 }
 
 void TCPConnection::create()
@@ -30,11 +32,14 @@ void TCPConnection::create()
     // 注意此处传递this是合理的，因为在event中会通过weak_ptr判断连接是否存活
     event_.set_weak_ptr(shared_from_this());
     event_.set_read_callback(std::bind(&TCPConnection::process_read, this));
+    event_.set_write_callback(std::bind(&TCPConnection::process_write, this));
+    event_.set_close_callback(std::bind(&TCPConnection::process_close, this));
     loop_->add_event(event_);
 
     // 更新状态
     state_ = State::CONNECTING;
-    LOG_TRACE << "TCPConnection " << id_ << " created";
+    TCPConnection::SPtr ptr = shared_from_this();
+    LOG_TRACE << "TCPConnection " << id_ << " created, counter: " << ptr.use_count();
 }
 
 void TCPConnection::set_close_callback(const CloseCallBack &close_cb)
@@ -47,13 +52,58 @@ void TCPConnection::write(const std::string &data)
     loop_->run_in_loop(std::bind(&TCPConnection::write_in_loop, this, data));
 }
 
-// TODO 错误处理、单次写入未完成则启动写事件关注等
 void TCPConnection::write_in_loop(const std::string& data)
 {
     int written_size = ::write(socket_->fd(), data.data(), data.size());
+    if(written_size == -1 && errno != EAGAIN && errno != EWOULDBLOCK)
+    {
+        LOG_ERROR << "TCPConnection " << id_ << " write failed: "
+                  << strerror(errno);
+        return;
+    }
+    if(written_size == -1)
+        written_size = 0;
+
+    // 若数据写完，则一次完毕，无需后续写入
+    if(written_size == data.size())
+    {
+        // 若处于优雅关闭连接的过程中，则关闭连接
+        if(state_ == State::CLOSING)
+        {
+            destroy();
+        }
+        return;
+    }
+
+    // 若数据未写完，则
+    // 1. 置writing为true
+    writing_ = true;
+
+    // 2. 关注写事件
+    event_.focus_write();
+    loop_->update_event(event_);
+
+    // 3. 将剩余数据写入写出缓冲区
+    send_buffer_.write(data.substr(written_size));
 }
 
 void TCPConnection::close()
+{
+    // 只在运行状态下调用in_loop的关闭函数
+    if(state_ == State::CONNECTING)
+    {
+        loop_->run_in_loop(std::bind(&TCPConnection::close_in_loop, shared_from_this()));
+    }
+    // 其余状态提出警告
+    else
+    {
+        LOG_WARN << "Trying to close TCPCoonection " << id_
+                 << ", which state is: " << state_to_string(state_)
+                 << ". Do nothing";
+    }
+}
+
+void TCPConnection::close_in_loop()
 {
     // 若连接在连接状态，则进行关闭
     if(state_ == State::CONNECTING)
@@ -82,65 +132,107 @@ void TCPConnection::close()
     }
 }
 
-/// TODO 注意检验是否在事件循环内运行 -- 需要EventLoop修正访问权限
 void TCPConnection::destroy()
 {
+    // 若目前仍有数据需要写出，则搁置关闭，由后续process_write写完数据后再调用
+    if(writing_ == true)
+        return;
+
     // 取消关注的事件
     loop_->del_event(event_);
 
     // 更新状态
     state_ = State::CLOSED;
-    LOG_TRACE << "TCPConnection " << id_ << " closed";
+    TCPConnection::SPtr ptr = shared_from_this();
+    LOG_TRACE << "TCPConnection " << id_ << " closed, counter: " << ptr.use_count();
 }
 
-// TODO 添加buffer进行读取
 void TCPConnection::process_read()
 {
     // TCP连接处于非连接状态，不进行读取
     if(state_ != State::CONNECTING)
     {
+        TCPConnection::SPtr ptr = shared_from_this();
+        char buf[1024] = {0};
+        int read_size = read(socket_->fd(), buf, 1024);
+        printf("Counter: %ld, read_size: %d\n", ptr.use_count(), read_size);
         LOG_WARN << "TCPConnection " << id_ << " recv read event in state: " << state_to_string(state_);
         return;
     }
 
-    int read_size = buffer_.read_from_fd(socket_->fd());
+    int read_size = recv_buffer_.read_from_fd(socket_->fd());
     if (read_size == -1)
     {
-        // 发生错误
+        // 若发生错误，则关闭连接
         if(errno != EAGAIN && errno != EAGAIN)
         {
             LOG_ERROR << "TCPConnection " << id_ << " read error: " << strerror(errno);
-            return;
+            close_in_loop();
         }
+        return;
     }
 
     // 对端关闭，则本端开始关闭
     if(read_size == 0)
     {
-        close();
+        close_in_loop();
+        return;
     }
 
     // 数据解析提交工作线程池
     worker_pool_->add_task(shared_from_this());
 }
 
-Message::Ptr TCPConnection::decode(const std::string& data)
+Message::SPtr TCPConnection::decode(const std::string& data)
 {
     return decoder_->decode(data);
 }
 
-void TCPConnection::dispatch(Message::Ptr message)
+void TCPConnection::dispatch(const Message::SPtr& message)
 {
     dispatcher_->dispatch(shared_from_this(), message);
 }
 
-// TODO 在事件循环中续写未写完的数据
 void TCPConnection::process_write()
 {
+    // 写出数据
+    int data_size = send_buffer_.readable();
+    int written_size = ::write(socket_->fd(), send_buffer_.readable_area(), data_size);
+    if(written_size == -1 && errno != EAGAIN && errno != EWOULDBLOCK)
+    {
+        LOG_ERROR << "TCPConnection " << id_ << " process_read failed: "
+                  << strerror(errno) << ". Now closing connection";
+        writing_ = false;
+        close_in_loop();
+        return;
+    }
+    if(written_size == -1)
+        written_size = 0;
 
+    send_buffer_.release(written_size);
+    // 若数据未写完，则继续等待写事件
+    if(written_size < data_size)
+    {
+        return;
+    }
+
+    // 数据写完
+    // 1. 置writing为false
+    writing_ = false;
+
+    // 2. 是否正在关闭中，若在关闭中，则调用destroy
+    if(state_ == State::CLOSING)
+    {
+        destroy();
+    }
+    // 3.若未在关闭中，则取消写事件关注
+    else
+    {
+        event_.unfocus_write();
+        loop_->update_event(event_);
+    }
 }
 
-// TODO 在明白除了read返回0外的对端关闭方式后再添加
 void TCPConnection::process_close()
 {
 
@@ -166,9 +258,9 @@ uint16_t TCPConnection::port()
     return socket_->port();
 }
 
-TCPBuffer& TCPConnection::buffer_ref()
+TCPBuffer& TCPConnection::recv_buffer_ref()
 {
-    return buffer_;
+    return recv_buffer_;
 }
 
 std::string TCPConnection::state_to_string(State s)

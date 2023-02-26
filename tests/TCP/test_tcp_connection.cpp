@@ -19,7 +19,7 @@ void on_read(const TCPConnPtr& conn, const char* buf)
     if(end == false)
         conn->write(buf, strlen(buf));
     else
-        conn->close();
+        conn->close_in_loop();
 }
 
 void on_close(const TCPConnPtr& conn)
