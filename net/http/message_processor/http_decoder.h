@@ -21,14 +21,14 @@ public:
     /// @brief 解析HTTP报文
     /// @param data 待解析的数据
     /// @return 解析完成的报文
-    Message::SPtr decode(const std::string &data) override;
+    Message* decode(const std::string &data) override;
 private:
     size_t              cur_index_;     // 报文解析中的当前指针
     size_t              line_start_;    // 当前行的起始位置
     size_t              line_end_;      // 当前行的结束位置
 
     DecodeState         state_;         // 解析状态
-    HTTPRequest::SPtr    request_;       // 请求报文指针，用于解析过程中临时存储
+    HTTPRequest*        request_;       // 请求报文指针，用于解析过程中临时存储
 
     /// @brief 解析请求行
     /// @param data 待解析的数据

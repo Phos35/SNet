@@ -33,21 +33,21 @@ protected:
 
     /// @brief 根据上层协议决定TCP连接的状态 -- 关闭或者保持
     /// @param TCP连接
-    virtual void process_conn(const TCPConnSPtr& conn);
+    /// @param 客户端请求消息
+    virtual void process_conn(const TCPConnSPtr& conn, Message* request);
+
+    /// @brief 解析数据
+    /// @param data 待解析的数据
+    /// @return 解析完成的客户端消息
+    Message* decode(const std::string &data);
+
+    /// @brief 分发消息，获取响应
+    /// @param msg 解析生成的消息
+    Message* dispatch(Message *msg);
 
 private:
     Decoder *decoder_;
     Dispatcher *dispatcher_;
-
-    /// @brief 解析数据
-    /// @param data 待解析的数据
-    /// @return 解析完成的报文
-    virtual Message* decode(const std::string &data);
-
-    /// @brief 分发消息，获取响应
-    /// @param msg 解析生成的消息
-    /// @return 上层传递的响应
-    virtual Message dispatch(Message *msg);
 };
 
 #endif

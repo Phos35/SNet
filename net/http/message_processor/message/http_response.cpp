@@ -2,7 +2,7 @@
 
 HTTPResponse::HTTPResponse(const std::string &version, size_t code,
                 const std::string &description)
-             :version_(version), code_(code), description_(description)
+:version_(version), code_(code), description_(description)
 {
 
 }

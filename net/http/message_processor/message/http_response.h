@@ -2,13 +2,14 @@
 #define SNET_HTTP_RESPONSE_H
 #include <string>
 #include <unordered_map>
+#include "message.h"
 
 /// TODOLIST
 /// 1. 修正HTTPResponse、HTTPRequest的相关结构应当作为基类被继承的问题
 /// 2. 修正MIME应当单独设置一个类并读取相关配置文件获取的问题
 /// 3. 修正HTTPResponse头部字段获取需要上层用户转型的问题
 
-class HTTPResponse
+class HTTPResponse : public Message
 {
 public:
     typedef std::unordered_map<std::string, std::string> HeaderMap;
@@ -74,7 +75,7 @@ public:
 
     /// @brief 获取完整的响应报文
     /// @return 响应报文
-    std::string data();
+    std::string data() override;
 
     /// @brief MIME转换为对应的字符串
     /// @param type 待转换的类型
@@ -88,7 +89,8 @@ private:
 
     HeaderMap       headers_;       // 头部字段
 
-    std::string     content_;        // 响应体
+    std::string     content_;       // 响应体
+
 };
 
 #endif

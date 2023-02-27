@@ -34,9 +34,8 @@ public:
 
     /// @brief 获取原始数据的大小
     /// @return 原始数据大小
-    virtual size_t data_size();
+    size_t data_size();
 
-protected:
     // TODO 或许可以使用移动语义做优化
     /// @brief 用于派生类设置数据
     /// @param data 待设置的数据

@@ -7,7 +7,6 @@
 class HTTPRequest : public Message
 {
 public:
-    typedef HTTPRequest *Ptr;
     typedef std::shared_ptr<HTTPRequest> SPtr;
     typedef std::string URL;
     typedef std::string Version;

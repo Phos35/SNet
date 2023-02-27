@@ -20,6 +20,8 @@ INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor/
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor/dispatcher)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/message)
 
 # 添加源文件
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/alias SRC_LIST)
@@ -36,6 +38,8 @@ AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor/message SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/message SRC_LIST)
 
 # 添加编译选项
 ADD_COMPILE_OPTIONS(-g)

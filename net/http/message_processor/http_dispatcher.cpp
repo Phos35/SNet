@@ -5,16 +5,16 @@
 
 HTTPDispatcher::HandlerTable HTTPDispatcher::handler_table_;
 
-void HTTPDispatcher::dispatch(const TCPConnPtr &conn, const Message::SPtr& msg)
+Message* HTTPDispatcher::dispatch(Message* msg)
 {
-    HTTPRequest::SPtr http_request = std::dynamic_pointer_cast<HTTPRequest>(msg);
+    HTTPRequest* http_request = dynamic_cast<HTTPRequest*>(msg);
 
     // 若request的状态有问题，则根据相应问题响应
     if(http_request->error() != HTTPRequest::Error::NO_ERROR)
     {
         std::string error_str = HTTPRequest::error_to_string(http_request->error());
-        handler_table_[error_str](conn, http_request);
-        return;
+        handler_table_[error_str](http_request);
+        return nullptr;
     }
 
     // 若函数表无对应的url处理函数，则输出错误消息，关闭连接
@@ -23,12 +23,11 @@ void HTTPDispatcher::dispatch(const TCPConnPtr &conn, const Message::SPtr& msg)
     if (itr == handler_table_.end())
     {
         LOG_ERROR << "URL: " << url << ", has no handler to handle";
-        conn->close();
     }
     // 否则根据url选择函数进行处理
     else
     {
-        itr->second(conn, http_request);
+        return itr->second(http_request);
     }
 }
 

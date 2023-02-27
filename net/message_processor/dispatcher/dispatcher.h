@@ -12,8 +12,8 @@ public:
 
     /// @brief 将消息分配到对应的处理函数
     /// @param msg 待处理的消息
-    /// @return 上层的响应消息
-    virtual Message dispatch(Message* msg);
+    /// @return 上层传递的响应消息
+    virtual Message* dispatch(Message* msg);
 
 private:
 };

@@ -26,7 +26,7 @@ void MessageProcessor::create()
 void MessageProcessor::process_data(const TCPConnSPtr& conn, const std::string &data)
 {
     // 1. 解析数据，生成客户端消息
-    Message *msg = decode(data);
+    Message* msg = decode(data);
 
     // 2.1 消息不完整，等待后续数据
     if(msg->get_result() == Message::DeocdeResult::FAILURE)
@@ -36,14 +36,17 @@ void MessageProcessor::process_data(const TCPConnSPtr& conn, const std::string &
     }
 
     // 2.2 消息解析完成，分发至对应的处理函数，获取响应
-    Message response = dispatch(msg);
+    Message* response = dispatch(msg);
 
     // 2.3 发送响应
-    conn->write(response.data());
-    delete msg;
+    conn->write(response->data());
 
     // 2.4 处理连接状态
-    process_conn(conn);
+    process_conn(conn, msg);
+
+    // 销毁指针
+    delete msg;
+    delete response;
 }
 
 Message* MessageProcessor::decode(const std::string &data)
@@ -51,12 +54,12 @@ Message* MessageProcessor::decode(const std::string &data)
     return decoder_->decode(data);
 }
 
-Message MessageProcessor::dispatch(Message *msg)
+Message* MessageProcessor::dispatch(Message *msg)
 {
     return dispatcher_->dispatch(msg);
 }
 
-void MessageProcessor::process_conn(const TCPConnSPtr& conn)
+void MessageProcessor::process_conn(const TCPConnSPtr& conn, Message* request)
 {
     // 基类默认关闭连接
     conn->close();
