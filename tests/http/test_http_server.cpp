@@ -4,17 +4,22 @@
 #include "http_dispatcher.h"
 #include "config.h"
 #include "http_response.h"
+#include "interface.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <signal.h>
 
-void on_slah(const HTTPConnSPtr& conn, const HTTPRequest::SPtr& request)
+HTTPResponse on_slah(HTTPRequest* request)
 {
+    HTTPResponse response;
     std::ifstream file("index.html");
     if(file.is_open() == false)
     {
         LOG_ERROR << "File index.html open failed";
+        response.set_code(404);
+        response.set_description("Not Found");
+        return response;
     }
     else
     {
@@ -22,22 +27,24 @@ void on_slah(const HTTPConnSPtr& conn, const HTTPRequest::SPtr& request)
         std::istreambuf_iterator<char> end;
         std::string content(begin, end);
 
-        HTTPResponse response;
         response.set_content_type(HTTPResponse::MIME::HTML);
         response.add_content(content);
-
-        conn->write(response.data());
+        file.close();   
+        return response;
     }
-    file.close();
-    conn->close();
 }
 
-void on_favicon(const HTTPConnSPtr& conn, const HTTPRequest::SPtr& request)
+HTTPResponse on_favicon(HTTPRequest* request)
 {
+    HTTPResponse response;
+
     std::ifstream file("favicon.ico");
     if (file.is_open() == false)
     {
         LOG_ERROR << "File favicon.ico open failed";
+        response.set_code(404);
+        response.set_description("Not Found");
+        return response;
     }
     else
     {
@@ -45,13 +52,11 @@ void on_favicon(const HTTPConnSPtr& conn, const HTTPRequest::SPtr& request)
         std::istreambuf_iterator<char> end;
         std::string content(begin, end);
 
-        HTTPResponse response;
         response.set_content_type(HTTPResponse::MIME::IMAGE);
         response.add_content(content);
-
-        conn->write(response.data());
+        file.close();
+        return response;
     }
-    file.close();
 }
 
 int main()

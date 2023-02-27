@@ -5,7 +5,7 @@
 
 TCPServer::TCPServer(const std::string &addr, uint16_t port)
 : server_socket_(AF_INET, SOCK_STREAM, 0), next_id_(0),
-  decoder_(nullptr), dispatcher_(nullptr)
+  conns_(100000), factory_(nullptr)
 {
     // 启用端口复用，绑定socket
     server_socket_.set_reuse_addr();
@@ -15,8 +15,6 @@ TCPServer::TCPServer(const std::string &addr, uint16_t port)
 TCPServer::~TCPServer()
 {
     delete acceptor_;
-    delete decoder_;
-    delete dispatcher_;
 }
 
 void TCPServer::run()
@@ -30,9 +28,11 @@ void TCPServer::run()
     worker_pool_ = std::make_unique<WorkerPool>(woker_pool_size, 
                                                 tasks_queue_capacity);
 
-    // 创建Decoder和Dispatcher
-    create_decoder();
-    create_dispatcher();
+    // 创建消息处理器工厂
+    create_factory();
+
+    // 为线程池设置消息处理器工厂，并创建消息处理器
+    worker_pool_->create_message_processor(factory_);
 
     // 创建Acceptor并注册新连接建立回调函数
     acceptor_ = new Acceptor(server_socket_.fd());
@@ -52,6 +52,15 @@ void TCPServer::run()
     while(input.find("QUIT") == std::string::npos)
     {
         std::cin >> input;
+        if(input == "COUNT")
+        {
+            for (int i = 0; i < 100000; i++)
+            {
+                long use_cnt = conns_[i].use_count();
+                if (use_cnt != 0)
+                    printf("Connection %d, use_count: %ld\n", i, use_cnt);
+            }
+        }
     }
 }
 
@@ -62,14 +71,13 @@ void TCPServer::create_new_conn(Socket::UPtr&& client_socket)
 
     // 创建新连接并注册关闭回调函数
     TCPConnection::SPtr conn = std::make_shared<TCPConnection>(
-        next_id_, loop, std::move(client_socket), 
-        decoder_, dispatcher_, worker_pool_.get());
+        next_id_, loop, std::move(client_socket), worker_pool_.get());
     conn->set_close_callback(std::bind(&TCPServer::close_conn, this, 
                              std::placeholders::_1));
 
     // 添加连接至map中
-    conns_.insert({next_id_, conn});
-    next_id_++;
+    conns_[next_id_] = conn;
+    next_id_ = (next_id_ + 1) % 100000;
 
     // 调用初始化函数
     LOG_DEBUG << "TCPConnection " << conn->id() << " accepted, counter: " << conn.use_count();
@@ -80,29 +88,19 @@ void TCPServer::close_conn(const TCPConnection::SPtr &conn)
 {
     LOG_DEBUG << "Sever Before Erase, TCPConnection " << conn->id() << ", counter: " << conn.use_count();
     // 移除map中的连接
-    conns_.erase(conn->id());
+    conns_[conn->id()] = nullptr;
 
     // 调用销毁函数
     EventLoop *loop = conn->event_loop();
     loop->run_in_loop(std::bind(&TCPConnection::destroy, conn));
 }
 
-void TCPServer::create_decoder()
+void TCPServer::create_factory()
 {
-    set_decoder(new Decoder());
+    set_factory(new MessageProcessorFactory());
 }
 
-void TCPServer::create_dispatcher()
+void TCPServer::set_factory(MessageProcessorFactory *factory)
 {
-    set_dispatcher(new Dispatcher());
-}
-
-void TCPServer::set_decoder(Decoder::Ptr decoder)
-{
-    decoder_ = decoder;
-}
-
-void TCPServer::set_dispatcher(Dispatcher::Ptr dispatcher)
-{
-    dispatcher_ = dispatcher;
+    factory_ = factory;
 }

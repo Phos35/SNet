@@ -4,12 +4,9 @@
 
 TCPConnection::TCPConnection(size_t id, EventLoop* event_loop, 
                              SocketPtr&& client_socket,
-                             Decoder::Ptr decoder, 
-                             Dispatcher::Ptr dispatcher,
                              WorkerPool* pool)
 :id_(id), loop_(event_loop), socket_(std::move(client_socket)), state_(State::CREATING),
- event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)), 
- decoder_(decoder), dispatcher_(dispatcher),
+ event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)),
  worker_pool_(pool), recv_buffer_(65536),send_buffer_(65536),
  writing_(false)
 {
@@ -181,16 +178,6 @@ void TCPConnection::process_read()
 
     // 数据解析提交工作线程池
     worker_pool_->add_task(shared_from_this());
-}
-
-Message::SPtr TCPConnection::decode(const std::string& data)
-{
-    return decoder_->decode(data);
-}
-
-void TCPConnection::dispatch(const Message::SPtr& message)
-{
-    dispatcher_->dispatch(shared_from_this(), message);
 }
 
 void TCPConnection::process_write()

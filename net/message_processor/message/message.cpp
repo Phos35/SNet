@@ -57,3 +57,8 @@ size_t Message::data_size()
     // 保持一个size_成员，每次增加内容时增加该值，
     // 这样就算报文还未构造成字符串也能获取对应的大小
 }
+
+void Message::clear_data()
+{
+    data_.clear();
+}

@@ -23,30 +23,34 @@ void MessageProcessor::create()
     set_dispatcher(new Dispatcher);
 }
 
-void MessageProcessor::process_data(const TCPConnSPtr& conn, const std::string &data)
+void MessageProcessor::process_data(const TCPConnSPtr& conn)
 {
     // 1. 解析数据，生成客户端消息
-    Message* msg = decode(data);
+    TCPBuffer &buffer = conn->recv_buffer_ref();
+    Message *msg = decode(buffer.read(0));
 
     // 2.1 消息不完整，等待后续数据
     if(msg->get_result() == Message::DeocdeResult::FAILURE)
     {
-        delete msg;
         return;
     }
 
-    // 2.2 消息解析完成，分发至对应的处理函数，获取响应
-    Message* response = dispatch(msg);
+    // 2.2 消息解析完成，释放缓冲区，分发消息至对应的处理函数，获取响应
+    buffer.release(msg->data_size());
+    Message *response = dispatch(msg);
+
+    // 2.3 若响应为空，则关闭连接
+    if(response == nullptr)
+    {
+        conn->close();
+        return;
+    }
 
     // 2.3 发送响应
     conn->write(response->data());
 
     // 2.4 处理连接状态
     process_conn(conn, msg);
-
-    // 销毁指针
-    delete msg;
-    delete response;
 }
 
 Message* MessageProcessor::decode(const std::string &data)

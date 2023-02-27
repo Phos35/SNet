@@ -26,6 +26,15 @@ public:
     // HTTP响应
     HTTPResponse(const std::string &version = "HTTP/1.1", size_t code = 200,
                  const std::string &description = "OK");
+    
+    // 移动构造
+    HTTPResponse(HTTPResponse &&another);
+
+    // 移动复制
+    HTTPResponse &operator=(HTTPResponse &&another);
+
+    /// @brief 清空响应内容
+    void reset();
 
     /// @brief 获取HTTP协议版本
     /// @return HTTP协议版本
@@ -88,6 +97,7 @@ private:
     std::string     description_;   // 状态码描述
 
     HeaderMap       headers_;       // 头部字段
+    std::string     headers_str_;   // 存储头部字段的字符串格式
 
     std::string     content_;       // 响应体
 

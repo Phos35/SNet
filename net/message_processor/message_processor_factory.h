@@ -8,6 +8,7 @@ class MessageProcessorFactory
 public:
     /// @brief 创建消息处理器
     virtual MessageProcessor* create_message_processor();
+    virtual ~MessageProcessorFactory();
 
 private:
 

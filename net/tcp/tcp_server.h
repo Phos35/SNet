@@ -4,6 +4,7 @@
 #include "worker_pool.h"
 #include "tcp_connection.h"
 #include "event_loop_thread_pool.h"
+#include "message_processor_factory.h"
 #include <unordered_map>
 
 class TCPServer
@@ -16,33 +17,26 @@ public:
     void run();
 
 protected:
-    /// @brief 创建Decoder，留给子类的接口，结合set_decoder能够自定义decoder
-    virtual void create_decoder();
+    /// @brief 创建消息处理器工厂，为派生类提供的接口
+    virtual void create_factory();
 
-    /// @brief 创建Dispatcher，留给子类的接口，结合set_dispatcher能够自定义dispatcher
-    virtual void create_dispatcher();
-
-    /// @brief 设置Decoder
-    /// @param decoder decoder指针
-    void set_decoder(Decoder::Ptr decoder);
-
-    /// @brief 设置Dispatcher
-    /// @param Dispatcher dispatcher指针
-    void set_dispatcher(Dispatcher::Ptr dispatcher);
+    /// @brief 设置消息处理器工厂的指针
+    /// @param factory_ 设置值
+    void set_factory(MessageProcessorFactory *factory);
 
 private:
-    typedef std::unordered_map<size_t, TCPConnection::SPtr> ConnMap;
+    typedef std::vector<TCPConnection::SPtr> ConnMap;
     typedef std::unique_ptr<EventLoopThreadPool> EVLTPoolPtr;
     typedef std::unique_ptr<WorkerPool> WorkerPoolPtr;
+    typedef MessageProcessorFactory MsgProcessFactory;
 
     Socket                  server_socket_; // 服务端socket
 
     Acceptor*               acceptor_;      // 连接接收器，MasterReactor
     EVLTPoolPtr             evlt_pool_;     // 事件循环线程池，SubReactors
-    WorkerPoolPtr           worker_pool_;   // 承担解析报文工作的线程池             
-    
-    Decoder*                decoder_;       // 报文解析器
-    Dispatcher*             dispatcher_;    // 消息分发器
+    WorkerPoolPtr           worker_pool_;   // 承担解析报文工作的线程池
+
+    MsgProcessFactory*      factory_;       // 消息处理器工厂，用于为worker线程创建消息处理器
 
     ConnMap                 conns_;         // 存储现存的连接
     size_t                  next_id_;       // 分配给下一个连接的id

@@ -47,7 +47,7 @@ ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
 ADD_EXECUTABLE(TEST
-    /home/ubuntu/projects/web_server/SNet/net/message_processor/test.cpp
+/home/ubuntu/projects/web_server/SNet/tests/http/test_http_server.cpp
     ${SRC_LIST}
 )
 

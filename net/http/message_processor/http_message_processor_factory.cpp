@@ -4,5 +4,7 @@
 MessageProcessor*
 HTTPMessageProcessorFactory::create_message_processor()
 {
-    return new HTTPMessageProcessor();
+    HTTPMessageProcessor* processor = new HTTPMessageProcessor();
+    processor->create();
+    return processor;
 }

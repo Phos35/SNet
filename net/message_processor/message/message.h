@@ -41,6 +41,9 @@ public:
     /// @param data 待设置的数据
     void set_data(const std::string &data);
 
+    /// @brief 清空数据
+    void clear_data();
+
 private:
     DeocdeResult    result_;        // 报文解析结果
     std::string     data_;          // 字符串数据

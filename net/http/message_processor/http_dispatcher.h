@@ -2,14 +2,18 @@
 #define SNET_HTTP_DISPATCHER
 #include "dispatcher.h"
 #include "http_request.h"
+#include "http_response.h"
 #include <unordered_map>
 #include <functional>
 
 class HTTPDispatcher : public Dispatcher
 {
 public:
-    typedef std::function<Message*(Message*)> Handler;
+    typedef std::function<HTTPResponse(HTTPRequest*)> Handler;
     typedef std::unordered_map<std::string, Handler> HandlerTable;
+
+    HTTPDispatcher();
+    virtual ~HTTPDispatcher();
 
     /// @brief 将消息分配到对应的处理函数
     /// @param conn 消息发生的连接
@@ -25,7 +29,7 @@ public:
     static HandlerTable handler_table_;
 
 private:
-
+    HTTPResponse *response_;
 };
 
 #endif

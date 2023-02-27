@@ -39,11 +39,8 @@ public:
     /// @param id 连接id
     /// @param event_loop TCP连接所属的事件循环
     /// @param client_socket 代表客户端的socket
-    /// @param decoder 消息解码器/解析器
-    /// @param dispatcher 消息分发器
     /// @param pool 工作线程池
     TCPConnection(size_t id, EventLoop* event_loop, SocketPtr&& client_socket,
-                  Decoder::Ptr decoder, Dispatcher::Ptr dispatcher,
                   WorkerPool* pool);
 
     /// @brief 析构，释放相关资源
@@ -55,15 +52,6 @@ public:
     /// @brief 设置处理连接关闭的回调函数
     /// @param close_cb 参数为TCPConn::SPtr的回调函数
     void set_close_callback(const CloseCallBack &close_cb);
-
-    /// @brief 解析数据
-    /// @param data 待解析的数据
-    /// @return 解析后的消息，解析成功则message->result_ == SUCCESS，否则为FAILURE
-    virtual Message::SPtr decode(const std::string& data);
-
-    /// @brief 分发消息至对应的处理函数中
-    /// @param message 待分发的消息
-    virtual void dispatch(const Message::SPtr& message);
 
     /// @brief 发送消息给对端
     /// @param data 待发送的数据
@@ -116,8 +104,6 @@ private:
     TCPBuffer           recv_buffer_;       // 接收缓冲区
     TCPBuffer           send_buffer_;       // 发送缓冲区
 
-    Decoder::Ptr        decoder_;           // 数据解析器
-    Dispatcher::Ptr     dispatcher_;        // 消息分发器
     WorkerPool*         worker_pool_;       // 工作线程池
 
     bool                writing_;           // 正在写出的标志，用于优雅关闭连接

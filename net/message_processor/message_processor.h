@@ -17,10 +17,9 @@ public:
     /// @brief 创建Decoder和Dispatcher
     virtual void create();
 
-    /// @brief 处理数据，解析为消息并分发做响应
+    /// @brief 处理连接上的数据，解析为消息并分发做响应
     /// @param conn TCP连接
-    /// @param data 待处理的数据
-    void process_data(const TCPConnSPtr& conn, const std::string &data);
+    void process_data(const TCPConnSPtr& conn);
 
 protected:
     /// @brief 设置Decoder，用于派生类设置相应的decoder派生类

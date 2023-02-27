@@ -15,6 +15,17 @@ HTTPRequest::HTTPRequest(const std::string& data)
 
 }
 
+void HTTPRequest::reset()
+{
+    method_ = Method::GET;
+    url_.clear();
+    version_.clear();
+    headers_.clear();
+    content_.clear();
+    queries_.clear();
+    error_ = Error::NO_ERROR;
+}
+
 HTTPRequest::Method HTTPRequest::get_method()
 {
     return method_;

@@ -48,6 +48,9 @@ public:
 
     HTTPRequest(const std::string& data);
 
+    /// @brief 清空request，便于复用
+    void reset();
+
     /// @brief 获取错误码
     /// @return 错误码
     Error error();

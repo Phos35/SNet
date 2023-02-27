@@ -14,11 +14,8 @@ public:
     HTTPServer(const std::string &addr, uint16_t port);
 
 protected:
-    /// @brief 重写方法，用于自定义Decoder
-    void create_decoder() override;
-
-    /// @brief 重写方法，用于自定义Dispatcher
-    void create_dispatcher() override;
+    /// @brief 创建消息处理器工厂
+    void create_factory() override;
 
 private:
 

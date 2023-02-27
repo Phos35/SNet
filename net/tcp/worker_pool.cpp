@@ -15,6 +15,9 @@ WorkerPool::~WorkerPool()
     {
         quit();
     }
+
+    // 释放消息处理器
+    delete processor_;
 }
 
 void WorkerPool::start()
@@ -24,6 +27,11 @@ void WorkerPool::start()
     {
         pool_.push_back(std::thread(&WorkerPool::worker_func, this));
     }
+}
+
+void WorkerPool::create_message_processor(MessageProcessorFactory *factory)
+{
+    processor_ = factory->create_message_processor();
 }
 
 void WorkerPool::add_task(const TCPConnSPtr& task)
@@ -67,21 +75,8 @@ void WorkerPool::worker_func()
         if(!conn) 
             continue;
 
-        // 解析数据获取消息
-        TCPBuffer &buffer = conn->recv_buffer_ref();
-        Message::SPtr msg = conn->decode(buffer.read(0));
-
-        // 若解析未完成，则需要等待完整报文
-        if(msg->get_result() == Message::DeocdeResult::FAILURE)
-        {
-            continue;
-        }
-
-        // 释放缓冲区内容
-        buffer.release(msg->raw_size());
-
-        // 分发消息
-        conn->dispatch(msg);
+        // 处理数据
+        processor_->process_data(conn);
     }
 }
 

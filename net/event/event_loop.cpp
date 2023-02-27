@@ -31,6 +31,9 @@ EventLoop::EventLoop()
     Event wake_event(Event::OwnerType::NONE, wake_fd_, EPOLLIN);
     wake_event.set_read_callback(std::bind(&EventLoop::read_wake_fd, this));
     poller_->add_event(wake_event);
+
+    // 为functor申请足够的空间
+    functors_.reserve(1024);
 }
 
 EventLoop::~EventLoop()
@@ -191,6 +194,7 @@ void EventLoop::process_functor()
         std::lock_guard<std::mutex> lck(functor_mtx_);
         processing_functors.swap(functors_);
         functors_.clear();
+        functors_.reserve(1024);
     }
 
     // 处理事件

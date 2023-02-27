@@ -5,6 +5,7 @@
 #include <deque>
 #include <mutex>
 #include <condition_variable>
+#include "message_processor_factory.h"
 
 class TCPConnection;
 using TCPConnWPtr = std::weak_ptr<TCPConnection>;
@@ -22,6 +23,10 @@ public:
     /// @brief 添加任务
     void add_task(const TCPConnSPtr& task);
 
+    /// @brief 利用消息处理器工厂创建消息处理器
+    /// @param factory 消息处理器工厂
+    void create_message_processor(MessageProcessorFactory *factory);
+
 private:
     std::deque<TCPConnWPtr>     tasks_;             // 任务，实质为TCPConnection的weak_ptr
     std::vector<std::thread>    pool_;              // 线程池
@@ -31,6 +36,8 @@ private:
 
     size_t                      tasks_capacity_;    // 任务队列容量
     size_t                      pool_size_;         // 线程数量
+
+    MessageProcessor*           processor_;         // 消息处理器
 
     /// @brief 工作线程函数
     void worker_func();

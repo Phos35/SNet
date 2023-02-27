@@ -9,7 +9,7 @@ void HTTPMessageProcessor::create()
     set_dispatcher(new HTTPDispatcher());
 }
 
-void process_conn(const TCPConnSPtr &conn, Message *request)
+void HTTPMessageProcessor::process_conn(const TCPConnSPtr &conn, Message *request)
 {
     HTTPRequest* http_request = dynamic_cast<HTTPRequest *>(request);
 

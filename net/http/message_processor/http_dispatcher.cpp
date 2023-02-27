@@ -5,6 +5,16 @@
 
 HTTPDispatcher::HandlerTable HTTPDispatcher::handler_table_;
 
+HTTPDispatcher::HTTPDispatcher()
+{
+    response_ = new HTTPResponse();
+}
+
+HTTPDispatcher::~HTTPDispatcher()
+{
+    delete response_;
+}
+
 Message* HTTPDispatcher::dispatch(Message* msg)
 {
     HTTPRequest* http_request = dynamic_cast<HTTPRequest*>(msg);
@@ -12,12 +22,12 @@ Message* HTTPDispatcher::dispatch(Message* msg)
     // 若request的状态有问题，则根据相应问题响应
     if(http_request->error() != HTTPRequest::Error::NO_ERROR)
     {
-        std::string error_str = HTTPRequest::error_to_string(http_request->error());
-        handler_table_[error_str](http_request);
         return nullptr;
+        // std::string error_str = HTTPRequest::error_to_string(http_request->error());
+        // return handler_table_[error_str](http_request);
     }
 
-    // 若函数表无对应的url处理函数，则输出错误消息，关闭连接
+    // 若函数表无对应的url处理函数，则输出错误消息，返回nullptr关闭连接
     HTTPRequest::URL url = http_request->get_url();
     auto itr = handler_table_.find(url);
     if (itr == handler_table_.end())
@@ -27,8 +37,11 @@ Message* HTTPDispatcher::dispatch(Message* msg)
     // 否则根据url选择函数进行处理
     else
     {
-        return itr->second(http_request);
+        response_->reset();
+        *response_ = std::move(itr->second(http_request));
+        return response_;
     }
+    return nullptr;
 }
 
 void HTTPDispatcher::register_handler(const std::string& url, const Handler& handler)

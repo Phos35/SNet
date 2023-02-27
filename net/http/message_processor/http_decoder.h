@@ -9,6 +9,9 @@ using DecodeError = HTTPRequest::Error;
 class HTTPDecoder : public Decoder
 {
 public:
+    HTTPDecoder();
+    ~HTTPDecoder();
+
     // 报文解析状态
     enum class DecodeState
     {

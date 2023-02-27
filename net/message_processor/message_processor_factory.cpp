@@ -1,7 +1,14 @@
 #include "message_processor_factory.h"
 
-MessageProcessor* create_message_processor()
+MessageProcessor* MessageProcessorFactory::create_message_processor()
 {
     // 基类工厂产出基类消息处理器
-    return new MessageProcessor();
+    MessageProcessor* processor = new MessageProcessor();
+    processor->create();
+    return processor;
+}
+
+MessageProcessorFactory::~MessageProcessorFactory()
+{
+
 }

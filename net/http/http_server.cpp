@@ -1,20 +1,13 @@
 #include "http_server.h"
-#include "http_decoder.h"
-#include "http_dispatcher.h"
+#include "http_message_processor_factory.h"
 
 HTTPServer::HTTPServer(const std::string &addr, uint16_t port)
 :TCPServer(addr, port)
 {
-    //TODO 注册默认情况的处理函数
 
 }
 
-void HTTPServer::create_decoder()
+void HTTPServer::create_factory()
 {
-    set_decoder(new HTTPDecoder());
-}
-
-void HTTPServer::create_dispatcher()
-{
-    set_dispatcher(new HTTPDispatcher());
+    set_factory(new HTTPMessageProcessorFactory());
 }
