@@ -28,17 +28,23 @@ public:
     /// @brief 获取解析结果
     DeocdeResult get_result();
 
-    /// @brief 获取报文原始数据
+    /// @brief 获取报文字符数据
     /// @return 原始数据
-    std::string raw_data();
+    virtual std::string data();
 
     /// @brief 获取原始数据的大小
     /// @return 原始数据大小
-    size_t raw_size();
+    virtual size_t data_size();
+
+protected:
+    // TODO 或许可以使用移动语义做优化
+    /// @brief 用于派生类设置数据
+    /// @param data 待设置的数据
+    void set_data(const std::string &data);
 
 private:
     DeocdeResult    result_;        // 报文解析结果
-    std::string     raw_data_;      // 原始数据
+    std::string     data_;          // 字符串数据
 };
 
 #endif

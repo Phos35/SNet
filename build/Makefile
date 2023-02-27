@@ -123,87 +123,6 @@ TEST/fast:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/build
 .PHONY : TEST/fast
 
-net/decoder/decoder.o: net/decoder/decoder.cpp.o
-
-.PHONY : net/decoder/decoder.o
-
-# target to build an object file
-net/decoder/decoder.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/decoder.cpp.o
-.PHONY : net/decoder/decoder.cpp.o
-
-net/decoder/decoder.i: net/decoder/decoder.cpp.i
-
-.PHONY : net/decoder/decoder.i
-
-# target to preprocess a source file
-net/decoder/decoder.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/decoder.cpp.i
-.PHONY : net/decoder/decoder.cpp.i
-
-net/decoder/decoder.s: net/decoder/decoder.cpp.s
-
-.PHONY : net/decoder/decoder.s
-
-# target to generate assembly for a file
-net/decoder/decoder.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/decoder.cpp.s
-.PHONY : net/decoder/decoder.cpp.s
-
-net/decoder/message.o: net/decoder/message.cpp.o
-
-.PHONY : net/decoder/message.o
-
-# target to build an object file
-net/decoder/message.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/message.cpp.o
-.PHONY : net/decoder/message.cpp.o
-
-net/decoder/message.i: net/decoder/message.cpp.i
-
-.PHONY : net/decoder/message.i
-
-# target to preprocess a source file
-net/decoder/message.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/message.cpp.i
-.PHONY : net/decoder/message.cpp.i
-
-net/decoder/message.s: net/decoder/message.cpp.s
-
-.PHONY : net/decoder/message.s
-
-# target to generate assembly for a file
-net/decoder/message.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/decoder/message.cpp.s
-.PHONY : net/decoder/message.cpp.s
-
-net/dispatcher/dispatcher.o: net/dispatcher/dispatcher.cpp.o
-
-.PHONY : net/dispatcher/dispatcher.o
-
-# target to build an object file
-net/dispatcher/dispatcher.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.o
-.PHONY : net/dispatcher/dispatcher.cpp.o
-
-net/dispatcher/dispatcher.i: net/dispatcher/dispatcher.cpp.i
-
-.PHONY : net/dispatcher/dispatcher.i
-
-# target to preprocess a source file
-net/dispatcher/dispatcher.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.i
-.PHONY : net/dispatcher/dispatcher.cpp.i
-
-net/dispatcher/dispatcher.s: net/dispatcher/dispatcher.cpp.s
-
-.PHONY : net/dispatcher/dispatcher.s
-
-# target to generate assembly for a file
-net/dispatcher/dispatcher.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/dispatcher/dispatcher.cpp.s
-.PHONY : net/dispatcher/dispatcher.cpp.s
-
 net/event/epoller.o: net/event/epoller.cpp.o
 
 .PHONY : net/event/epoller.o
@@ -501,6 +420,141 @@ net/http/http_server.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_server.cpp.s
 .PHONY : net/http/http_server.cpp.s
 
+net/message_processor/decoder/decoder.o: net/message_processor/decoder/decoder.cpp.o
+
+.PHONY : net/message_processor/decoder/decoder.o
+
+# target to build an object file
+net/message_processor/decoder/decoder.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/decoder.cpp.o
+.PHONY : net/message_processor/decoder/decoder.cpp.o
+
+net/message_processor/decoder/decoder.i: net/message_processor/decoder/decoder.cpp.i
+
+.PHONY : net/message_processor/decoder/decoder.i
+
+# target to preprocess a source file
+net/message_processor/decoder/decoder.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/decoder.cpp.i
+.PHONY : net/message_processor/decoder/decoder.cpp.i
+
+net/message_processor/decoder/decoder.s: net/message_processor/decoder/decoder.cpp.s
+
+.PHONY : net/message_processor/decoder/decoder.s
+
+# target to generate assembly for a file
+net/message_processor/decoder/decoder.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/decoder.cpp.s
+.PHONY : net/message_processor/decoder/decoder.cpp.s
+
+net/message_processor/decoder/message.o: net/message_processor/decoder/message.cpp.o
+
+.PHONY : net/message_processor/decoder/message.o
+
+# target to build an object file
+net/message_processor/decoder/message.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/message.cpp.o
+.PHONY : net/message_processor/decoder/message.cpp.o
+
+net/message_processor/decoder/message.i: net/message_processor/decoder/message.cpp.i
+
+.PHONY : net/message_processor/decoder/message.i
+
+# target to preprocess a source file
+net/message_processor/decoder/message.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/message.cpp.i
+.PHONY : net/message_processor/decoder/message.cpp.i
+
+net/message_processor/decoder/message.s: net/message_processor/decoder/message.cpp.s
+
+.PHONY : net/message_processor/decoder/message.s
+
+# target to generate assembly for a file
+net/message_processor/decoder/message.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/message.cpp.s
+.PHONY : net/message_processor/decoder/message.cpp.s
+
+net/message_processor/dispatcher/dispatcher.o: net/message_processor/dispatcher/dispatcher.cpp.o
+
+.PHONY : net/message_processor/dispatcher/dispatcher.o
+
+# target to build an object file
+net/message_processor/dispatcher/dispatcher.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/dispatcher/dispatcher.cpp.o
+.PHONY : net/message_processor/dispatcher/dispatcher.cpp.o
+
+net/message_processor/dispatcher/dispatcher.i: net/message_processor/dispatcher/dispatcher.cpp.i
+
+.PHONY : net/message_processor/dispatcher/dispatcher.i
+
+# target to preprocess a source file
+net/message_processor/dispatcher/dispatcher.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/dispatcher/dispatcher.cpp.i
+.PHONY : net/message_processor/dispatcher/dispatcher.cpp.i
+
+net/message_processor/dispatcher/dispatcher.s: net/message_processor/dispatcher/dispatcher.cpp.s
+
+.PHONY : net/message_processor/dispatcher/dispatcher.s
+
+# target to generate assembly for a file
+net/message_processor/dispatcher/dispatcher.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/dispatcher/dispatcher.cpp.s
+.PHONY : net/message_processor/dispatcher/dispatcher.cpp.s
+
+net/message_processor/message_processor.o: net/message_processor/message_processor.cpp.o
+
+.PHONY : net/message_processor/message_processor.o
+
+# target to build an object file
+net/message_processor/message_processor.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor.cpp.o
+.PHONY : net/message_processor/message_processor.cpp.o
+
+net/message_processor/message_processor.i: net/message_processor/message_processor.cpp.i
+
+.PHONY : net/message_processor/message_processor.i
+
+# target to preprocess a source file
+net/message_processor/message_processor.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor.cpp.i
+.PHONY : net/message_processor/message_processor.cpp.i
+
+net/message_processor/message_processor.s: net/message_processor/message_processor.cpp.s
+
+.PHONY : net/message_processor/message_processor.s
+
+# target to generate assembly for a file
+net/message_processor/message_processor.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor.cpp.s
+.PHONY : net/message_processor/message_processor.cpp.s
+
+net/message_processor/message_processor_factory.o: net/message_processor/message_processor_factory.cpp.o
+
+.PHONY : net/message_processor/message_processor_factory.o
+
+# target to build an object file
+net/message_processor/message_processor_factory.cpp.o:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor_factory.cpp.o
+.PHONY : net/message_processor/message_processor_factory.cpp.o
+
+net/message_processor/message_processor_factory.i: net/message_processor/message_processor_factory.cpp.i
+
+.PHONY : net/message_processor/message_processor_factory.i
+
+# target to preprocess a source file
+net/message_processor/message_processor_factory.cpp.i:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor_factory.cpp.i
+.PHONY : net/message_processor/message_processor_factory.cpp.i
+
+net/message_processor/message_processor_factory.s: net/message_processor/message_processor_factory.cpp.s
+
+.PHONY : net/message_processor/message_processor_factory.s
+
+# target to generate assembly for a file
+net/message_processor/message_processor_factory.cpp.s:
+	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor_factory.cpp.s
+.PHONY : net/message_processor/message_processor_factory.cpp.s
+
 net/socket/socket.o: net/socket/socket.cpp.o
 
 .PHONY : net/socket/socket.o
@@ -635,33 +689,6 @@ net/tcp/worker_pool.s: net/tcp/worker_pool.cpp.s
 net/tcp/worker_pool.cpp.s:
 	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.s
 .PHONY : net/tcp/worker_pool.cpp.s
-
-tests/http/test_http_server.o: tests/http/test_http_server.cpp.o
-
-.PHONY : tests/http/test_http_server.o
-
-# target to build an object file
-tests/http/test_http_server.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.o
-.PHONY : tests/http/test_http_server.cpp.o
-
-tests/http/test_http_server.i: tests/http/test_http_server.cpp.i
-
-.PHONY : tests/http/test_http_server.i
-
-# target to preprocess a source file
-tests/http/test_http_server.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.i
-.PHONY : tests/http/test_http_server.cpp.i
-
-tests/http/test_http_server.s: tests/http/test_http_server.cpp.s
-
-.PHONY : tests/http/test_http_server.s
-
-# target to generate assembly for a file
-tests/http/test_http_server.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/tests/http/test_http_server.cpp.s
-.PHONY : tests/http/test_http_server.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
@@ -942,15 +969,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TEST"
-	@echo "... net/decoder/decoder.o"
-	@echo "... net/decoder/decoder.i"
-	@echo "... net/decoder/decoder.s"
-	@echo "... net/decoder/message.o"
-	@echo "... net/decoder/message.i"
-	@echo "... net/decoder/message.s"
-	@echo "... net/dispatcher/dispatcher.o"
-	@echo "... net/dispatcher/dispatcher.i"
-	@echo "... net/dispatcher/dispatcher.s"
 	@echo "... net/event/epoller.o"
 	@echo "... net/event/epoller.i"
 	@echo "... net/event/epoller.s"
@@ -984,6 +1002,21 @@ help:
 	@echo "... net/http/http_server.o"
 	@echo "... net/http/http_server.i"
 	@echo "... net/http/http_server.s"
+	@echo "... net/message_processor/decoder/decoder.o"
+	@echo "... net/message_processor/decoder/decoder.i"
+	@echo "... net/message_processor/decoder/decoder.s"
+	@echo "... net/message_processor/decoder/message.o"
+	@echo "... net/message_processor/decoder/message.i"
+	@echo "... net/message_processor/decoder/message.s"
+	@echo "... net/message_processor/dispatcher/dispatcher.o"
+	@echo "... net/message_processor/dispatcher/dispatcher.i"
+	@echo "... net/message_processor/dispatcher/dispatcher.s"
+	@echo "... net/message_processor/message_processor.o"
+	@echo "... net/message_processor/message_processor.i"
+	@echo "... net/message_processor/message_processor.s"
+	@echo "... net/message_processor/message_processor_factory.o"
+	@echo "... net/message_processor/message_processor_factory.i"
+	@echo "... net/message_processor/message_processor_factory.s"
 	@echo "... net/socket/socket.o"
 	@echo "... net/socket/socket.i"
 	@echo "... net/socket/socket.s"
@@ -999,9 +1032,6 @@ help:
 	@echo "... net/tcp/worker_pool.o"
 	@echo "... net/tcp/worker_pool.i"
 	@echo "... net/tcp/worker_pool.s"
-	@echo "... tests/http/test_http_server.o"
-	@echo "... tests/http/test_http_server.i"
-	@echo "... tests/http/test_http_server.s"
 	@echo "... utils/buffer/buffer.o"
 	@echo "... utils/buffer/buffer.i"
 	@echo "... utils/buffer/buffer.s"

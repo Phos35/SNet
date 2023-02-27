@@ -15,8 +15,10 @@ INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/third/jsoncpp)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/event)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/socket)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/tcp)
-INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/decoder)
-INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/dispatcher)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor/decoder)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor/message)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor/dispatcher)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http)
 
 # 添加源文件
@@ -29,8 +31,10 @@ AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/time SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/event SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/socket SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/tcp SRC_LIST)
-AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/decoder SRC_LIST)
-AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/dispatcher SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor/dispatcher SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor/decoder SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor/message SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http SRC_LIST)
 
 # 添加编译选项
@@ -39,7 +43,7 @@ ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
 ADD_EXECUTABLE(TEST
-/home/ubuntu/projects/web_server/SNet/tests/http/test_http_server.cpp
+    /home/ubuntu/projects/web_server/SNet/net/message_processor/test.cpp
     ${SRC_LIST}
 )
 
