@@ -18,6 +18,12 @@ Message::Message(DeocdeResult result)
 
 }
 
+Message& Message::operator=(Message &&another)
+{
+    data_.swap(another.data_);
+    return *this;
+}
+
 Message::~Message()
 {
 

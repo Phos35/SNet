@@ -20,6 +20,7 @@ public:
     Message();
     Message(const std::string &data);
     Message(DeocdeResult result);
+    Message &operator=(Message &&another);
     virtual ~Message();
 
     /// @brief 设置解析结果

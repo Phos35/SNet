@@ -25,22 +25,22 @@ public:
 
     /// @brief 利用消息处理器工厂创建消息处理器
     /// @param factory 消息处理器工厂
-    void create_message_processor(MessageProcessorFactory *factory);
+    void create_message_processor(MessageProcessorFactory::UPtr&& factory);
 
 private:
-    std::deque<TCPConnWPtr>     tasks_;             // 任务，实质为TCPConnection的weak_ptr
-    std::vector<std::thread>    pool_;              // 线程池
-    std::mutex                  mutex_;             // 访问任务队列的互斥量
-    std::condition_variable     cond_;              // 唤醒工作线程的条件变量
-    bool                        running_;           // 运行标志
+    std::deque<TCPConnWPtr>         tasks_;             // 任务，实质为TCPConnection的weak_ptr
+    std::vector<std::thread>        pool_;              // 线程池
+    std::mutex                      mutex_;             // 访问任务队列的互斥量
+    std::condition_variable         cond_;              // 唤醒工作线程的条件变量
+    bool                            running_;           // 运行标志
 
-    size_t                      tasks_capacity_;    // 任务队列容量
-    size_t                      pool_size_;         // 线程数量
+    size_t                          tasks_capacity_;    // 任务队列容量
+    size_t                          pool_size_;         // 线程数量
 
-    MessageProcessor*           processor_;         // 消息处理器
+    MessageProcessorFactory::UPtr   factory_;           // 消息处理器工厂
 
     /// @brief 工作线程函数
-    void worker_func();
+    void worker_func(MessageProcessor::UPtr&& processor);
 
     /// @brief 结束所有线程
     void quit();

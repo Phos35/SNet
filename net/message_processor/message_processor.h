@@ -11,6 +11,8 @@ typedef std::shared_ptr<TCPConnection> TCPConnSPtr;
 class MessageProcessor
 {
 public:
+    typedef std::unique_ptr<MessageProcessor> UPtr;
+
     MessageProcessor();
     virtual ~MessageProcessor();
 
@@ -24,11 +26,11 @@ public:
 protected:
     /// @brief 设置Decoder，用于派生类设置相应的decoder派生类
     /// @param decoder Decoder指针
-    void set_decoder(Decoder *decoder);
+    void set_decoder(Decoder::UPtr&& decoder);
 
     /// @brief 设置Dispatcher，用于派生类设置相应的dispatcher派生类
     /// @param Dispatcher Dispatcher指针
-    void set_dispatcher(Dispatcher *dispatcher);
+    void set_dispatcher(Dispatcher::UPtr&& dispatcher);
 
     /// @brief 根据上层协议决定TCP连接的状态 -- 关闭或者保持
     /// @param TCP连接
@@ -45,8 +47,8 @@ protected:
     Message* dispatch(Message *msg);
 
 private:
-    Decoder *decoder_;
-    Dispatcher *dispatcher_;
+    Decoder::UPtr decoder_;
+    Dispatcher::UPtr dispatcher_;
 };
 
 #endif

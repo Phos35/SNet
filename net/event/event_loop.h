@@ -55,7 +55,7 @@ public:
 
     /// @brief 添加跨线程调用
     /// @param functor 跨线程调用函数
-    void run_in_loop(const Functor &functor);
+    void run_in_loop(Functor functor);
 
     /// @brief 获取EventLoop所在线程的id
     /// @return 线程id
@@ -120,7 +120,7 @@ private:
 
     /// @brief 添加跨线程调用
     /// @param fucntor 跨线程调用
-    void add_functor(const Functor &functor);
+    void add_functor(Functor functor);
 };
 
 #endif

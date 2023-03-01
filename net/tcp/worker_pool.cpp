@@ -15,9 +15,6 @@ WorkerPool::~WorkerPool()
     {
         quit();
     }
-
-    // 释放消息处理器
-    delete processor_;
 }
 
 void WorkerPool::start()
@@ -25,13 +22,13 @@ void WorkerPool::start()
     running_ = true;
     for (int i = 0; i < pool_size_; i++)
     {
-        pool_.push_back(std::thread(&WorkerPool::worker_func, this));
+        pool_.push_back(std::thread(&WorkerPool::worker_func, this, factory_->create_message_processor()));
     }
 }
 
-void WorkerPool::create_message_processor(MessageProcessorFactory *factory)
+void WorkerPool::create_message_processor(MessageProcessorFactory::UPtr&& factory)
 {
-    processor_ = factory->create_message_processor();
+    factory_ = std::move(factory);
 }
 
 void WorkerPool::add_task(const TCPConnSPtr& task)
@@ -46,9 +43,10 @@ void WorkerPool::add_task(const TCPConnSPtr& task)
     cond_.notify_one();
 }
 
-void WorkerPool::worker_func()
+void WorkerPool::worker_func(MessageProcessor::UPtr&& processor)
 {
-    while(running_ == true)
+    MessageProcessor::UPtr own_processor = std::move(processor);
+    while (running_ == true)
     {
         // 等待被唤醒
         TCPConnWPtr task;
@@ -76,7 +74,7 @@ void WorkerPool::worker_func()
             continue;
 
         // 处理数据
-        processor_->process_data(conn);
+        own_processor->process_data(conn);
     }
 }
 

@@ -6,6 +6,7 @@ PROJECT(TEST)
 
 # 添加头文件目录
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/alias)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/debug)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/buffer)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/config)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/io)
@@ -21,10 +22,13 @@ INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor/
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/message_processor)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/decoder)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/dispatcher)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/message)
 
 # 添加源文件
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/alias SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/debug SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/buffer SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/config SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/io SRC_LIST)
@@ -38,6 +42,8 @@ AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor/message SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/message_processor SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/decoder SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/dispatcher SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/message SRC_LIST)
 
@@ -47,7 +53,8 @@ ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
 ADD_EXECUTABLE(TEST
-/home/ubuntu/projects/web_server/SNet/tests/http/test_http_server.cpp
+#/home/ubuntu/projects/web_server/SNet/tests/http/test_response.cpp
+ /home/ubuntu/projects/web_server/SNet/tests/http/test_http_server.cpp
     ${SRC_LIST}
 )
 

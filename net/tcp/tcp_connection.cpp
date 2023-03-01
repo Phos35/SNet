@@ -26,8 +26,8 @@ TCPConnection::~TCPConnection()
 void TCPConnection::create()
 {
     // 设置事件相关的回调函数，并注册事件到事件循环中
-    // 注意此处传递this是合理的，因为在event中会通过weak_ptr判断连接是否存活
     event_.set_weak_ptr(shared_from_this());
+    // 注意此处传递this是合理的，因为在event中会通过weak_ptr判断连接是否存活
     event_.set_read_callback(std::bind(&TCPConnection::process_read, this));
     event_.set_write_callback(std::bind(&TCPConnection::process_write, this));
     event_.set_close_callback(std::bind(&TCPConnection::process_close, this));
@@ -36,7 +36,7 @@ void TCPConnection::create()
     // 更新状态
     state_ = State::CONNECTING;
     TCPConnection::SPtr ptr = shared_from_this();
-    LOG_TRACE << "TCPConnection " << id_ << " created, counter: " << ptr.use_count();
+    LOG_DEBUG << "TCPConnection " << id_ << " created, counter: " << ptr.use_count();
 }
 
 void TCPConnection::set_close_callback(const CloseCallBack &close_cb)
@@ -46,11 +46,12 @@ void TCPConnection::set_close_callback(const CloseCallBack &close_cb)
 
 void TCPConnection::write(const std::string &data)
 {
-    loop_->run_in_loop(std::bind(&TCPConnection::write_in_loop, this, data));
+    loop_->run_in_loop(std::bind(&TCPConnection::write_in_loop, shared_from_this(), data));
 }
 
 void TCPConnection::write_in_loop(const std::string& data)
 {
+    LOG_DEBUG << "TCPConnection " << id_ << " first write";
     int written_size = ::write(socket_->fd(), data.data(), data.size());
     if(written_size == -1 && errno != EAGAIN && errno != EWOULDBLOCK)
     {
@@ -64,6 +65,7 @@ void TCPConnection::write_in_loop(const std::string& data)
     // 若数据写完，则一次完毕，无需后续写入
     if(written_size == data.size())
     {
+        LOG_DEBUG << "TCPConnection " << id_ << " first write finished";
         // 若处于优雅关闭连接的过程中，则关闭连接
         if(state_ == State::CLOSING)
         {
@@ -89,6 +91,7 @@ void TCPConnection::close()
     // 只在运行状态下调用in_loop的关闭函数
     if(state_ == State::CONNECTING)
     {
+        LOG_DEBUG << "TCPconnection " << id_ << " close in loop";
         loop_->run_in_loop(std::bind(&TCPConnection::close_in_loop, shared_from_this()));
     }
     // 其余状态提出警告
@@ -141,7 +144,7 @@ void TCPConnection::destroy()
     // 更新状态
     state_ = State::CLOSED;
     TCPConnection::SPtr ptr = shared_from_this();
-    LOG_TRACE << "TCPConnection " << id_ << " closed, counter: " << ptr.use_count();
+    LOG_DEBUG << "TCPConnection " << id_ << " closed, counter: " << ptr.use_count();
 }
 
 void TCPConnection::process_read()
@@ -177,11 +180,13 @@ void TCPConnection::process_read()
     }
 
     // 数据解析提交工作线程池
+    LOG_DEBUG << "TCPConnection " << id_ << " read";
     worker_pool_->add_task(shared_from_this());
 }
 
 void TCPConnection::process_write()
 {
+    LOG_DEBUG << "TCPConnection " << id_ << " after write";
     // 写出数据
     int data_size = send_buffer_.readable();
     int written_size = ::write(socket_->fd(), send_buffer_.readable_area(), data_size);

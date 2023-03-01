@@ -17,6 +17,7 @@ HTTPRequest::HTTPRequest(const std::string& data)
 
 void HTTPRequest::reset()
 {
+    Message::set_result(Message::DeocdeResult::SUCCESS);
     method_ = Method::GET;
     url_.clear();
     version_.clear();

@@ -6,6 +6,8 @@
 class HTTPMessageProcessor : public MessageProcessor
 {
 public:
+    typedef std::unique_ptr<HTTPMessageProcessor> UPtr;
+
     /// @brief 创建Decoder和Dispatcher
     void create()override;
 

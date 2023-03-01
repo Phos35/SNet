@@ -22,7 +22,7 @@ protected:
 
     /// @brief 设置消息处理器工厂的指针
     /// @param factory_ 设置值
-    void set_factory(MessageProcessorFactory *factory);
+    void set_factory(MessageProcessorFactory::UPtr&& factory);
 
 private:
     typedef std::vector<TCPConnection::SPtr> ConnMap;
@@ -36,7 +36,7 @@ private:
     EVLTPoolPtr             evlt_pool_;     // 事件循环线程池，SubReactors
     WorkerPoolPtr           worker_pool_;   // 承担解析报文工作的线程池
 
-    MsgProcessFactory*      factory_;       // 消息处理器工厂，用于为worker线程创建消息处理器
+    MsgProcessFactory::UPtr factory_;       // 消息处理器工厂，用于为worker线程创建消息处理器
 
     ConnMap                 conns_;         // 存储现存的连接
     size_t                  next_id_;       // 分配给下一个连接的id

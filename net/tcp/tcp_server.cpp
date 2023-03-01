@@ -32,7 +32,7 @@ void TCPServer::run()
     create_factory();
 
     // 为线程池设置消息处理器工厂，并创建消息处理器
-    worker_pool_->create_message_processor(factory_);
+    worker_pool_->create_message_processor(std::move(factory_));
 
     // 创建Acceptor并注册新连接建立回调函数
     acceptor_ = new Acceptor(server_socket_.fd());
@@ -97,10 +97,10 @@ void TCPServer::close_conn(const TCPConnection::SPtr &conn)
 
 void TCPServer::create_factory()
 {
-    set_factory(new MessageProcessorFactory());
+    set_factory(std::make_unique<MessageProcessorFactory>());
 }
 
-void TCPServer::set_factory(MessageProcessorFactory *factory)
+void TCPServer::set_factory(MessageProcessorFactory::UPtr&& factory)
 {
-    factory_ = factory;
+    factory_ = std::move(factory);
 }

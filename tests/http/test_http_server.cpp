@@ -4,7 +4,7 @@
 #include "http_dispatcher.h"
 #include "config.h"
 #include "http_response.h"
-#include "interface.h"
+#include "debug.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -29,7 +29,8 @@ HTTPResponse on_slah(HTTPRequest* request)
 
         response.set_content_type(HTTPResponse::MIME::HTML);
         response.add_content(content);
-        file.close();   
+        file.close();
+        LOG_DEBUG << "on_slash response data: " << SNet::DEBUG::one_line(response.data());
         return response;
     }
 }

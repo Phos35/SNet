@@ -1,5 +1,6 @@
 #include "byte_buffer.h"
 #include <string.h>
+#include <string>
 
 ByteBuffer::ByteBuffer(int capacity)
 : read_index_(0), write_index_(0), 
@@ -42,7 +43,7 @@ size_t ByteBuffer::write(const char* val, size_t length)
 
 size_t ByteBuffer::write(const std::string& val)
 {
-    return write(val.c_str(), val.size());
+    return write(val.data(), val.size());
 }
 
 size_t ByteBuffer::read(char* dst, size_t length)

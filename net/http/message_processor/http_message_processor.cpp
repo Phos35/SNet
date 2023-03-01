@@ -2,11 +2,12 @@
 #include "http_decoder.h"
 #include "http_dispatcher.h"
 #include "tcp_connection.h"
+#include "logger.h"
 
 void HTTPMessageProcessor::create()
 {
-    set_decoder(new HTTPDecoder());
-    set_dispatcher(new HTTPDispatcher());
+    set_decoder(std::make_unique<HTTPDecoder>());
+    set_dispatcher(std::make_unique<HTTPDispatcher>());
 }
 
 void HTTPMessageProcessor::process_conn(const TCPConnSPtr &conn, Message *request)
@@ -16,5 +17,8 @@ void HTTPMessageProcessor::process_conn(const TCPConnSPtr &conn, Message *reques
     // 若存在Connection: Keep-Alive选项则存活，否则关闭连接
     std::string keep = http_request->get_header_val("Connection");
     if(keep != "Keep-Alive")
+    {
+        LOG_DEBUG << "TCPConnection " << conn->id() << " closing, counter: " << conn.use_count();
         conn->close();
+    }
 }

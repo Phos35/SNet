@@ -9,18 +9,20 @@ HTTPResponse::HTTPResponse(const std::string &version, size_t code,
 
 HTTPResponse::HTTPResponse(HTTPResponse &&another)
 {
-    version_ = std::move(another.version_);
+    version_.swap(another.version_);
     code_ = another.code_;
-    headers_ = std::move(another.headers_);
-    content_ = std::move(another.content_);
+    headers_.swap(another.headers_);
+    headers_str_.swap(another.headers_str_);
+    content_.swap(another.content_);
 }
 
 HTTPResponse& HTTPResponse::operator=(HTTPResponse &&another)
 {
-    version_ = std::move(another.version_);
+    version_.swap(another.version_);
     code_ = another.code_;
-    headers_ = std::move(another.headers_);
-    content_ = std::move(another.content_);
+    headers_.swap(another.headers_);
+    headers_str_.swap(another.headers_str_);
+    content_.swap(another.content_);
     return *this;
 }
 
@@ -75,35 +77,26 @@ std::string HTTPResponse::get_header_val(const std::string &key)
 
 void HTTPResponse::set_header(const std::string &key, const std::string &val)
 {
-    if(key == "\001\000\002\000\002\000\002\000\006\000\002\000\000")
-    {
-        printf("HERE\n");
-    }
-    headers_.insert({key, val});
+    headers_[key] = val;
     headers_str_ += (key + ": " + val + "\r\n");
 }
 
 void HTTPResponse::set_content_type(MIME type)
 {
     std::string mime_str = mime_to_string(type);
-    headers_["Content-Type"] = mime_str;
-    headers_str_ += ("Content-Type: " + mime_str + "\r\n");
+    set_header("Content-Type", mime_str);
 }
 
 void HTTPResponse::add_content(const std::string &content)
 {
     content_ = content;
-    std::string size_str = std::to_string(content_.size());
-    headers_["Content-Length"] = size_str;
-    headers_str_ += ("Content-Length: " + size_str + "\r\n") ;
+    set_header("Content-Length", std::to_string(content_.size()));
 }
 
 void HTTPResponse::add_content(std::string &&content)
 {
     content_ = std::move(content);
-    std::string size_str = std::to_string(content_.size());
-    headers_["Content-Length"] = size_str;
-    headers_str_ += ("Content-Length: " + size_str + "\r\n") ;
+    set_header("Content-Length", std::to_string(content_.size()));
 }
 
 std::string HTTPResponse::data()

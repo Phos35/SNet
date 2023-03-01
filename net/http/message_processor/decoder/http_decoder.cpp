@@ -16,6 +16,7 @@ Message* HTTPDecoder::decode(const std::string &data)
     // 初始化
     cur_index_ = 0;
     state_ = DecodeState::REQUEST_LINE;
+    request_->reset();
     request_->set_data(data);
     line_start_ = line_end_ = 0;
 

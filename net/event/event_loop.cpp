@@ -31,9 +31,6 @@ EventLoop::EventLoop()
     Event wake_event(Event::OwnerType::NONE, wake_fd_, EPOLLIN);
     wake_event.set_read_callback(std::bind(&EventLoop::read_wake_fd, this));
     poller_->add_event(wake_event);
-
-    // 为functor申请足够的空间
-    functors_.reserve(1024);
 }
 
 EventLoop::~EventLoop()
@@ -74,6 +71,7 @@ void EventLoop::loop()
         // 处理functor
         // 退出的标志在此处被设置
         process_functor();
+
     }
     state_ = State::QUITTED;
     LOG_INFO << "EventLoop " << id_ << " quitted";
@@ -153,7 +151,7 @@ void EventLoop::del_event_in_loop(Event& e)
     poller_->del_event(e);
 }
 
-void EventLoop::run_in_loop(const Functor &functor)
+void EventLoop::run_in_loop(Functor functor)
 {
     // 若调用发生在本线程内，则直接执行
     if(in_loop_thread() == true)
@@ -169,11 +167,13 @@ void EventLoop::run_in_loop(const Functor &functor)
     }
 }
 
-void EventLoop::add_functor(const Functor &functor)
+void EventLoop::add_functor(Functor functor)
 {
     // 互斥添加
-    std::lock_guard<std::mutex> lck(functor_mtx_);
-    functors_.push_back(functor);
+    {
+        std::lock_guard<std::mutex> lck(functor_mtx_);
+        functors_.push_back(functor);
+    }
 }
 
 void EventLoop::process_fired(size_t fired_cnt)
@@ -193,8 +193,6 @@ void EventLoop::process_functor()
     {
         std::lock_guard<std::mutex> lck(functor_mtx_);
         processing_functors.swap(functors_);
-        functors_.clear();
-        functors_.reserve(1024);
     }
 
     // 处理事件

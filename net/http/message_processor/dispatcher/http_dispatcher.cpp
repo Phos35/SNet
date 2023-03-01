@@ -2,6 +2,7 @@
 #include "logger.h"
 #include "tcp_connection.h"
 #include "message.h"
+#include "debug.h"
 
 HTTPDispatcher::HandlerTable HTTPDispatcher::handler_table_;
 
@@ -39,6 +40,7 @@ Message* HTTPDispatcher::dispatch(Message* msg)
     {
         response_->reset();
         *response_ = std::move(itr->second(http_request));
+        LOG_DEBUG << "Dispatcher response data: " << SNet::DEBUG::one_line(response_->data());
         return response_;
     }
     return nullptr;

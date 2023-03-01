@@ -9,5 +9,5 @@ HTTPServer::HTTPServer(const std::string &addr, uint16_t port)
 
 void HTTPServer::create_factory()
 {
-    set_factory(new HTTPMessageProcessorFactory());
+    set_factory(std::make_unique<HTTPMessageProcessorFactory>());
 }
