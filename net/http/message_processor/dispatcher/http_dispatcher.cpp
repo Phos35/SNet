@@ -28,22 +28,17 @@ Message* HTTPDispatcher::dispatch(Message* msg)
         // return handler_table_[error_str](http_request);
     }
 
-    // 若函数表无对应的url处理函数，则输出错误消息，返回nullptr关闭连接
+    // 若函数表无对应的url处理函数，则默认使用'/'
     HTTPRequest::URL url = http_request->get_url();
     auto itr = handler_table_.find(url);
     if (itr == handler_table_.end())
     {
-        LOG_ERROR << "URL: " << url << ", has no handler to handle";
+        itr = handler_table_.find("/");
     }
-    // 否则根据url选择函数进行处理
-    else
-    {
-        response_->reset();
-        *response_ = std::move(itr->second(http_request));
-        LOG_DEBUG << "Dispatcher response data: " << SNet::DEBUG::one_line(response_->data());
-        return response_;
-    }
-    return nullptr;
+    response_->reset();
+    *response_ = std::move(itr->second(http_request));
+    LOG_DEBUG << "Dispatcher response data: " << SNet::DEBUG::one_line(response_->data());
+    return response_;
 }
 
 void HTTPDispatcher::register_handler(const std::string& url, const Handler& handler)

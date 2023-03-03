@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # 测试项目
-PROJECT(TEST)
+PROJECT(web_server)
 
 # 添加头文件目录
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/utils/alias)
@@ -25,6 +25,7 @@ INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_proce
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/decoder)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/dispatcher)
 INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/message)
+INCLUDE_DIRECTORIES(/home/ubuntu/projects/web_server/SNet/my_http_demo)
 
 # 添加源文件
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/utils/alias SRC_LIST)
@@ -46,17 +47,18 @@ AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_proc
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/dispatcher SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor SRC_LIST)
 AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/net/http/message_processor/message SRC_LIST)
+AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/my_http_demo SRC_LIST)
+
 
 # 添加编译选项
 ADD_COMPILE_OPTIONS(-g)
+ADD_COMPILE_OPTIONS(-v)
 ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
-ADD_EXECUTABLE(TEST
-#/home/ubuntu/projects/web_server/SNet/tests/http/test_response.cpp
- /home/ubuntu/projects/web_server/SNet/tests/http/test_http_server.cpp
+ADD_EXECUTABLE(web_server
     ${SRC_LIST}
 )
 
 # 添加链接库
-TARGET_LINK_LIBRARIES(TEST pthread)
+TARGET_LINK_LIBRARIES(web_server pthread)

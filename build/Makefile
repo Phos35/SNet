@@ -111,17 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TEST
+# Target rules for targets named web_server
 
 # Build rule for target.
-TEST: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TEST
-.PHONY : TEST
+web_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 web_server
+.PHONY : web_server
 
 # fast build rule for target.
-TEST/fast:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/build
-.PHONY : TEST/fast
+web_server/fast:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/build
+.PHONY : web_server/fast
+
+my_http_demo/demo.o: my_http_demo/demo.cpp.o
+
+.PHONY : my_http_demo/demo.o
+
+# target to build an object file
+my_http_demo/demo.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/my_http_demo/demo.cpp.o
+.PHONY : my_http_demo/demo.cpp.o
+
+my_http_demo/demo.i: my_http_demo/demo.cpp.i
+
+.PHONY : my_http_demo/demo.i
+
+# target to preprocess a source file
+my_http_demo/demo.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/my_http_demo/demo.cpp.i
+.PHONY : my_http_demo/demo.cpp.i
+
+my_http_demo/demo.s: my_http_demo/demo.cpp.s
+
+.PHONY : my_http_demo/demo.s
+
+# target to generate assembly for a file
+my_http_demo/demo.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/my_http_demo/demo.cpp.s
+.PHONY : my_http_demo/demo.cpp.s
 
 net/event/epoller.o: net/event/epoller.cpp.o
 
@@ -129,7 +156,7 @@ net/event/epoller.o: net/event/epoller.cpp.o
 
 # target to build an object file
 net/event/epoller.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/epoller.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/epoller.cpp.o
 .PHONY : net/event/epoller.cpp.o
 
 net/event/epoller.i: net/event/epoller.cpp.i
@@ -138,7 +165,7 @@ net/event/epoller.i: net/event/epoller.cpp.i
 
 # target to preprocess a source file
 net/event/epoller.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/epoller.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/epoller.cpp.i
 .PHONY : net/event/epoller.cpp.i
 
 net/event/epoller.s: net/event/epoller.cpp.s
@@ -147,7 +174,7 @@ net/event/epoller.s: net/event/epoller.cpp.s
 
 # target to generate assembly for a file
 net/event/epoller.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/epoller.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/epoller.cpp.s
 .PHONY : net/event/epoller.cpp.s
 
 net/event/event.o: net/event/event.cpp.o
@@ -156,7 +183,7 @@ net/event/event.o: net/event/event.cpp.o
 
 # target to build an object file
 net/event/event.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event.cpp.o
 .PHONY : net/event/event.cpp.o
 
 net/event/event.i: net/event/event.cpp.i
@@ -165,7 +192,7 @@ net/event/event.i: net/event/event.cpp.i
 
 # target to preprocess a source file
 net/event/event.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event.cpp.i
 .PHONY : net/event/event.cpp.i
 
 net/event/event.s: net/event/event.cpp.s
@@ -174,7 +201,7 @@ net/event/event.s: net/event/event.cpp.s
 
 # target to generate assembly for a file
 net/event/event.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event.cpp.s
 .PHONY : net/event/event.cpp.s
 
 net/event/event_loop.o: net/event/event_loop.cpp.o
@@ -183,7 +210,7 @@ net/event/event_loop.o: net/event/event_loop.cpp.o
 
 # target to build an object file
 net/event/event_loop.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop.cpp.o
 .PHONY : net/event/event_loop.cpp.o
 
 net/event/event_loop.i: net/event/event_loop.cpp.i
@@ -192,7 +219,7 @@ net/event/event_loop.i: net/event/event_loop.cpp.i
 
 # target to preprocess a source file
 net/event/event_loop.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop.cpp.i
 .PHONY : net/event/event_loop.cpp.i
 
 net/event/event_loop.s: net/event/event_loop.cpp.s
@@ -201,7 +228,7 @@ net/event/event_loop.s: net/event/event_loop.cpp.s
 
 # target to generate assembly for a file
 net/event/event_loop.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop.cpp.s
 .PHONY : net/event/event_loop.cpp.s
 
 net/event/event_loop_thread.o: net/event/event_loop_thread.cpp.o
@@ -210,7 +237,7 @@ net/event/event_loop_thread.o: net/event/event_loop_thread.cpp.o
 
 # target to build an object file
 net/event/event_loop_thread.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop_thread.cpp.o
 .PHONY : net/event/event_loop_thread.cpp.o
 
 net/event/event_loop_thread.i: net/event/event_loop_thread.cpp.i
@@ -219,7 +246,7 @@ net/event/event_loop_thread.i: net/event/event_loop_thread.cpp.i
 
 # target to preprocess a source file
 net/event/event_loop_thread.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop_thread.cpp.i
 .PHONY : net/event/event_loop_thread.cpp.i
 
 net/event/event_loop_thread.s: net/event/event_loop_thread.cpp.s
@@ -228,7 +255,7 @@ net/event/event_loop_thread.s: net/event/event_loop_thread.cpp.s
 
 # target to generate assembly for a file
 net/event/event_loop_thread.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop_thread.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop_thread.cpp.s
 .PHONY : net/event/event_loop_thread.cpp.s
 
 net/event/event_loop_thread_pool.o: net/event/event_loop_thread_pool.cpp.o
@@ -237,7 +264,7 @@ net/event/event_loop_thread_pool.o: net/event/event_loop_thread_pool.cpp.o
 
 # target to build an object file
 net/event/event_loop_thread_pool.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop_thread_pool.cpp.o
 .PHONY : net/event/event_loop_thread_pool.cpp.o
 
 net/event/event_loop_thread_pool.i: net/event/event_loop_thread_pool.cpp.i
@@ -246,7 +273,7 @@ net/event/event_loop_thread_pool.i: net/event/event_loop_thread_pool.cpp.i
 
 # target to preprocess a source file
 net/event/event_loop_thread_pool.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop_thread_pool.cpp.i
 .PHONY : net/event/event_loop_thread_pool.cpp.i
 
 net/event/event_loop_thread_pool.s: net/event/event_loop_thread_pool.cpp.s
@@ -255,7 +282,7 @@ net/event/event_loop_thread_pool.s: net/event/event_loop_thread_pool.cpp.s
 
 # target to generate assembly for a file
 net/event/event_loop_thread_pool.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/event_loop_thread_pool.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/event_loop_thread_pool.cpp.s
 .PHONY : net/event/event_loop_thread_pool.cpp.s
 
 net/event/iomutiplexing.o: net/event/iomutiplexing.cpp.o
@@ -264,7 +291,7 @@ net/event/iomutiplexing.o: net/event/iomutiplexing.cpp.o
 
 # target to build an object file
 net/event/iomutiplexing.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/iomutiplexing.cpp.o
 .PHONY : net/event/iomutiplexing.cpp.o
 
 net/event/iomutiplexing.i: net/event/iomutiplexing.cpp.i
@@ -273,7 +300,7 @@ net/event/iomutiplexing.i: net/event/iomutiplexing.cpp.i
 
 # target to preprocess a source file
 net/event/iomutiplexing.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/iomutiplexing.cpp.i
 .PHONY : net/event/iomutiplexing.cpp.i
 
 net/event/iomutiplexing.s: net/event/iomutiplexing.cpp.s
@@ -282,116 +309,8 @@ net/event/iomutiplexing.s: net/event/iomutiplexing.cpp.s
 
 # target to generate assembly for a file
 net/event/iomutiplexing.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/event/iomutiplexing.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/event/iomutiplexing.cpp.s
 .PHONY : net/event/iomutiplexing.cpp.s
-
-net/http/http_decoder.o: net/http/http_decoder.cpp.o
-
-.PHONY : net/http/http_decoder.o
-
-# target to build an object file
-net/http/http_decoder.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_decoder.cpp.o
-.PHONY : net/http/http_decoder.cpp.o
-
-net/http/http_decoder.i: net/http/http_decoder.cpp.i
-
-.PHONY : net/http/http_decoder.i
-
-# target to preprocess a source file
-net/http/http_decoder.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_decoder.cpp.i
-.PHONY : net/http/http_decoder.cpp.i
-
-net/http/http_decoder.s: net/http/http_decoder.cpp.s
-
-.PHONY : net/http/http_decoder.s
-
-# target to generate assembly for a file
-net/http/http_decoder.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_decoder.cpp.s
-.PHONY : net/http/http_decoder.cpp.s
-
-net/http/http_dispatcher.o: net/http/http_dispatcher.cpp.o
-
-.PHONY : net/http/http_dispatcher.o
-
-# target to build an object file
-net/http/http_dispatcher.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.o
-.PHONY : net/http/http_dispatcher.cpp.o
-
-net/http/http_dispatcher.i: net/http/http_dispatcher.cpp.i
-
-.PHONY : net/http/http_dispatcher.i
-
-# target to preprocess a source file
-net/http/http_dispatcher.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.i
-.PHONY : net/http/http_dispatcher.cpp.i
-
-net/http/http_dispatcher.s: net/http/http_dispatcher.cpp.s
-
-.PHONY : net/http/http_dispatcher.s
-
-# target to generate assembly for a file
-net/http/http_dispatcher.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_dispatcher.cpp.s
-.PHONY : net/http/http_dispatcher.cpp.s
-
-net/http/http_request.o: net/http/http_request.cpp.o
-
-.PHONY : net/http/http_request.o
-
-# target to build an object file
-net/http/http_request.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.o
-.PHONY : net/http/http_request.cpp.o
-
-net/http/http_request.i: net/http/http_request.cpp.i
-
-.PHONY : net/http/http_request.i
-
-# target to preprocess a source file
-net/http/http_request.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.i
-.PHONY : net/http/http_request.cpp.i
-
-net/http/http_request.s: net/http/http_request.cpp.s
-
-.PHONY : net/http/http_request.s
-
-# target to generate assembly for a file
-net/http/http_request.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_request.cpp.s
-.PHONY : net/http/http_request.cpp.s
-
-net/http/http_response.o: net/http/http_response.cpp.o
-
-.PHONY : net/http/http_response.o
-
-# target to build an object file
-net/http/http_response.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_response.cpp.o
-.PHONY : net/http/http_response.cpp.o
-
-net/http/http_response.i: net/http/http_response.cpp.i
-
-.PHONY : net/http/http_response.i
-
-# target to preprocess a source file
-net/http/http_response.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_response.cpp.i
-.PHONY : net/http/http_response.cpp.i
-
-net/http/http_response.s: net/http/http_response.cpp.s
-
-.PHONY : net/http/http_response.s
-
-# target to generate assembly for a file
-net/http/http_response.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_response.cpp.s
-.PHONY : net/http/http_response.cpp.s
 
 net/http/http_server.o: net/http/http_server.cpp.o
 
@@ -399,7 +318,7 @@ net/http/http_server.o: net/http/http_server.cpp.o
 
 # target to build an object file
 net/http/http_server.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_server.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/http_server.cpp.o
 .PHONY : net/http/http_server.cpp.o
 
 net/http/http_server.i: net/http/http_server.cpp.i
@@ -408,7 +327,7 @@ net/http/http_server.i: net/http/http_server.cpp.i
 
 # target to preprocess a source file
 net/http/http_server.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_server.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/http_server.cpp.i
 .PHONY : net/http/http_server.cpp.i
 
 net/http/http_server.s: net/http/http_server.cpp.s
@@ -417,8 +336,170 @@ net/http/http_server.s: net/http/http_server.cpp.s
 
 # target to generate assembly for a file
 net/http/http_server.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/http/http_server.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/http_server.cpp.s
 .PHONY : net/http/http_server.cpp.s
+
+net/http/message_processor/decoder/http_decoder.o: net/http/message_processor/decoder/http_decoder.cpp.o
+
+.PHONY : net/http/message_processor/decoder/http_decoder.o
+
+# target to build an object file
+net/http/message_processor/decoder/http_decoder.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/decoder/http_decoder.cpp.o
+.PHONY : net/http/message_processor/decoder/http_decoder.cpp.o
+
+net/http/message_processor/decoder/http_decoder.i: net/http/message_processor/decoder/http_decoder.cpp.i
+
+.PHONY : net/http/message_processor/decoder/http_decoder.i
+
+# target to preprocess a source file
+net/http/message_processor/decoder/http_decoder.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/decoder/http_decoder.cpp.i
+.PHONY : net/http/message_processor/decoder/http_decoder.cpp.i
+
+net/http/message_processor/decoder/http_decoder.s: net/http/message_processor/decoder/http_decoder.cpp.s
+
+.PHONY : net/http/message_processor/decoder/http_decoder.s
+
+# target to generate assembly for a file
+net/http/message_processor/decoder/http_decoder.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/decoder/http_decoder.cpp.s
+.PHONY : net/http/message_processor/decoder/http_decoder.cpp.s
+
+net/http/message_processor/dispatcher/http_dispatcher.o: net/http/message_processor/dispatcher/http_dispatcher.cpp.o
+
+.PHONY : net/http/message_processor/dispatcher/http_dispatcher.o
+
+# target to build an object file
+net/http/message_processor/dispatcher/http_dispatcher.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/dispatcher/http_dispatcher.cpp.o
+.PHONY : net/http/message_processor/dispatcher/http_dispatcher.cpp.o
+
+net/http/message_processor/dispatcher/http_dispatcher.i: net/http/message_processor/dispatcher/http_dispatcher.cpp.i
+
+.PHONY : net/http/message_processor/dispatcher/http_dispatcher.i
+
+# target to preprocess a source file
+net/http/message_processor/dispatcher/http_dispatcher.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/dispatcher/http_dispatcher.cpp.i
+.PHONY : net/http/message_processor/dispatcher/http_dispatcher.cpp.i
+
+net/http/message_processor/dispatcher/http_dispatcher.s: net/http/message_processor/dispatcher/http_dispatcher.cpp.s
+
+.PHONY : net/http/message_processor/dispatcher/http_dispatcher.s
+
+# target to generate assembly for a file
+net/http/message_processor/dispatcher/http_dispatcher.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/dispatcher/http_dispatcher.cpp.s
+.PHONY : net/http/message_processor/dispatcher/http_dispatcher.cpp.s
+
+net/http/message_processor/http_message_processor.o: net/http/message_processor/http_message_processor.cpp.o
+
+.PHONY : net/http/message_processor/http_message_processor.o
+
+# target to build an object file
+net/http/message_processor/http_message_processor.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/http_message_processor.cpp.o
+.PHONY : net/http/message_processor/http_message_processor.cpp.o
+
+net/http/message_processor/http_message_processor.i: net/http/message_processor/http_message_processor.cpp.i
+
+.PHONY : net/http/message_processor/http_message_processor.i
+
+# target to preprocess a source file
+net/http/message_processor/http_message_processor.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/http_message_processor.cpp.i
+.PHONY : net/http/message_processor/http_message_processor.cpp.i
+
+net/http/message_processor/http_message_processor.s: net/http/message_processor/http_message_processor.cpp.s
+
+.PHONY : net/http/message_processor/http_message_processor.s
+
+# target to generate assembly for a file
+net/http/message_processor/http_message_processor.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/http_message_processor.cpp.s
+.PHONY : net/http/message_processor/http_message_processor.cpp.s
+
+net/http/message_processor/http_message_processor_factory.o: net/http/message_processor/http_message_processor_factory.cpp.o
+
+.PHONY : net/http/message_processor/http_message_processor_factory.o
+
+# target to build an object file
+net/http/message_processor/http_message_processor_factory.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/http_message_processor_factory.cpp.o
+.PHONY : net/http/message_processor/http_message_processor_factory.cpp.o
+
+net/http/message_processor/http_message_processor_factory.i: net/http/message_processor/http_message_processor_factory.cpp.i
+
+.PHONY : net/http/message_processor/http_message_processor_factory.i
+
+# target to preprocess a source file
+net/http/message_processor/http_message_processor_factory.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/http_message_processor_factory.cpp.i
+.PHONY : net/http/message_processor/http_message_processor_factory.cpp.i
+
+net/http/message_processor/http_message_processor_factory.s: net/http/message_processor/http_message_processor_factory.cpp.s
+
+.PHONY : net/http/message_processor/http_message_processor_factory.s
+
+# target to generate assembly for a file
+net/http/message_processor/http_message_processor_factory.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/http_message_processor_factory.cpp.s
+.PHONY : net/http/message_processor/http_message_processor_factory.cpp.s
+
+net/http/message_processor/message/http_request.o: net/http/message_processor/message/http_request.cpp.o
+
+.PHONY : net/http/message_processor/message/http_request.o
+
+# target to build an object file
+net/http/message_processor/message/http_request.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/message/http_request.cpp.o
+.PHONY : net/http/message_processor/message/http_request.cpp.o
+
+net/http/message_processor/message/http_request.i: net/http/message_processor/message/http_request.cpp.i
+
+.PHONY : net/http/message_processor/message/http_request.i
+
+# target to preprocess a source file
+net/http/message_processor/message/http_request.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/message/http_request.cpp.i
+.PHONY : net/http/message_processor/message/http_request.cpp.i
+
+net/http/message_processor/message/http_request.s: net/http/message_processor/message/http_request.cpp.s
+
+.PHONY : net/http/message_processor/message/http_request.s
+
+# target to generate assembly for a file
+net/http/message_processor/message/http_request.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/message/http_request.cpp.s
+.PHONY : net/http/message_processor/message/http_request.cpp.s
+
+net/http/message_processor/message/http_response.o: net/http/message_processor/message/http_response.cpp.o
+
+.PHONY : net/http/message_processor/message/http_response.o
+
+# target to build an object file
+net/http/message_processor/message/http_response.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/message/http_response.cpp.o
+.PHONY : net/http/message_processor/message/http_response.cpp.o
+
+net/http/message_processor/message/http_response.i: net/http/message_processor/message/http_response.cpp.i
+
+.PHONY : net/http/message_processor/message/http_response.i
+
+# target to preprocess a source file
+net/http/message_processor/message/http_response.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/message/http_response.cpp.i
+.PHONY : net/http/message_processor/message/http_response.cpp.i
+
+net/http/message_processor/message/http_response.s: net/http/message_processor/message/http_response.cpp.s
+
+.PHONY : net/http/message_processor/message/http_response.s
+
+# target to generate assembly for a file
+net/http/message_processor/message/http_response.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/http/message_processor/message/http_response.cpp.s
+.PHONY : net/http/message_processor/message/http_response.cpp.s
 
 net/message_processor/decoder/decoder.o: net/message_processor/decoder/decoder.cpp.o
 
@@ -426,7 +507,7 @@ net/message_processor/decoder/decoder.o: net/message_processor/decoder/decoder.c
 
 # target to build an object file
 net/message_processor/decoder/decoder.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/decoder.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/decoder/decoder.cpp.o
 .PHONY : net/message_processor/decoder/decoder.cpp.o
 
 net/message_processor/decoder/decoder.i: net/message_processor/decoder/decoder.cpp.i
@@ -435,7 +516,7 @@ net/message_processor/decoder/decoder.i: net/message_processor/decoder/decoder.c
 
 # target to preprocess a source file
 net/message_processor/decoder/decoder.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/decoder.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/decoder/decoder.cpp.i
 .PHONY : net/message_processor/decoder/decoder.cpp.i
 
 net/message_processor/decoder/decoder.s: net/message_processor/decoder/decoder.cpp.s
@@ -444,35 +525,8 @@ net/message_processor/decoder/decoder.s: net/message_processor/decoder/decoder.c
 
 # target to generate assembly for a file
 net/message_processor/decoder/decoder.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/decoder.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/decoder/decoder.cpp.s
 .PHONY : net/message_processor/decoder/decoder.cpp.s
-
-net/message_processor/decoder/message.o: net/message_processor/decoder/message.cpp.o
-
-.PHONY : net/message_processor/decoder/message.o
-
-# target to build an object file
-net/message_processor/decoder/message.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/message.cpp.o
-.PHONY : net/message_processor/decoder/message.cpp.o
-
-net/message_processor/decoder/message.i: net/message_processor/decoder/message.cpp.i
-
-.PHONY : net/message_processor/decoder/message.i
-
-# target to preprocess a source file
-net/message_processor/decoder/message.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/message.cpp.i
-.PHONY : net/message_processor/decoder/message.cpp.i
-
-net/message_processor/decoder/message.s: net/message_processor/decoder/message.cpp.s
-
-.PHONY : net/message_processor/decoder/message.s
-
-# target to generate assembly for a file
-net/message_processor/decoder/message.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/decoder/message.cpp.s
-.PHONY : net/message_processor/decoder/message.cpp.s
 
 net/message_processor/dispatcher/dispatcher.o: net/message_processor/dispatcher/dispatcher.cpp.o
 
@@ -480,7 +534,7 @@ net/message_processor/dispatcher/dispatcher.o: net/message_processor/dispatcher/
 
 # target to build an object file
 net/message_processor/dispatcher/dispatcher.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/dispatcher/dispatcher.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/dispatcher/dispatcher.cpp.o
 .PHONY : net/message_processor/dispatcher/dispatcher.cpp.o
 
 net/message_processor/dispatcher/dispatcher.i: net/message_processor/dispatcher/dispatcher.cpp.i
@@ -489,7 +543,7 @@ net/message_processor/dispatcher/dispatcher.i: net/message_processor/dispatcher/
 
 # target to preprocess a source file
 net/message_processor/dispatcher/dispatcher.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/dispatcher/dispatcher.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/dispatcher/dispatcher.cpp.i
 .PHONY : net/message_processor/dispatcher/dispatcher.cpp.i
 
 net/message_processor/dispatcher/dispatcher.s: net/message_processor/dispatcher/dispatcher.cpp.s
@@ -498,8 +552,35 @@ net/message_processor/dispatcher/dispatcher.s: net/message_processor/dispatcher/
 
 # target to generate assembly for a file
 net/message_processor/dispatcher/dispatcher.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/dispatcher/dispatcher.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/dispatcher/dispatcher.cpp.s
 .PHONY : net/message_processor/dispatcher/dispatcher.cpp.s
+
+net/message_processor/message/message.o: net/message_processor/message/message.cpp.o
+
+.PHONY : net/message_processor/message/message.o
+
+# target to build an object file
+net/message_processor/message/message.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message/message.cpp.o
+.PHONY : net/message_processor/message/message.cpp.o
+
+net/message_processor/message/message.i: net/message_processor/message/message.cpp.i
+
+.PHONY : net/message_processor/message/message.i
+
+# target to preprocess a source file
+net/message_processor/message/message.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message/message.cpp.i
+.PHONY : net/message_processor/message/message.cpp.i
+
+net/message_processor/message/message.s: net/message_processor/message/message.cpp.s
+
+.PHONY : net/message_processor/message/message.s
+
+# target to generate assembly for a file
+net/message_processor/message/message.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message/message.cpp.s
+.PHONY : net/message_processor/message/message.cpp.s
 
 net/message_processor/message_processor.o: net/message_processor/message_processor.cpp.o
 
@@ -507,7 +588,7 @@ net/message_processor/message_processor.o: net/message_processor/message_process
 
 # target to build an object file
 net/message_processor/message_processor.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message_processor.cpp.o
 .PHONY : net/message_processor/message_processor.cpp.o
 
 net/message_processor/message_processor.i: net/message_processor/message_processor.cpp.i
@@ -516,7 +597,7 @@ net/message_processor/message_processor.i: net/message_processor/message_process
 
 # target to preprocess a source file
 net/message_processor/message_processor.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message_processor.cpp.i
 .PHONY : net/message_processor/message_processor.cpp.i
 
 net/message_processor/message_processor.s: net/message_processor/message_processor.cpp.s
@@ -525,7 +606,7 @@ net/message_processor/message_processor.s: net/message_processor/message_process
 
 # target to generate assembly for a file
 net/message_processor/message_processor.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message_processor.cpp.s
 .PHONY : net/message_processor/message_processor.cpp.s
 
 net/message_processor/message_processor_factory.o: net/message_processor/message_processor_factory.cpp.o
@@ -534,7 +615,7 @@ net/message_processor/message_processor_factory.o: net/message_processor/message
 
 # target to build an object file
 net/message_processor/message_processor_factory.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor_factory.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message_processor_factory.cpp.o
 .PHONY : net/message_processor/message_processor_factory.cpp.o
 
 net/message_processor/message_processor_factory.i: net/message_processor/message_processor_factory.cpp.i
@@ -543,7 +624,7 @@ net/message_processor/message_processor_factory.i: net/message_processor/message
 
 # target to preprocess a source file
 net/message_processor/message_processor_factory.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor_factory.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message_processor_factory.cpp.i
 .PHONY : net/message_processor/message_processor_factory.cpp.i
 
 net/message_processor/message_processor_factory.s: net/message_processor/message_processor_factory.cpp.s
@@ -552,7 +633,7 @@ net/message_processor/message_processor_factory.s: net/message_processor/message
 
 # target to generate assembly for a file
 net/message_processor/message_processor_factory.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/message_processor/message_processor_factory.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/message_processor/message_processor_factory.cpp.s
 .PHONY : net/message_processor/message_processor_factory.cpp.s
 
 net/socket/socket.o: net/socket/socket.cpp.o
@@ -561,7 +642,7 @@ net/socket/socket.o: net/socket/socket.cpp.o
 
 # target to build an object file
 net/socket/socket.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/socket/socket.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/socket/socket.cpp.o
 .PHONY : net/socket/socket.cpp.o
 
 net/socket/socket.i: net/socket/socket.cpp.i
@@ -570,7 +651,7 @@ net/socket/socket.i: net/socket/socket.cpp.i
 
 # target to preprocess a source file
 net/socket/socket.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/socket/socket.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/socket/socket.cpp.i
 .PHONY : net/socket/socket.cpp.i
 
 net/socket/socket.s: net/socket/socket.cpp.s
@@ -579,7 +660,7 @@ net/socket/socket.s: net/socket/socket.cpp.s
 
 # target to generate assembly for a file
 net/socket/socket.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/socket/socket.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/socket/socket.cpp.s
 .PHONY : net/socket/socket.cpp.s
 
 net/tcp/acceptor.o: net/tcp/acceptor.cpp.o
@@ -588,7 +669,7 @@ net/tcp/acceptor.o: net/tcp/acceptor.cpp.o
 
 # target to build an object file
 net/tcp/acceptor.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/acceptor.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/acceptor.cpp.o
 .PHONY : net/tcp/acceptor.cpp.o
 
 net/tcp/acceptor.i: net/tcp/acceptor.cpp.i
@@ -597,7 +678,7 @@ net/tcp/acceptor.i: net/tcp/acceptor.cpp.i
 
 # target to preprocess a source file
 net/tcp/acceptor.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/acceptor.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/acceptor.cpp.i
 .PHONY : net/tcp/acceptor.cpp.i
 
 net/tcp/acceptor.s: net/tcp/acceptor.cpp.s
@@ -606,7 +687,7 @@ net/tcp/acceptor.s: net/tcp/acceptor.cpp.s
 
 # target to generate assembly for a file
 net/tcp/acceptor.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/acceptor.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/acceptor.cpp.s
 .PHONY : net/tcp/acceptor.cpp.s
 
 net/tcp/tcp_connection.o: net/tcp/tcp_connection.cpp.o
@@ -615,7 +696,7 @@ net/tcp/tcp_connection.o: net/tcp/tcp_connection.cpp.o
 
 # target to build an object file
 net/tcp/tcp_connection.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_connection.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/tcp_connection.cpp.o
 .PHONY : net/tcp/tcp_connection.cpp.o
 
 net/tcp/tcp_connection.i: net/tcp/tcp_connection.cpp.i
@@ -624,7 +705,7 @@ net/tcp/tcp_connection.i: net/tcp/tcp_connection.cpp.i
 
 # target to preprocess a source file
 net/tcp/tcp_connection.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_connection.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/tcp_connection.cpp.i
 .PHONY : net/tcp/tcp_connection.cpp.i
 
 net/tcp/tcp_connection.s: net/tcp/tcp_connection.cpp.s
@@ -633,7 +714,7 @@ net/tcp/tcp_connection.s: net/tcp/tcp_connection.cpp.s
 
 # target to generate assembly for a file
 net/tcp/tcp_connection.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_connection.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/tcp_connection.cpp.s
 .PHONY : net/tcp/tcp_connection.cpp.s
 
 net/tcp/tcp_server.o: net/tcp/tcp_server.cpp.o
@@ -642,7 +723,7 @@ net/tcp/tcp_server.o: net/tcp/tcp_server.cpp.o
 
 # target to build an object file
 net/tcp/tcp_server.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_server.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/tcp_server.cpp.o
 .PHONY : net/tcp/tcp_server.cpp.o
 
 net/tcp/tcp_server.i: net/tcp/tcp_server.cpp.i
@@ -651,7 +732,7 @@ net/tcp/tcp_server.i: net/tcp/tcp_server.cpp.i
 
 # target to preprocess a source file
 net/tcp/tcp_server.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_server.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/tcp_server.cpp.i
 .PHONY : net/tcp/tcp_server.cpp.i
 
 net/tcp/tcp_server.s: net/tcp/tcp_server.cpp.s
@@ -660,7 +741,7 @@ net/tcp/tcp_server.s: net/tcp/tcp_server.cpp.s
 
 # target to generate assembly for a file
 net/tcp/tcp_server.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/tcp_server.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/tcp_server.cpp.s
 .PHONY : net/tcp/tcp_server.cpp.s
 
 net/tcp/worker_pool.o: net/tcp/worker_pool.cpp.o
@@ -669,7 +750,7 @@ net/tcp/worker_pool.o: net/tcp/worker_pool.cpp.o
 
 # target to build an object file
 net/tcp/worker_pool.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/worker_pool.cpp.o
 .PHONY : net/tcp/worker_pool.cpp.o
 
 net/tcp/worker_pool.i: net/tcp/worker_pool.cpp.i
@@ -678,7 +759,7 @@ net/tcp/worker_pool.i: net/tcp/worker_pool.cpp.i
 
 # target to preprocess a source file
 net/tcp/worker_pool.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/worker_pool.cpp.i
 .PHONY : net/tcp/worker_pool.cpp.i
 
 net/tcp/worker_pool.s: net/tcp/worker_pool.cpp.s
@@ -687,7 +768,7 @@ net/tcp/worker_pool.s: net/tcp/worker_pool.cpp.s
 
 # target to generate assembly for a file
 net/tcp/worker_pool.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/net/tcp/worker_pool.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/net/tcp/worker_pool.cpp.s
 .PHONY : net/tcp/worker_pool.cpp.s
 
 utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
@@ -696,7 +777,7 @@ utils/buffer/buffer.o: utils/buffer/buffer.cpp.o
 
 # target to build an object file
 utils/buffer/buffer.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/buffer.cpp.o
 .PHONY : utils/buffer/buffer.cpp.o
 
 utils/buffer/buffer.i: utils/buffer/buffer.cpp.i
@@ -705,7 +786,7 @@ utils/buffer/buffer.i: utils/buffer/buffer.cpp.i
 
 # target to preprocess a source file
 utils/buffer/buffer.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/buffer.cpp.i
 .PHONY : utils/buffer/buffer.cpp.i
 
 utils/buffer/buffer.s: utils/buffer/buffer.cpp.s
@@ -714,7 +795,7 @@ utils/buffer/buffer.s: utils/buffer/buffer.cpp.s
 
 # target to generate assembly for a file
 utils/buffer/buffer.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/buffer.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/buffer.cpp.s
 .PHONY : utils/buffer/buffer.cpp.s
 
 utils/buffer/byte_buffer.o: utils/buffer/byte_buffer.cpp.o
@@ -723,7 +804,7 @@ utils/buffer/byte_buffer.o: utils/buffer/byte_buffer.cpp.o
 
 # target to build an object file
 utils/buffer/byte_buffer.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/byte_buffer.cpp.o
 .PHONY : utils/buffer/byte_buffer.cpp.o
 
 utils/buffer/byte_buffer.i: utils/buffer/byte_buffer.cpp.i
@@ -732,7 +813,7 @@ utils/buffer/byte_buffer.i: utils/buffer/byte_buffer.cpp.i
 
 # target to preprocess a source file
 utils/buffer/byte_buffer.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/byte_buffer.cpp.i
 .PHONY : utils/buffer/byte_buffer.cpp.i
 
 utils/buffer/byte_buffer.s: utils/buffer/byte_buffer.cpp.s
@@ -741,7 +822,7 @@ utils/buffer/byte_buffer.s: utils/buffer/byte_buffer.cpp.s
 
 # target to generate assembly for a file
 utils/buffer/byte_buffer.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/byte_buffer.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/byte_buffer.cpp.s
 .PHONY : utils/buffer/byte_buffer.cpp.s
 
 utils/buffer/tcp_buffer.o: utils/buffer/tcp_buffer.cpp.o
@@ -750,7 +831,7 @@ utils/buffer/tcp_buffer.o: utils/buffer/tcp_buffer.cpp.o
 
 # target to build an object file
 utils/buffer/tcp_buffer.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/tcp_buffer.cpp.o
 .PHONY : utils/buffer/tcp_buffer.cpp.o
 
 utils/buffer/tcp_buffer.i: utils/buffer/tcp_buffer.cpp.i
@@ -759,7 +840,7 @@ utils/buffer/tcp_buffer.i: utils/buffer/tcp_buffer.cpp.i
 
 # target to preprocess a source file
 utils/buffer/tcp_buffer.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/tcp_buffer.cpp.i
 .PHONY : utils/buffer/tcp_buffer.cpp.i
 
 utils/buffer/tcp_buffer.s: utils/buffer/tcp_buffer.cpp.s
@@ -768,7 +849,7 @@ utils/buffer/tcp_buffer.s: utils/buffer/tcp_buffer.cpp.s
 
 # target to generate assembly for a file
 utils/buffer/tcp_buffer.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/buffer/tcp_buffer.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/buffer/tcp_buffer.cpp.s
 .PHONY : utils/buffer/tcp_buffer.cpp.s
 
 utils/config/config.o: utils/config/config.cpp.o
@@ -777,7 +858,7 @@ utils/config/config.o: utils/config/config.cpp.o
 
 # target to build an object file
 utils/config/config.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/config/config.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/config/config.cpp.o
 .PHONY : utils/config/config.cpp.o
 
 utils/config/config.i: utils/config/config.cpp.i
@@ -786,7 +867,7 @@ utils/config/config.i: utils/config/config.cpp.i
 
 # target to preprocess a source file
 utils/config/config.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/config/config.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/config/config.cpp.i
 .PHONY : utils/config/config.cpp.i
 
 utils/config/config.s: utils/config/config.cpp.s
@@ -795,8 +876,35 @@ utils/config/config.s: utils/config/config.cpp.s
 
 # target to generate assembly for a file
 utils/config/config.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/config/config.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/config/config.cpp.s
 .PHONY : utils/config/config.cpp.s
+
+utils/debug/one_line.o: utils/debug/one_line.cpp.o
+
+.PHONY : utils/debug/one_line.o
+
+# target to build an object file
+utils/debug/one_line.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/debug/one_line.cpp.o
+.PHONY : utils/debug/one_line.cpp.o
+
+utils/debug/one_line.i: utils/debug/one_line.cpp.i
+
+.PHONY : utils/debug/one_line.i
+
+# target to preprocess a source file
+utils/debug/one_line.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/debug/one_line.cpp.i
+.PHONY : utils/debug/one_line.cpp.i
+
+utils/debug/one_line.s: utils/debug/one_line.cpp.s
+
+.PHONY : utils/debug/one_line.s
+
+# target to generate assembly for a file
+utils/debug/one_line.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/debug/one_line.cpp.s
+.PHONY : utils/debug/one_line.cpp.s
 
 utils/log/append_file.o: utils/log/append_file.cpp.o
 
@@ -804,7 +912,7 @@ utils/log/append_file.o: utils/log/append_file.cpp.o
 
 # target to build an object file
 utils/log/append_file.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/append_file.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/append_file.cpp.o
 .PHONY : utils/log/append_file.cpp.o
 
 utils/log/append_file.i: utils/log/append_file.cpp.i
@@ -813,7 +921,7 @@ utils/log/append_file.i: utils/log/append_file.cpp.i
 
 # target to preprocess a source file
 utils/log/append_file.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/append_file.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/append_file.cpp.i
 .PHONY : utils/log/append_file.cpp.i
 
 utils/log/append_file.s: utils/log/append_file.cpp.s
@@ -822,7 +930,7 @@ utils/log/append_file.s: utils/log/append_file.cpp.s
 
 # target to generate assembly for a file
 utils/log/append_file.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/append_file.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/append_file.cpp.s
 .PHONY : utils/log/append_file.cpp.s
 
 utils/log/async_log.o: utils/log/async_log.cpp.o
@@ -831,7 +939,7 @@ utils/log/async_log.o: utils/log/async_log.cpp.o
 
 # target to build an object file
 utils/log/async_log.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/async_log.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/async_log.cpp.o
 .PHONY : utils/log/async_log.cpp.o
 
 utils/log/async_log.i: utils/log/async_log.cpp.i
@@ -840,7 +948,7 @@ utils/log/async_log.i: utils/log/async_log.cpp.i
 
 # target to preprocess a source file
 utils/log/async_log.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/async_log.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/async_log.cpp.i
 .PHONY : utils/log/async_log.cpp.i
 
 utils/log/async_log.s: utils/log/async_log.cpp.s
@@ -849,7 +957,7 @@ utils/log/async_log.s: utils/log/async_log.cpp.s
 
 # target to generate assembly for a file
 utils/log/async_log.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/async_log.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/async_log.cpp.s
 .PHONY : utils/log/async_log.cpp.s
 
 utils/log/log_file.o: utils/log/log_file.cpp.o
@@ -858,7 +966,7 @@ utils/log/log_file.o: utils/log/log_file.cpp.o
 
 # target to build an object file
 utils/log/log_file.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/log_file.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/log_file.cpp.o
 .PHONY : utils/log/log_file.cpp.o
 
 utils/log/log_file.i: utils/log/log_file.cpp.i
@@ -867,7 +975,7 @@ utils/log/log_file.i: utils/log/log_file.cpp.i
 
 # target to preprocess a source file
 utils/log/log_file.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/log_file.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/log_file.cpp.i
 .PHONY : utils/log/log_file.cpp.i
 
 utils/log/log_file.s: utils/log/log_file.cpp.s
@@ -876,7 +984,7 @@ utils/log/log_file.s: utils/log/log_file.cpp.s
 
 # target to generate assembly for a file
 utils/log/log_file.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/log_file.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/log_file.cpp.s
 .PHONY : utils/log/log_file.cpp.s
 
 utils/log/log_stream.o: utils/log/log_stream.cpp.o
@@ -885,7 +993,7 @@ utils/log/log_stream.o: utils/log/log_stream.cpp.o
 
 # target to build an object file
 utils/log/log_stream.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/log_stream.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/log_stream.cpp.o
 .PHONY : utils/log/log_stream.cpp.o
 
 utils/log/log_stream.i: utils/log/log_stream.cpp.i
@@ -894,7 +1002,7 @@ utils/log/log_stream.i: utils/log/log_stream.cpp.i
 
 # target to preprocess a source file
 utils/log/log_stream.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/log_stream.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/log_stream.cpp.i
 .PHONY : utils/log/log_stream.cpp.i
 
 utils/log/log_stream.s: utils/log/log_stream.cpp.s
@@ -903,7 +1011,7 @@ utils/log/log_stream.s: utils/log/log_stream.cpp.s
 
 # target to generate assembly for a file
 utils/log/log_stream.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/log_stream.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/log_stream.cpp.s
 .PHONY : utils/log/log_stream.cpp.s
 
 utils/log/logger.o: utils/log/logger.cpp.o
@@ -912,7 +1020,7 @@ utils/log/logger.o: utils/log/logger.cpp.o
 
 # target to build an object file
 utils/log/logger.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/logger.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/logger.cpp.o
 .PHONY : utils/log/logger.cpp.o
 
 utils/log/logger.i: utils/log/logger.cpp.i
@@ -921,7 +1029,7 @@ utils/log/logger.i: utils/log/logger.cpp.i
 
 # target to preprocess a source file
 utils/log/logger.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/logger.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/logger.cpp.i
 .PHONY : utils/log/logger.cpp.i
 
 utils/log/logger.s: utils/log/logger.cpp.s
@@ -930,7 +1038,7 @@ utils/log/logger.s: utils/log/logger.cpp.s
 
 # target to generate assembly for a file
 utils/log/logger.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/log/logger.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/log/logger.cpp.s
 .PHONY : utils/log/logger.cpp.s
 
 utils/time/timestamp.o: utils/time/timestamp.cpp.o
@@ -939,7 +1047,7 @@ utils/time/timestamp.o: utils/time/timestamp.cpp.o
 
 # target to build an object file
 utils/time/timestamp.cpp.o:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/time/timestamp.cpp.o
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/time/timestamp.cpp.o
 .PHONY : utils/time/timestamp.cpp.o
 
 utils/time/timestamp.i: utils/time/timestamp.cpp.i
@@ -948,7 +1056,7 @@ utils/time/timestamp.i: utils/time/timestamp.cpp.i
 
 # target to preprocess a source file
 utils/time/timestamp.cpp.i:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/time/timestamp.cpp.i
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/time/timestamp.cpp.i
 .PHONY : utils/time/timestamp.cpp.i
 
 utils/time/timestamp.s: utils/time/timestamp.cpp.s
@@ -957,7 +1065,7 @@ utils/time/timestamp.s: utils/time/timestamp.cpp.s
 
 # target to generate assembly for a file
 utils/time/timestamp.cpp.s:
-	$(MAKE) -f CMakeFiles/TEST.dir/build.make CMakeFiles/TEST.dir/utils/time/timestamp.cpp.s
+	$(MAKE) -f CMakeFiles/web_server.dir/build.make CMakeFiles/web_server.dir/utils/time/timestamp.cpp.s
 .PHONY : utils/time/timestamp.cpp.s
 
 # Help Target
@@ -968,7 +1076,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... TEST"
+	@echo "... web_server"
+	@echo "... my_http_demo/demo.o"
+	@echo "... my_http_demo/demo.i"
+	@echo "... my_http_demo/demo.s"
 	@echo "... net/event/epoller.o"
 	@echo "... net/event/epoller.i"
 	@echo "... net/event/epoller.s"
@@ -987,30 +1098,36 @@ help:
 	@echo "... net/event/iomutiplexing.o"
 	@echo "... net/event/iomutiplexing.i"
 	@echo "... net/event/iomutiplexing.s"
-	@echo "... net/http/http_decoder.o"
-	@echo "... net/http/http_decoder.i"
-	@echo "... net/http/http_decoder.s"
-	@echo "... net/http/http_dispatcher.o"
-	@echo "... net/http/http_dispatcher.i"
-	@echo "... net/http/http_dispatcher.s"
-	@echo "... net/http/http_request.o"
-	@echo "... net/http/http_request.i"
-	@echo "... net/http/http_request.s"
-	@echo "... net/http/http_response.o"
-	@echo "... net/http/http_response.i"
-	@echo "... net/http/http_response.s"
 	@echo "... net/http/http_server.o"
 	@echo "... net/http/http_server.i"
 	@echo "... net/http/http_server.s"
+	@echo "... net/http/message_processor/decoder/http_decoder.o"
+	@echo "... net/http/message_processor/decoder/http_decoder.i"
+	@echo "... net/http/message_processor/decoder/http_decoder.s"
+	@echo "... net/http/message_processor/dispatcher/http_dispatcher.o"
+	@echo "... net/http/message_processor/dispatcher/http_dispatcher.i"
+	@echo "... net/http/message_processor/dispatcher/http_dispatcher.s"
+	@echo "... net/http/message_processor/http_message_processor.o"
+	@echo "... net/http/message_processor/http_message_processor.i"
+	@echo "... net/http/message_processor/http_message_processor.s"
+	@echo "... net/http/message_processor/http_message_processor_factory.o"
+	@echo "... net/http/message_processor/http_message_processor_factory.i"
+	@echo "... net/http/message_processor/http_message_processor_factory.s"
+	@echo "... net/http/message_processor/message/http_request.o"
+	@echo "... net/http/message_processor/message/http_request.i"
+	@echo "... net/http/message_processor/message/http_request.s"
+	@echo "... net/http/message_processor/message/http_response.o"
+	@echo "... net/http/message_processor/message/http_response.i"
+	@echo "... net/http/message_processor/message/http_response.s"
 	@echo "... net/message_processor/decoder/decoder.o"
 	@echo "... net/message_processor/decoder/decoder.i"
 	@echo "... net/message_processor/decoder/decoder.s"
-	@echo "... net/message_processor/decoder/message.o"
-	@echo "... net/message_processor/decoder/message.i"
-	@echo "... net/message_processor/decoder/message.s"
 	@echo "... net/message_processor/dispatcher/dispatcher.o"
 	@echo "... net/message_processor/dispatcher/dispatcher.i"
 	@echo "... net/message_processor/dispatcher/dispatcher.s"
+	@echo "... net/message_processor/message/message.o"
+	@echo "... net/message_processor/message/message.i"
+	@echo "... net/message_processor/message/message.s"
 	@echo "... net/message_processor/message_processor.o"
 	@echo "... net/message_processor/message_processor.i"
 	@echo "... net/message_processor/message_processor.s"
@@ -1044,6 +1161,9 @@ help:
 	@echo "... utils/config/config.o"
 	@echo "... utils/config/config.i"
 	@echo "... utils/config/config.s"
+	@echo "... utils/debug/one_line.o"
+	@echo "... utils/debug/one_line.i"
+	@echo "... utils/debug/one_line.s"
 	@echo "... utils/log/append_file.o"
 	@echo "... utils/log/append_file.i"
 	@echo "... utils/log/append_file.s"

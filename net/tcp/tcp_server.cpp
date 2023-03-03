@@ -2,6 +2,7 @@
 #include "config.h"
 #include "logger.h"
 #include <iostream>
+#include <signal.h>
 
 TCPServer::TCPServer(const std::string &addr, uint16_t port)
 : server_socket_(AF_INET, SOCK_STREAM, 0), next_id_(0),
@@ -19,6 +20,9 @@ TCPServer::~TCPServer()
 
 void TCPServer::run()
 {
+    // 忽略sigpipe信号
+    signal(SIGPIPE, SIG_IGN);
+
     // 读取参数，初始化两个线程池
     Config &config = Config::get_instance();
     size_t event_loop_pool_size = config.event_loop_thread_pool_size();

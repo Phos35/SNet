@@ -21,6 +21,9 @@ public:
         HTML,   // html文件
         IMAGE,  // 图片
         PNG,    // png图片
+        GIF,    // gif图片
+        JPG,    // jpg图片
+        JS,     // js文件
     };
 
     // HTTP响应
@@ -74,6 +77,15 @@ public:
     /// @param type 待设置的值
     void set_content_type(MIME type);
 
+    /// @brief 设置Content-Type字段
+    /// @param type 待设置的值
+    void set_content_type(const std::string &type);
+
+    /// @brief 根据url中请求的文件名判断文件类型
+    /// @param url 待检查的url
+    /// @return 文件类型字符串
+    static std::string judge_mime_type(const std::string &url);
+
     /// @brief 添加响应体 -- 自动添加Content-Length字段
     /// @param content 待添加的内容
     void add_content(const std::string &content);
@@ -92,7 +104,9 @@ public:
     static std::string mime_to_string(MIME type);
 
 private:
-    std::string     version_;       // HTTP协议版本
+    static std::unordered_map<std::string, std::string> mime_map;
+
+    std::string version_;           // HTTP协议版本
     size_t          code_;          // 状态码
     std::string     description_;   // 状态码描述
 

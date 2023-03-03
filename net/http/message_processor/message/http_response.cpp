@@ -1,5 +1,14 @@
 #include "http_response.h"
 
+std::unordered_map<std::string, std::string>
+HTTPResponse::mime_map = 
+{
+    {"txt", "text/plain"}, {"html", "text/html"},
+    {"js", "application/javascript"}, {"png", "iage/png"}, 
+    {"jpg", "image/jpg"}, {"gif", "image/gif"},
+    {"ico", "image/*"}
+};
+
 HTTPResponse::HTTPResponse(const std::string &version, size_t code,
                 const std::string &description)
 :version_(version), code_(code), description_(description)
@@ -85,6 +94,25 @@ void HTTPResponse::set_content_type(MIME type)
 {
     std::string mime_str = mime_to_string(type);
     set_header("Content-Type", mime_str);
+}
+
+void  HTTPResponse::set_content_type(const std::string &type)
+{
+    set_header("Content-Type", type);
+}
+
+std::string HTTPResponse::judge_mime_type(const std::string &url)
+{
+    // 找到文件后缀名
+    int dot_index = url.find_last_of('.');
+    std::string suffix = url.substr(dot_index + 1);
+    
+    // 查表搜寻
+    auto itr = mime_map.find(suffix);
+    if(itr != mime_map.end())
+        return itr->second;
+    else
+        return "text/" + suffix;
 }
 
 void HTTPResponse::add_content(const std::string &content)
