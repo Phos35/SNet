@@ -1,6 +1,9 @@
 #include "tcp_connection.h"
 #include "logger.h"   
 #include <unistd.h>
+#include <sys/timerfd.h>
+#include <sys/types.h>
+#include <random>
 
 TCPConnection::TCPConnection(size_t id, EventLoop* event_loop, 
                              SocketPtr&& client_socket,
@@ -8,13 +11,15 @@ TCPConnection::TCPConnection(size_t id, EventLoop* event_loop,
 :id_(id), loop_(event_loop), socket_(std::move(client_socket)), state_(State::CREATING),
  event_(Event(Event::OwnerType::CONNECTION,socket_->fd(), EPOLLIN)),
  worker_pool_(pool), recv_buffer_(65536),send_buffer_(65536),
- writing_(false)
+ writing_(false), 
+ timer_(Event::OwnerType::NONE, timerfd_create(CLOCK_REALTIME, TFD_NONBLOCK), EPOLLIN),
+ last_active_(Timestamp::now())
 {
-    LOG_INFO << "\nTCPConnection " << id_ << " Creating\n"
-             << "Manage fd: " << event_.fd() << "\n"
-             << "owner loop: " << loop_->id() << "\n"
-             << "current state: " << state_to_string(state_) << "\n"
-             << "client addr: " << socket_->addr_str() << ":" << socket_->port() << "\n";
+    // LOG_INFO << "\nTCPConnection " << id_ << " Creating\n"
+    //          << "Manage fd: " << event_.fd() << "\n"
+    //          << "owner loop: " << loop_->id() << "\n"
+    //          << "current state: " << state_to_string(state_) << "\n"
+    //          << "client addr: " << socket_->addr_str() << ":" << socket_->port() << "\n";
 }
 
 TCPConnection::~TCPConnection()
@@ -32,6 +37,11 @@ void TCPConnection::create()
     event_.set_write_callback(std::bind(&TCPConnection::process_write, this));
     event_.set_close_callback(std::bind(&TCPConnection::process_close, this));
     loop_->add_event(event_);
+
+    // 设置timer的超时时间和超时处理函数
+    set_timer();
+    timer_.set_read_callback(std::bind(&TCPConnection::process_expire, this));
+    loop_->add_event(timer_);
 
     // 更新状态
     state_ = State::CONNECTING;
@@ -51,6 +61,9 @@ void TCPConnection::write(const std::string &data)
 
 void TCPConnection::write_in_loop(const std::string& data)
 {
+    // 更新活跃时间
+    // last_active_ = Timestamp::now();
+
     LOG_DEBUG << "TCPConnection " << id_ << " first write";
     int written_size = ::write(socket_->fd(), data.data(), data.size());
     if(written_size == -1 && errno != EAGAIN && errno != EWOULDBLOCK)
@@ -138,8 +151,9 @@ void TCPConnection::destroy()
     if(writing_ == true)
         return;
 
-    // 取消关注的事件
+    // 取消关注的事件和定时器
     loop_->del_event(event_);
+    loop_->del_event(timer_);
 
     // 更新状态
     state_ = State::CLOSED;
@@ -182,10 +196,16 @@ void TCPConnection::process_read()
     // 数据解析提交工作线程池
     LOG_DEBUG << "TCPConnection " << id_ << " read";
     worker_pool_->add_task(shared_from_this());
+
+    // 更新活跃时间
+    // last_active_ = Timestamp::now();
 }
 
 void TCPConnection::process_write()
 {
+    // 更新活跃时间
+    // last_active_ = Timestamp::now();
+
     LOG_DEBUG << "TCPConnection " << id_ << " after write";
     // 写出数据
     int data_size = send_buffer_.readable();
@@ -225,9 +245,40 @@ void TCPConnection::process_write()
     }
 }
 
+void TCPConnection::process_expire()
+{
+    char buf[8] = {0};
+    int read_size = read(timer_.fd(), buf, 8);
+    if ((Timestamp::now() - last_active_).seconds() >= expire_interval_)
+    {
+        LOG_DEBUG << "TCPConnection " << id_ << " long time silent: "
+                  << expire_interval_ << ", now closing";
+        close_in_loop();
+    }
+}
+
+void TCPConnection::set_timer()
+{
+    // 此处使用均匀分布的随机数，生成10分钟~30分钟内的长期不活跃检测时间，
+    // 可以避免不活跃检测大量聚集在某个时间点进行而导致的性能下降
+    std::random_device random_device;
+    std::mt19937 engine(random_device());
+    std::uniform_int_distribution<size_t> distribution(10 * 60 * 1000, 30 * 60 * 1000);
+
+    // 设置超时间隔
+    expire_interval_ = distribution(engine);
+
+    // 设置定时器启动时间和重复启动的超时间隔
+    Timestamp now = Timestamp::now();
+    timespec start_time = {.tv_sec = now.seconds() + expire_interval_, .tv_nsec = 0};
+    timespec interval = {.tv_sec = expire_interval_, .tv_nsec = 0};
+    itimerspec timer_info = {.it_interval = interval, .it_value = start_time};
+    timerfd_settime(timer_.fd(), TFD_TIMER_ABSTIME, &timer_info, nullptr);
+}
+
 void TCPConnection::process_close()
 {
-
+    
 }
 
 size_t TCPConnection::id()

@@ -7,6 +7,7 @@
 #include "dispatcher.h"
 #include "tcp_buffer.h"
 #include "worker_pool.h"
+#include "timestamp.h"
 
 /*  TODO   */
 // 1. 需要Buffer
@@ -107,17 +108,28 @@ private:
     WorkerPool*         worker_pool_;       // 工作线程池
 
     bool                writing_;           // 正在写出的标志，用于优雅关闭连接
+    
+    Timestamp           last_active_;       // 最后一次活跃时间（读写均触发更新）
+    Event               timer_;             // timerfd，用于关闭长期不活跃的连接
+    time_t              expire_interval_;   // 超时检测间隔
+
 
     CloseCallBack       close_callback_;    // 处理关闭事件的回调函数
 
-    /// 处理读事件
+    /// @brief 处理读事件
     void process_read();
 
     /// @brief 处理写事件
     void process_write();
 
-    /// 处理关闭事件
+    /// @brief 处理关闭事件
     void process_close();
+
+    /// @brief 处理定时器到期时的活跃检查
+    void process_expire();
+
+    /// @brief 设置定时器的超时时间
+    void set_timer();
 
     /// @brief 将写入操作转移到事件循环中完成
     /// @param data 待写入的数据

@@ -51,8 +51,7 @@ AUX_SOURCE_DIRECTORY(/home/ubuntu/projects/web_server/SNet/my_http_demo SRC_LIST
 
 
 # 添加编译选项
-ADD_COMPILE_OPTIONS(-g)
-ADD_COMPILE_OPTIONS(-v)
+#ADD_COMPILE_OPTIONS(-g)
 ADD_COMPILE_OPTIONS(-lpthread)
 
 # 添加main函数源文件
