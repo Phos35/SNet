@@ -2,7 +2,7 @@
 
 ## 一、模型
 
-![](http://43.138.43.178:8000/images/log_system_model.png)
+![](http://43.138.43.178:8000/image/log_system_model.png)
 
 
 
@@ -94,7 +94,7 @@
 ## 五、工作流程
 
 - 时序图
-  ![](http://43.138.43.178:8000/images/log-工作流程.png)
+  ![](http://43.138.43.178:8000/image/log-工作流程.png)
 - 解析
   1. 上层调用`LOG_DEBUG`等宏定义方法，实际上获得到了`Logger`对象的`LogStream`成员，使用`<<`将数据写入`LogStream`中
   2. `LogStream`调用底层`FixedBuffer`的`write()`方法将数据写入缓冲区中
@@ -108,14 +108,14 @@
 
 - 前后端分离
   - 模型
-    ![](http://43.138.43.178:8000/images/front_back_model.png)
+    ![](http://43.138.43.178:8000/image/front_back_model.png)
   - 前端
     前端为`AsyncLog::write()`函数，该函数将各线程的日志存储到前端缓冲区中，并在数据量足够时唤醒后端线程拿取数据
   - 后端
     定期或被前端唤醒后，拿取前端的数据，并将这些数据写入到文件中
 - 双缓冲区
   - 模型
-    ![](http://43.138.43.178:8000/images/double_buffer_model.png)
+    ![](http://43.138.43.178:8000/image/double_buffer_model.png)
   - 工作原理
     - 双缓冲区：前后端各自维护一个缓冲区
     - 前端缓冲区空间不足时，交换前后端两个缓冲区，为前端提供足量的写入空间的同时也允许后端线程进行写出的工作，效率很高

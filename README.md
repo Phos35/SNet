@@ -19,7 +19,7 @@ SNet，即 Simple Net，一个基于事件驱动实现的简易网络库
 
 # 二、整体架构
 
-![](http://43.138.43.178:8000/images/SNet_Basic_Model.drawio.svg)
+![](http://43.138.43.178:8000/image/SNet_Basic_Model.drawio.svg)
 
 - 本项目主体由网络库`SNet`和日志系统`Logger`组成
 - [`SNet`](https://github.com/Phos35/SNet/tree/master/documents/SNet/README.md)，是项目的核心模块，该模块使用主从Reactor模型、事件循环机制、IO多路复用机制等实现了TCP连接的高并发处理，以此为上层提供了高性能网络交互接口
@@ -31,7 +31,7 @@ SNet，即 Simple Net，一个基于事件驱动实现的简易网络库
 # 三、并发模型
 
 本项目使用的是目前主流网络库框架均在使用的主从`Ractor`多线程模型，其模型的基本框架如下：
-![](http://43.138.43.178:8000/images/Master_Sub_Reactor.drawio.svg)
+![](http://43.138.43.178:8000/image/Master_Sub_Reactor.drawio.svg)
 主从`Reactor`多线程模型中`Master Reactor`专注于接收新到来的连接、`Sub Reactor`完成对于`socket`的数据读写。而对于请求的处理和响应的生成则全部交由`worker`来完成，这种模型充分利用了服务器的CPU和IO，能够最大程度的使用服务器性能去服务尽可能多的客户端。
 <a href="https://github.com/Phos35/SNet/tree/master/documents/SNet/README.md#5. 主从`Reactor`模型——多线程高并发">SNet中的主从Reactor模型</a>
 
@@ -54,9 +54,9 @@ SNet，即 Simple Net，一个基于事件驱动实现的简易网络库
   - 编译选项：`O3`
 - Apache Bench压测
   - Nginx
-    ![](http://43.138.43.178:8000/images/nginx_pressure.jpg)
+    ![](http://43.138.43.178:8000/image/nginx_pressure.jpg)
   - SNet
-    ![](http://43.138.43.178:8000/images/snet_pressure.jpg)
+    ![](http://43.138.43.178:8000/image/snet_pressure.jpg)
   - 可以看到基于`SNet`的`HTTPServer`与`Nginx`的`QPS`相对要高一些，这说明`SNet`有处理高并发连接的能力
 
 

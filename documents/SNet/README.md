@@ -1,6 +1,6 @@
 # 一、完整模型
 
-![](http://43.138.43.178:8000/images/SNet.drawio.svg)
+![](http://43.138.43.178:8000/image/SNet.drawio.svg)
 
 由上图可以发现，`SNet`并不复杂（至少可以在一张图中完整地表现出核心的功能和完整的处理流程），但要从完整模型中直接入手去分析，也是需要花费一些时间的。以下部分开始从最顶层的抽象逐步向下进行解析，详细地解析从功能表现到实现细节的具体流程。
 
@@ -17,7 +17,7 @@
 
 ## 1. 第一层抽象 -- Server、Client
 
-![](http://43.138.43.178:8000/images/Server-Client.drawio.svg)
+![](http://43.138.43.178:8000/image/Server-Client.drawio.svg)
 这是最顶层的抽象。这一部分只要是接触过计网中TCP的，应该都能理解图上这三个流程：
 
 1. 客户端发送连接请求，申请建立连接
@@ -42,7 +42,7 @@
 
 ## 2. 第二层抽象——Acceptor，建立连接
 
-![](http://43.138.43.178:8000/images/Acceptor.drawio.svg)
+![](http://43.138.43.178:8000/image/Acceptor.drawio.svg)
 建立连接是服务端与客户端交流的第一步，我们先来看看普通的socket通信流程：
 
 1. 服务端建立代表自身的server_socket（socket()），并为其绑定特定的地址和端口（bind()）,接着便开始监听（listen()）,等待客户端连接请求的到来（accept()）
@@ -59,7 +59,7 @@
 
 ## 3. 第二层抽象——`TCPConnection`，数据的收发
 
-![](http://43.138.43.178:8000/images/TCPConnection.drawio.svg)
+![](http://43.138.43.178:8000/image/TCPConnection.drawio.svg)
 
 
 `TCPConnection`作为对一次连接的抽象，代表了收发两端与它们之间的通信连接，因此在服务端与客户端建立连接后由它来接管与客户端交流数据的收发，这也同样符合Acceptor设计的两个出发点：面向对象和隐藏。
@@ -81,12 +81,12 @@
 `EventLoop`——事件循环，是事件驱动机制的核心结构，它能够在自己的线程中循环监听事件的发生并通过调用事件的回调函数进行相应的处理。`SNet`中的`Acceptor`与`TCPConnection`都依托于`EventLoop`实现。尽管在实现中还存在`EventLoopTrhead`用来指示封装事件循环的线程，但实际上我们可以将`EventLoop`直接指代事件循环线程，因为`EVentLoop`脱离线程是没有任何意义的（`EventLoop`是一个死循环执行结构，如果不单独绑定线程的话会阻塞调用`EventLoop.run()`的线程，就无法完成其它有意义的工作了）
 
 - 处理流程
-  ![](http://43.138.43.178:8000/images/EventLoop_Procedure.drawio.svg)
+  ![](http://43.138.43.178:8000/image/EventLoop_Procedure.drawio.svg)
 - `Acceptor`与`EventLoop`
   `Acceptor`独占一个`EventLoop`，其处理的IO事件就是server_socket上到来的连接请求事件。通过`EventLoop`的不断循环监听处理，`Acceptor`就能不断接收新连接，并通过启动时设置的回调函数将新连接递交给`TCPServer`完成新连接的创建
 - `TCPConnection`与`EventLoop`
   `TCPConnection`与`EventLoop`之间存在从属关系：
-  ![](http://43.138.43.178:8000/images/EventLoop_TCPConnection_Relation.drawio.svg)
+  ![](http://43.138.43.178:8000/image/EventLoop_TCPConnection_Relation.drawio.svg)
 
 
 每当`TCPServer`创建新的`TCPConnection`，就会将其分配到一个`EventLoop`上，由`EventLoop`监听`TCPConnection`上的事件，当事件出发的时候就调用`TCPConnection`创建时提交的回调函数来处理对应的事件。比如当客户端发来数据的时候，`EventLoop`就会得到该`TCPConnection`上的读事件，紧接着就会调用`TCPConnection`的读处理回调函数来读取客户端的数据
@@ -119,7 +119,7 @@ IO多路复用机制的监听特点是`EventLoop`执行流程中监听的基础�
 
 ## 3.  `WorkerPool`——数据处理
 
-![](http://43.138.43.178:8000/images/WorkerPool.drawio.svg)
+![](http://43.138.43.178:8000/image/WorkerPool.drawio.svg)
 
 这张图与[TCPConnection](#3. 第二层抽象——`TCPConnection`，数据的收发)中的图是相连的，注意图中的<font color="#b85450">红色→</font>和<font color="#9673a6">紫色→</font>
 
@@ -136,7 +136,7 @@ IO多路复用机制的监听特点是`EventLoop`执行流程中监听的基础�
 
 ## 4.  `MessageProcessor`——扩展性的基础
 
-![](http://43.138.43.178:8000/images/Base_MessageProcessor.drawio.svg)
+![](http://43.138.43.178:8000/image/Base_MessageProcessor.drawio.svg)
 `SNet`的`MessageProcessor`包含如下的基类：
 
 1. `Message`：报文基类。上层协议中如果有多种报文类型，需要都继承该类
@@ -154,7 +154,7 @@ IO多路复用机制的监听特点是`EventLoop`执行流程中监听的基础�
 ## 5. 主从`Reactor`模型——多线程高并发
 
 - 主从Reactor模型
-  ![](http://43.138.43.178:8000/images/Master_Sub_Reactor.drawio.svg)
+  ![](http://43.138.43.178:8000/image/Master_Sub_Reactor.drawio.svg)
   主从Reactor模型是解决多线程高并发的有效模型，通过职能划分、线程池等的设计来完成连接请求、数据的高效处理
   职能划分：
 
@@ -163,7 +163,7 @@ IO多路复用机制的监听特点是`EventLoop`执行流程中监听的基础�
   3. Worker：专注于编解码和业务执行
 
 - `SNet`中的主从Reactor模型
-  ![](http://43.138.43.178:8000/images/SNet_Master_Sub_Reactor.drawio.svg)
+  ![](http://43.138.43.178:8000/image/SNet_Master_Sub_Reactor.drawio.svg)
 
   | 主从Reactor模型 |             SNet             |                  职能区别                  |
   | :-------------: | :--------------------------: | :----------------------------------------: |
