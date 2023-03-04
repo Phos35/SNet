@@ -23,6 +23,7 @@ public:
         PNG,    // png图片
         GIF,    // gif图片
         JPG,    // jpg图片
+        SVG,    // svg图片
         JS,     // js文件
     };
 

@@ -4,8 +4,8 @@ std::unordered_map<std::string, std::string>
 HTTPResponse::mime_map = 
 {
     {"txt", "text/plain"}, {"html", "text/html"},
-    {"js", "application/javascript"}, {"png", "iage/png"}, 
-    {"jpg", "image/jpg"}, {"gif", "image/gif"},
+    {"js", "application/javascript"}, {"png", "image/png"}, 
+    {"jpg", "image/jpg"}, {"gif", "image/gif"}, {"svg", "image/svg+xml"},
     {"ico", "image/*"}
 };
 
