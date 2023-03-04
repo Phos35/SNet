@@ -7,7 +7,7 @@ class HTTPMessageProcessorFactory : public MessageProcessorFactory
 public:
     /// @brief 创建HTTP消息处理器
     /// @return HTTP消息处理器的指针
-    MessageProcessor::UPtr create_message_processor();
+    MessageProcessor::UPtr create_message_processor()override;
 private:
 };
 

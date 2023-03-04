@@ -30,7 +30,7 @@ public:
     DeocdeResult get_result();
 
     /// @brief 获取报文字符数据
-    /// @return 原始数据
+    /// @return 报文数据
     virtual std::string data();
 
     /// @brief 获取原始数据的大小
