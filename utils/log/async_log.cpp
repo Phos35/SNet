@@ -87,6 +87,9 @@ void AsyncLog::back_write()
         // 将缓冲区中的内容写入文件中
         for (BufferPtr &buffer : output_buffers)
         {
+            if(buffer->size() == 0)
+                continue;
+        
             output_file_->write(buffer->data());
             buffer->clear();
         }

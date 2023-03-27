@@ -15,11 +15,11 @@ public:
     enum class LogLevel
     {
         FATAL = 0,
-        ERROR = 1,
-        WARN = 2,
-        INFO = 3,
-        DEBUG = 4,
-        TRACE = 5
+        ERROR,
+        WARN,
+        INFO,
+        DEBUG,
+        TRACE
     };
 
     Logger(LogLevel level, const std::string &file, const std::string& func, int line);
